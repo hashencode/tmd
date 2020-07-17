@@ -1,0 +1,30 @@
+@import "../_style/theme";
+
+.tm-result {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+
+  // 图标
+  &__icon {
+    font-size: 140px;
+    line-height: 1;
+    margin-bottom: $spacing-mid;
+  }
+
+  // 标题
+  &__title {
+    color: $font-color-title;
+    font-size: $font-size-title;
+    margin-bottom: $spacing-xs;
+  }
+
+  // 二级标题
+  &__subtitle {
+    color: $font-color-desc;
+    font-size: $font-size-primary;
+  }
+}

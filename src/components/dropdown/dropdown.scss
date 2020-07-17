@@ -1,0 +1,39 @@
+@import "../_style/theme";
+
+.tm-dropdown {
+  position: relative;
+  &-disabled {
+    @include disabled-mask;
+  }
+
+  &__head {
+    align-items: center;
+    background-color: $color-white;
+    display: flex;
+    justify-content: center;
+    padding: $spacing-mid;
+    @include one-px-border();
+  }
+
+  &__arrow {
+    margin-left: $spacing-sm;
+  }
+
+  &__body {
+    position: relative;
+    height: 50vh;
+    //overflow: hidden;
+  }
+
+  &__options {
+    height: 30vh;
+    width: 100%;
+    background-color: $color-white;
+    overflow-y: scroll;
+    overflow-scrolling: touch;
+  }
+
+  .tm-transition {
+    width: inherit;
+  }
+}

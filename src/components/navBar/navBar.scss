@@ -1,0 +1,73 @@
+@import "../_style/theme";
+
+.tm-nav-bar {
+  $this: &;
+
+  // 主要内容
+  &__content {
+    align-items: center;
+    display: flex;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: $z-index-nav-bar;
+  }
+
+  // 返回按钮
+  &__back-btn {
+    align-items: center;
+    border-radius: 9999px;
+    display: flex;
+    justify-content: center;
+    z-index: $z-index-nav-bar;
+
+    // 黑暗模式
+    &#{$this}__dark {
+      background-color: $background-mask;
+      @include one-px-border("round", 9999px, $color-white);
+      color: $color-white;
+    }
+
+    // 普通模式
+    &#{$this}__light {
+      background-color: $background-mask-light;
+      @include one-px-border("round", 9999px);
+    }
+
+    .tm-icon {
+      width: 30%;
+    }
+  }
+
+  // 内容区域
+  &__slot {
+    align-items: center;
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    z-index: $z-index-nav-bar-title;
+  }
+
+  // 标题
+  &__title {
+    font-size: $font-size-title;
+    font-weight: 500;
+    @include ellipsis;
+  }
+
+  // 背景填充
+  &__background {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: opacity 0.3s;
+    width: 100%;
+    z-index: $z-index-nav-bar-bg;
+  }
+}

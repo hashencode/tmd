@@ -1,0 +1,23 @@
+@import "../_style/theme";
+
+.tm-space {
+  $this: &;
+  align-items: center;
+  display: inline-flex;
+  flex-wrap: wrap;
+
+  // 竖向显示
+  &-vertical {
+    flex-direction: column;
+    width: 100%;
+
+    #{$this}__item {
+      width: 100%;
+    }
+  }
+
+  // 子项
+  &__item {
+    display: inline-block;
+  }
+}

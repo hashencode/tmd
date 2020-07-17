@@ -1,0 +1,51 @@
+@import "../_style/theme";
+
+.tm-card {
+  $this: &;
+  background-color: $color-white;
+
+  // 显示阴影
+  &-shadow {
+    box-shadow: $shadow-bottom;
+  }
+
+  // 显示边框
+  &-bordered {
+    @include one-px-border("round");
+    // 圆角边框
+    &#{$this}-round {
+      border-radius: $border-radius-mid;
+
+      &:after {
+        border-radius: $border-radius-mid * 2;
+      }
+    }
+  }
+
+  // 头部
+  &__head,
+  &__footer {
+    align-items: center;
+    border-bottom: 1px solid $border-color-default;
+    display: flex;
+    justify-content: space-between;
+    padding: $spacing-sm $spacing-mid;
+  }
+
+  // 底部
+  &__footer {
+    border-bottom: none;
+    border-top: 1px solid $border-color-default;
+  }
+
+  // 标题
+  &__title {
+    font-size: $font-size-subtitle;
+    font-weight: 500;
+  }
+
+  // 主要内容
+  &__body {
+    padding: $spacing-mid;
+  }
+}

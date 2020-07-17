@@ -1,0 +1,12 @@
+@import "../_style/theme";
+
+.tm-nav-grid-item {
+  $this: &;
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  // 竖向显示
+  &__vertical {
+    flex-direction: column;
+  }
+}

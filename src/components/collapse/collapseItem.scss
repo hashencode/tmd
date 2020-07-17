@@ -1,0 +1,31 @@
+@import "../_style/theme";
+
+.tm-collapse-item {
+  padding: 0 $spacing-mid;
+
+  &-bordered {
+    @include one-px-border("bottom");
+  }
+
+  &__head {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: $spacing-mid;
+  }
+
+  // 标题
+  &__title {
+    flex-grow: 1;
+  }
+
+  // 箭头图标
+  &__arrow {
+    flex-shrink: 0;
+  }
+
+  // 自定义插槽
+  &__slot {
+    padding: $spacing-mid 0;
+  }
+}

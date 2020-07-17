@@ -1,0 +1,56 @@
+// 果冻效果
+@mixin bounceIn {
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0.8);
+    }
+    45% {
+      transform: scale(1.05);
+    }
+    80% {
+      transform: scale(0.95);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+
+// 旋转
+@mixin spin {
+  @keyframes spin {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+// 消息滚动播出
+@mixin noticeMotion {
+  @keyframes notice-motion {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+}
+
+// 骨架屏动画
+@mixin skeletonMotion {
+  @keyframes skeleton-motion {
+    0% {
+      background-position: 0 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
+    }
+  }
+}

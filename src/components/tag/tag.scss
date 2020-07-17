@@ -1,0 +1,103 @@
+@import "../_style/theme";
+
+.tm-tag {
+  $this: &;
+  align-items: center;
+  border-radius: $border-radius-xs;
+  color: $color-white;
+  display: inline-flex;
+  font-size: $font-size-tag;
+  line-height: 1;
+  padding: $spacing-xs $spacing-sm;
+  vertical-align: middle;
+
+  &-round {
+    border-radius: 9999px;
+  }
+
+  &-ghost {
+    &#{$this}-default {
+      background-color: $background-mask-light-slim;
+      color: $color-white;
+    }
+
+    &#{$this}-success {
+      background-color: $background-success;
+      color: $color-success;
+    }
+
+    &#{$this}-info {
+      background-color: $background-primary;
+      color: $color-primary;
+    }
+
+    &#{$this}-danger {
+      background-color: $background-danger;
+      color: $color-danger;
+    }
+
+    &#{$this}-warning {
+      background-color: $background-warning;
+      color: $color-warning;
+    }
+  }
+
+  &-default {
+    background-color: $background-default;
+    color: $font-color-regular;
+  }
+
+  &-success {
+    background-color: $color-success;
+  }
+
+  &-info {
+    background-color: $color-primary;
+  }
+
+  &-danger {
+    background-color: $color-danger;
+  }
+
+  &-warning {
+    background-color: $color-warning;
+  }
+
+  &-bordered {
+    &#{$this}-ghost {
+      &#{$this}-default {
+        @include one-px-border(round, $border-radius-xs, $color-white);
+      }
+
+      &#{$this}-success {
+        @include one-px-border(round, $border-radius-xs, $border-color-success);
+      }
+
+      &#{$this}-info {
+        @include one-px-border(round, $border-radius-xs, $border-color-primary);
+      }
+
+      &#{$this}-danger {
+        @include one-px-border(round, $border-radius-xs, $border-color-danger);
+      }
+
+      &#{$this}-warning {
+        @include one-px-border(round, $border-radius-xs, $border-color-warning);
+      }
+    }
+
+    &#{$this}-round {
+      &:after {
+        border-radius: 9999px;
+      }
+    }
+  }
+
+  &__icon {
+    margin-right: $spacing-xs;
+  }
+
+  .tm-icon {
+    font-size: $icon-size-xs;
+  }
+}

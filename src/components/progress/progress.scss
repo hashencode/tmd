@@ -1,0 +1,48 @@
+@import "../_style/theme";
+
+.tm-progress {
+  $this: &;
+
+  // 圆环
+  &-circle {
+    #{$this}__bar {
+      align-items: center;
+      border-radius: 50%;
+      display: flex;
+      height: 200px;
+      justify-content: center;
+      width: 200px;
+    }
+
+    #{$this}__slot {
+      background: $color-white;
+      border-radius: 50%;
+      height: 160px;
+      padding-top: 30%;
+      text-align: center;
+      width: 160px;
+    }
+  }
+
+  // 条形
+  &-line {
+    #{$this}__bar {
+      border-radius: 9999px;
+      height: $height-sm/2;
+      overflow: hidden;
+      position: relative;
+      transform: translateX(0);
+    }
+
+    #{$this}__slot {
+      border-radius: 9999px;
+      height: 100%;
+      left: -100%;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      transform: translate3d(0, 0, 0);
+      width: 100%;
+    }
+  }
+}

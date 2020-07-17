@@ -1,0 +1,9 @@
+@import "../_style/theme";
+
+.tm-picker {
+  position: relative;
+
+  &-disabled {
+    @include disabled-mask;
+  }
+}

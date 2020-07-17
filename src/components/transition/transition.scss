@@ -1,0 +1,289 @@
+@import "../_style/theme";
+@import "../_style/animation";
+
+.tm-transition {
+  z-index: 1;
+  // 弹跳
+  &-bounce {
+    opacity: 0;
+
+    &-enter {
+      animation: bounce-in 0.3s linear;
+    }
+
+    &-enter-done {
+      animation: bounce-in 0.3s linear;
+      opacity: 1;
+      transition: opacity 0.3s;
+    }
+
+    &-exit {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    &-exit-done {
+      opacity: 0;
+      transform: scale(0.8);
+      transform-origin: center;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+  }
+
+  @include bounceIn;
+
+  // 放大
+  &-zoom {
+    opacity: 0;
+    transform: scale(0.8);
+
+    &-enter-done {
+      opacity: 1;
+      transform: scale(1);
+      transform-origin: center;
+      transition: opacity 0.3s, transform 0.3s $cubic-bezier-motion;
+    }
+
+    &-exit {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    &-exit-done {
+      opacity: 0;
+      transform: scale(0.8);
+      transform-origin: center;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+  }
+
+  // 缩小
+  &-punch {
+    opacity: 0;
+    transform: scale(1.5);
+
+    &-enter-done {
+      opacity: 1;
+      transform: scale(1);
+      transform-origin: center;
+      transition: opacity 0.3s, transform 0.3s $cubic-bezier-motion;
+    }
+
+    &-exit {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    &-exit-done {
+      opacity: 0;
+      transform: scale(1.5);
+      transform-origin: center;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+  }
+
+  // 渐变
+  &-fade {
+    opacity: 0;
+
+    &-enter-done {
+      opacity: 1;
+      transition: opacity 0.3s;
+    }
+
+    &-exit {
+      opacity: 1;
+    }
+
+    &-exit-done {
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+  }
+
+  // 渐变向上滑动
+  &-fade-up {
+    opacity: 0;
+    transform: translateY(50%);
+
+    &-enter-done {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.3s, transform 0.3s $cubic-bezier-fade;
+    }
+
+    &-exit {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    &-exit-done {
+      opacity: 0;
+      transform: translateY(50%);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+  }
+
+  // 渐变向下滑动
+  &-fade-down {
+    opacity: 0;
+    transform: translateY(-50%);
+
+    &-enter-done {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.3s, transform 0.3s $cubic-bezier-fade;
+    }
+
+    &-exit {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    &-exit-done {
+      opacity: 0;
+      transform: translateY(-50%);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+  }
+
+  // 渐变向左滑动
+  &-fade-left {
+    opacity: 0;
+    transform: translateX(50%);
+
+    &-enter-done {
+      opacity: 1;
+      transform: translateX(0);
+      transition: opacity 0.3s, transform 0.3s $cubic-bezier-fade;
+    }
+
+    &-exit {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    &-exit-done {
+      opacity: 0;
+      transform: translateX(50%);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+  }
+
+  // 渐变向右滑动
+  &-fade-right {
+    opacity: 0;
+    transform: translateX(-50%);
+
+    &-enter-done {
+      opacity: 1;
+      transform: translateX(0);
+      transition: opacity 0.3s, transform 0.3s $cubic-bezier-fade;
+    }
+
+    &-exit {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    &-exit-done {
+      transform: translateX(-50%);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+  }
+
+  // 向上滑动
+  &-slide-up {
+    transform: translateY(100%);
+
+    &-enter-done {
+      transform: translateY(0);
+      transition: transform 0.3s $cubic-bezier-fade;
+    }
+
+    &-exit {
+      transform: translateY(0);
+    }
+
+    &-exit-done {
+      transform: translateY(100%);
+      transition: transform 0.3s;
+    }
+  }
+
+  // 向下滑动
+  &-slide-down {
+    transform: translateY(-100%);
+
+    &-enter-done {
+      transform: translateY(0);
+      transition: transform 0.3s $cubic-bezier-fade;
+    }
+
+    &-exit {
+      transform: translateY(0);
+    }
+
+    &-exit-done {
+      transform: translateY(-100%);
+      transition: transform 0.3s;
+    }
+  }
+
+  // 向左滑动
+  &-slide-left {
+    transform: translateX(100%);
+
+    &-enter-done {
+      transform: translateX(0);
+      transition: transform 0.3s $cubic-bezier-fade;
+    }
+
+    &-exit {
+      transform: translateX(0);
+    }
+
+    &-exit-done {
+      transform: translateX(100%);
+      transition: transform 0.3s;
+    }
+  }
+
+  // 向右滑动
+  &-slide-right {
+    transform: translateX(-100%);
+
+    &-enter-done {
+      transform: translateX(0);
+      transition: transform 0.3s $cubic-bezier-fade;
+    }
+
+    &-exit {
+      transform: translateX(0);
+    }
+
+    &-exit-done {
+      transform: translateX(-100%);
+      transition: transform 0.3s;
+    }
+  }
+
+  // 向右滑动
+  &-slide-right {
+    transform: translateX(-100%);
+
+    &-enter-done {
+      transform: translateX(0);
+      transition: transform 0.3s $cubic-bezier-fade;
+    }
+
+    &-exit {
+      transform: translateX(0);
+    }
+
+    &-exit-done {
+      transform: translateX(-100%);
+      transition: transform 0.3s;
+    }
+  }
+}

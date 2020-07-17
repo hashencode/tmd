@@ -1,0 +1,190 @@
+// 背景色 background color
+$background-mask-slim: rgba(0, 0, 0, 0.2);
+$background-mask: rgba(0, 0, 0, 0.5);
+$background-mask-important: rgba(0, 0, 0, 0.7);
+$background-mask-light-slim: rgba(255, 255, 255, 0.2);
+$background-mask-light: rgba(255, 255, 255, 0.5);
+$background-mask-light-important: rgba(255, 255, 255, 0.7);
+
+$background-default: #f0f2f5; // 默认背景色
+$background-primary: #e6f7ff; // 品牌背景色
+$background-warning: #fff7e6; // 警告背景色
+$background-success: #f6ffed; // 成功背景色
+$background-danger: #fff1f0; // 危险背景色
+$background-disabled: #f5f5f5; // 禁用背景色
+$background-unchecked: #e2e4ea; // 未被选中背景色
+$background-action: #f9fafb; // 操作区域背景色
+
+// 边框颜色 border color
+$border-color-default: #e2e4ea; // 默认边框
+$border-color-primary: #91d5ff; // 品牌边框
+$border-color-warning: #ffd591; // 警告边框
+$border-color-success: #b7eb8f; // 成功边框
+$border-color-danger: #ffa39e; // 危险边框
+
+// 边框圆角 border-radius
+$border-radius-xs: 4px;
+$border-radius-sm: 8px;
+$border-radius-mid: 12px;
+$border-radius-lg: 20px;
+
+// 颜色 color
+$color-white: #ffffff; // 纯白
+$color-primary: #1890ff;
+$color-primary-hover: #40a9ff;
+$color-primary-active: #096dd9;
+$color-warning: #faad14;
+$color-warning-hover: #ffc53d;
+$color-warning-active: #d48806;
+$color-success: #52c41a;
+$color-success-hover: #73d13d;
+$color-success-active: #389e0d;
+$color-danger: #ff4d4f;
+$color-danger-hover: #ff7875;
+$color-danger-active: #f5222d;
+
+// 运动曲线 cubic bezier
+$cubic-bezier-motion: cubic-bezier(0.215, 0.61, 0.355, 1);
+$cubic-bezier-fade: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+// 全局高度 height
+$height-sm: 40px;
+$height-mid: 60px;
+$height-lg: 80px;
+
+// 字体颜色 text color
+$font-color-title: #111a34; // 重要信息
+$font-color-regular: #41485d; // 普通信息
+$font-color-secondary: #666f83; // 次要信息
+$font-color-desc: #858b9c; // 辅助信息
+$font-color-disabled: #c5cad5; // 禁用
+$font-color-placeholder: #c5cad5; // 占位符
+
+// 字体大小 font size
+$font-size-tiny: 20px; // 小角标
+$font-size-tag: 22px; // 标签、角标
+$font-size-secondary: 24px; // 摘要、次要信息
+$font-size-regular: 26px; // 内容描述
+$font-size-primary: 28px; // 主要内容、提示文字、卡片按钮文案
+$font-size-subtitle: 32px; // 二级标题
+$font-size-title: 36px; // 一级标题
+$font-size-tab-title: 44px; // tab页标题
+$font-size-big-title: 52px; // 大标题
+$font-size-result-title: 60px; // 结果页大标题
+
+// 图标尺寸 icon size
+$icon-size-xs: 26px;
+$icon-size-sm: 30px;
+$icon-size-mid: 40px;
+$icon-size-lg: 50px;
+
+// 阴影 shadow
+$shadow-around: 0 1.5px 3px -2px rgba(0, 0, 0, 0.06),
+  0 3px 8px 0 rgba(0, 0, 0, 0.04), 0 4.5px 14px 4px rgba(0, 0, 0, 0.025);
+$shadow-top: 0 -3px 8px -4px rgba(0, 0, 0, 0.04),
+  0 -4.5px 14px 0 rgba(0, 0, 0, 0.025), 0 -6px 24px 8px rgba(0, 0, 0, 0.015);
+$shadow-bottom: 0 3px 8px -4px rgba(0, 0, 0, 0.04),
+  0 4.5px 14px 0 rgba(0, 0, 0, 0.025), 0 6px 24px 8px rgba(0, 0, 0, 0.015);
+$shadow-left: -3px 0 8px -4px rgba(0, 0, 0, 0.04),
+  -4.5px 0 14px 0 rgba(0, 0, 0, 0.025), -6px 0 24px 8px rgba(0, 0, 0, 0.015);
+$shadow-right: 3px 0 8px -4px rgba(0, 0, 0, 0.04),
+  4.5px 0 14px 0 rgba(0, 0, 0, 0.025), 6px 0 24px 8px rgba(0, 0, 0, 0.015);
+
+// 间距 spacing size
+$spacing-xxs: 4px;
+$spacing-xs: 8px;
+$spacing-sm: 16px;
+$spacing-mid: 24px;
+$spacing-lg: 32px;
+
+// 层级 z-index
+$z-index-mask: 1000; //屏遮罩
+$z-index-nav-bar: 999; // 导航
+$z-index-nav-bar-title: 998; // 导航文字
+$z-index-nav-bar-bg: 997; //导航背景
+
+// 1px
+// prettier-ignore
+$onePx: 1PX;
+
+// mixin
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin ellipsis-multiple {
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  overflow: hidden;
+}
+
+@mixin disabled-mask($hasBorder: false, $roundSize: $border-radius-mid) {
+  &:before {
+    content: "";
+    background-color: $background-mask-light-important;
+    position: absolute;
+    z-index: 1;
+    @if ($hasBorder) {
+      top: $onePx;
+      left: $onePx;
+      // prettier-ignore
+      width: calc(200% - 2PX);
+      // prettier-ignore
+      height: calc(200% - 2PX);
+      transform: scale(0.5);
+      transform-origin: left top;
+    } @else {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+    @if ($roundSize) {
+      border-radius: $roundSize;
+      overflow: hidden;
+    }
+  }
+}
+
+@mixin one-px-border(
+  $direction: round,
+  $radius: 0,
+  $color: $border-color-default,
+  $type: solid
+) {
+  position: relative;
+  &:after {
+    pointer-events: none;
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    transform: scale(0.5);
+    transform-origin: left top;
+    box-sizing: border-box;
+    border: 0 $type $color;
+    @if ($direction== "round") {
+      border-width: $onePx;
+    } @else if ($direction== "left") {
+      border-width: 0 0 0 $onePx;
+    } @else if ($direction== "right") {
+      border-width: 0 $onePx 0 0;
+    } @else if ($direction== "top") {
+      border-width: $onePx 0 0 0;
+    } @else if ($direction== "bottom") {
+      border-width: 0 0 $onePx 0;
+    } @else if ($direction== "lr") {
+      border-width: 0 $onePx 0 $onePx;
+    } @else if ($direction== "tb") {
+      border-width: $onePx 0 $onePx 0;
+    }
+    border-radius: $radius * 2;
+  }
+}

@@ -1,0 +1,80 @@
+@import "../_style/theme";
+
+.tm-tabs {
+  $this: &;
+  overflow: hidden;
+
+  // 竖直显示
+  &-vertical {
+    display: flex;
+
+    #{$this}__head {
+      flex-direction: column;
+      flex-shrink: 0;
+      height: 100%;
+      overflow-y: auto;
+
+      &-item {
+        font-size: $font-size-primary;
+        margin: $spacing-mid 0;
+        padding: $spacing-xs $spacing-sm;
+        transition: color 0.2s;
+      }
+
+      &-underline {
+        background-color: $color-primary;
+        border-radius: $border-radius-sm;
+        position: absolute;
+        right: 0;
+        transition: top 0.2s ease-out;
+        width: 4px;
+      }
+    }
+
+    #{$this}__body {
+      flex-grow: 1;
+    }
+  }
+
+  // 水平显示
+  &-horizon {
+    #{$this}__head {
+      overflow-x: auto;
+      width: 100%;
+
+      &-item {
+        font-size: $font-size-primary;
+        margin: 0 $spacing-mid;
+        padding: $spacing-sm $spacing-xs;
+        transition: color 0.2s;
+        white-space: nowrap;
+      }
+
+      &-underline {
+        background-color: $color-primary;
+        border-radius: $border-radius-sm;
+        bottom: 0;
+        height: 4px;
+        position: absolute;
+        transition: left 0.2s ease-out;
+      }
+    }
+  }
+
+  // 头部公共样式
+  &__head {
+    align-items: center;
+    display: flex;
+    position: relative;
+
+    &-item {
+      &-active {
+        color: $color-primary;
+      }
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

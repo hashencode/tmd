@@ -1,0 +1,32 @@
+view,
+text,
+div,
+span,
+cover-view,
+taro-view-core,
+taro-cover-view-core {
+  box-sizing: border-box;
+}
+
+html,
+page {
+  background: #ffffff;
+  color: #41485d;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+html {
+  overflow: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+#app {
+  font-size: 26px;
+}

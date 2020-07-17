@@ -1,0 +1,97 @@
+@import "../_style/theme";
+
+.tm-steps {
+  $this: &;
+  align-items: center;
+  display: flex;
+  padding: 20px 40px 40px;
+  width: 100%;
+  // 每一项数据
+  &__item {
+    position: relative;
+  }
+
+  // 图标
+  &__icon {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    min-height: 44px;
+    // 默认激活
+    &-active {
+      background-color: $color-primary;
+      border-radius: 50%;
+      display: inline-block;
+      height: 12px;
+      width: 12px;
+    }
+
+    // 默认未激活
+    &-inactive {
+      background-color: $border-color-default;
+      border-radius: 50%;
+      display: inline-block;
+      height: 12px;
+      width: 12px;
+    }
+  }
+
+  // 文字描述
+  &__text {
+    color: $font-color-secondary;
+    left: 50%;
+    position: absolute;
+    top: 100%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+
+  // 连接线
+  &__connection {
+    background-color: $border-color-default;
+    flex: 1;
+    height: 2px;
+    margin: 0 $spacing-sm;
+    overflow: hidden;
+    position: relative;
+
+    // 连接线填充物
+    &-schedule {
+      height: 2px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
+
+  // 竖向显示
+  &-vertical {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 20px;
+
+    #{$this}__icon {
+      margin-right: $spacing-sm;
+      min-width: 44px;
+    }
+
+    #{$this}__text {
+      left: 100%;
+      top: 0;
+      transform: translateX(0);
+    }
+
+    #{$this}__connection {
+      flex: auto;
+      margin-left: 21px;
+      min-height: 50px;
+      width: 2px;
+
+      &-schedule {
+        height: 100%;
+        width: 2px;
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+@import "../_style/theme";
+
+.tm-popup {
+  $this: &;
+  display: flex;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  transform: translateX(-9999px);
+  width: 100%;
+
+  // 无遮罩
+  &-no-mask {
+    pointer-events: none;
+
+    #{$this}__content {
+      pointer-events: auto;
+    }
+  }
+
+  &-enter-done {
+    transform: translateX(0px);
+  }
+
+  &-exit {
+    transform: translateX(0px);
+  }
+
+  &-exit-done {
+    transform: translateX(-9999px);
+    transition-delay: 0.35s;
+  }
+
+  // 内容显示位置
+  &-align {
+    &-center {
+      align-items: center;
+      justify-content: center;
+    }
+
+    &-top {
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    &-bottom {
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    &-left {
+      justify-content: flex-start;
+    }
+
+    &-right {
+      justify-content: flex-end;
+    }
+  }
+
+  &-full-screen {
+    position: fixed;
+    z-index: $z-index-mask;
+  }
+
+  //外部元素处于文档流内
+  &-flow {
+    position: absolute;
+  }
+
+  //遮罩
+  &__mask {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}

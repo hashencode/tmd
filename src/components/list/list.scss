@@ -1,0 +1,36 @@
+@import "../_style/theme";
+
+.tm-list {
+  $this: &;
+  position: relative;
+
+  &-disabled {
+    @include disabled-mask(true, $border-radius-lg);
+  }
+
+  &-round {
+    border-radius: $border-radius-mid;
+
+    &#{$this}-outer-border {
+      &:after {
+        border-radius: $border-radius-mid * 2;
+      }
+    }
+  }
+
+  &-outer-border {
+    @include one-px-border("round");
+  }
+
+  &-shadow {
+    box-shadow: $shadow-around;
+  }
+
+  .tm-list-item {
+    &:nth-last-child(1) {
+      .tm-list-item__content:after {
+        display: none;
+      }
+    }
+  }
+}

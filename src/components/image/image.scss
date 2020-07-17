@@ -1,0 +1,21 @@
+@import "../_style/theme";
+
+.tm-image {
+  display: inline-block;
+  line-height: 0;
+  width: 100%;
+  // 主要内容
+  &__content {
+    line-height: 0;
+    overflow: hidden;
+    position: relative;
+
+    taro-image-core,
+    image {
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
+}

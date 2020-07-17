@@ -1,0 +1,90 @@
+@import "../_style/theme";
+
+.tm-switch {
+  $this: &;
+  background-color: $background-unchecked;
+  display: inline-block;
+  height: $height-mid;
+  position: relative;
+  transition: background-color 0.3s $cubic-bezier-motion;
+  vertical-align: middle;
+
+  // 尺寸
+  &-sm {
+    border-radius: 9999px;
+    height: $height-sm;
+    width: calc(40px * 1.6);
+
+    #{$this}__handle {
+      height: calc(40px - 4px);
+      width: calc(40px - 4px);
+
+      .tm-icon {
+        font-size: $icon-size-sm;
+      }
+    }
+  }
+
+  &-mid {
+    border-radius: 9999px;
+    height: $height-mid;
+    width: calc(60px * 1.6);
+
+    #{$this}__handle {
+      height: calc(60px - 4px);
+      width: calc(60px - 4px);
+
+      .tm-icon {
+        font-size: $icon-size-lg;
+      }
+    }
+  }
+
+  // 选中状态
+  &-checked {
+    background-color: $color-primary;
+
+    &#{$this}-sm {
+      #{$this}__handle {
+        transform: translateX(calc(40px * 0.6));
+      }
+    }
+
+    &#{$this}-mid {
+      #{$this}__handle {
+        transform: translateX(calc(60px * 0.6));
+      }
+    }
+
+    &#{$this}-loading {
+      #{$this}__handle-icon {
+        color: $color-primary;
+      }
+    }
+  }
+
+  // 禁用状态
+  &-disabled {
+    @include disabled-mask;
+  }
+
+  // 圆形操作部分
+  &__handle {
+    align-items: center;
+    background-color: $color-white;
+    border-radius: 50%;
+    box-shadow: $shadow-around;
+    display: flex;
+    justify-content: center;
+    left: 2px;
+    position: absolute;
+    top: 2px;
+    transform: translateX(0);
+    transition: all 0.3s $cubic-bezier-motion;
+  }
+
+  // 加载图标
+  &-loading {
+    color: $background-unchecked;
+  }
+}
