@@ -1,13 +1,19 @@
 import "../demoStyle.scss";
 
-import React, {useState} from "react";
-import {TmButton, TmCard, TmIcon, TmImage, TmModal, TmNavBar,} from "../../../components";
+import React, { useState } from "react";
+import {
+  TmButton,
+  TmCard,
+  TmIcon,
+  TmImage,
+  TmModal,
+  TmNavBar
+} from "../../../components";
 
-import {View} from "@tarojs/components";
-import {colorSuccess} from "../../../components/_style/theme";
+import { View } from "@tarojs/components";
 
 function DemoModal() {
-  const togglePopup = (id) => {
+  const togglePopup = id => {
     setCurrentPopup(id);
   };
 
@@ -15,7 +21,7 @@ function DemoModal() {
 
   return (
     <View className={"demo"}>
-      <TmNavBar tmTitle={"对话框"}/>
+      <TmNavBar tmTitle={"对话框"} />
       <TmCard tmRound className={"demo__card"} tmTitle={"基础"}>
         <TmButton
           onClick={() => {
@@ -50,7 +56,13 @@ function DemoModal() {
         </TmButton>
         <TmModal
           tmShow={currentPopup === 2}
-          tmIcon={<TmIcon tmValue={"chenggong_fill"} tmColor={colorSuccess}/>}
+          tmIcon={
+            <TmIcon
+              tmValue={"chenggong_fill"}
+              tmSize={100}
+              tmColor={"#52c41a"}
+            />
+          }
           tmTitle={"标题"}
           tmDesc={"描述文字"}
           onClose={() => {
@@ -125,10 +137,9 @@ function DemoModal() {
             togglePopup(5);
           }}
         >
-          错误弹窗
+          弹窗
         </TmButton>
         <TmModal
-          tmMaskClosable
           tmShow={currentPopup === 5}
           tmTitle={"标题"}
           tmDesc={"描述文字"}

@@ -1,11 +1,11 @@
 import "./badge.scss";
 
-import React, {useLayoutEffect, useState} from "react";
+import React, { useLayoutEffect, useState } from "react";
 
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
-import {colorDanger} from "../_style/theme";
-import {sizeTransform} from "../_scripts";
+import { colorDanger } from "../_style/theme";
+import { sizeTransform } from "../_scripts";
 
 interface PropsInterface {
   tmColor?: string; // 背景色
@@ -16,7 +16,7 @@ interface PropsInterface {
   tmValue?: number; // 显示数值
   children?: any; // 子组件内容
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmBadge(props: PropsInterface) {
@@ -25,10 +25,10 @@ function TmBadge(props: PropsInterface) {
     tmDot = false,
     tmMax = 999,
     tmShowZero = false,
-    tmTranslate = {x: 0, y: 0},
+    tmTranslate = { x: 0, y: 0 },
     tmValue = 0,
     className = "",
-    style = {},
+    style = {}
   } = props;
 
   const [number, setNumber] = useState<number | string>(0);
@@ -42,7 +42,7 @@ function TmBadge(props: PropsInterface) {
           <View
             className={"tm-badge__slot tm-badge__slot-dot"}
             style={{
-              backgroundColor: tmColor,
+              backgroundColor: tmColor
             }}
           />
         );
@@ -52,7 +52,7 @@ function TmBadge(props: PropsInterface) {
             className="tm-badge__slot tm-badge__slot-number"
             style={{
               backgroundColor: tmColor,
-              padding: number < 10 ? "0 2px" : "0 5px",
+              padding: number < 10 ? "0 2px" : "0 5px"
             }}
           >
             {number}
@@ -73,7 +73,7 @@ function TmBadge(props: PropsInterface) {
         style={{
           transform: `translate3d(${sizeTransform(
             tmTranslate.x
-          )},${sizeTransform(tmTranslate.y)},0)`,
+          )},${sizeTransform(tmTranslate.y)},0)`
         }}
       >
         {renderBadge()}

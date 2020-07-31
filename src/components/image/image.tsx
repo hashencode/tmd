@@ -1,10 +1,10 @@
 import "./image.scss";
 
-import {Image, View} from "@tarojs/components";
+import { Image, View } from "@tarojs/components";
 
 import React from "react";
 import classNames from "classnames";
-import {sizeTransform} from "../_scripts";
+import { sizeTransform } from "../_scripts";
 
 interface PropsInterface {
   tmRatio?: number; // 图片宽高比
@@ -13,7 +13,7 @@ interface PropsInterface {
   tmSrc?: string; // 图片地址
   children?: any; // 子组件内容
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmImage(props: PropsInterface) {
@@ -23,23 +23,23 @@ function TmImage(props: PropsInterface) {
     tmRatio = 1,
     tmSrc = "",
     className = "",
-    style = {},
+    style = {}
   } = props;
 
   const calcHeight = () => {
     if (tmHeight) {
       return {
-        height: sizeTransform(tmHeight),
+        height: sizeTransform(tmHeight)
       };
     } else {
-      return {paddingBottom: `${tmRatio * 100}%`};
+      return { paddingBottom: `${tmRatio * 100}%` };
     }
   };
 
   return (
     <View className={classNames("tm-image", className)} style={style}>
       <View className="tm-image__content" style={calcHeight()}>
-        <Image mode={"widthFix"} src={tmSrc} lazyLoad={tmLazy}/>
+        <Image mode={"widthFix"} src={tmSrc} lazyLoad={tmLazy} />
       </View>
     </View>
   );

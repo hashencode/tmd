@@ -11,7 +11,7 @@ interface PropsInterface {
   tmValue: number | string; // 当前项的值
   children?: any; // 子组件内容
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmDropdownOption(props: PropsInterface) {

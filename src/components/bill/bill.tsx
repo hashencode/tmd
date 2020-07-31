@@ -1,9 +1,9 @@
 import "./bill.scss";
 
-import React, {ReactNode} from "react";
+import React, { ReactNode } from "react";
 
-import {TmDivider} from "../index";
-import {View} from "@tarojs/components";
+import { TmDivider } from "../index";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
 
 interface PropsInterface {
@@ -11,11 +11,11 @@ interface PropsInterface {
   tmNo?: string | ReactNode; // 编号
   children?: any; // 子组件内容
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmBill(props: PropsInterface) {
-  const {tmTitle = "", tmNo = "", className = "", style = {}} = props;
+  const { tmTitle = "", tmNo = "", className = "", style = {} } = props;
 
   return (
     <View className={classNames("tm-bill", className)} style={style}>
@@ -24,7 +24,7 @@ function TmBill(props: PropsInterface) {
           <View className="tm-bill__title">{tmTitle}</View>
           <View className="tm-bill__no">{tmNo}</View>
         </View>,
-        <TmDivider key={"tm-bill-divider"}/>,
+        <TmDivider key={"tm-bill-divider"} />
       ]}
       {props.children}
     </View>

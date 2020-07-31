@@ -1,9 +1,9 @@
 import "./switch.scss";
 
-import React, {useLayoutEffect, useState} from "react";
+import React, { useLayoutEffect, useState } from "react";
 
-import {TmLoading} from "../index";
-import {View} from "@tarojs/components";
+import { TmLoading } from "../index";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
 import throttle from "lodash/throttle";
 
@@ -15,11 +15,11 @@ interface PropsInterface {
   tmSize?: "sm" | "mid"; // 尺寸大小
   tmThrottle?: number; // 点击事件节流阀（毫秒）
   tmThrottleConfig?: {}; // 节流阀设置
-  onClick?: () => void; // 点击事件回调
+  onClick?: (event?: any) => void; // 点击事件回调
   onChange?: (isChecked: boolean) => void; // 切换事件回调
   children?: any; // 子组件内容
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmSwitch(props: PropsInterface) {
@@ -31,12 +31,10 @@ function TmSwitch(props: PropsInterface) {
     tmSize = "mid",
     tmThrottle = 500,
     tmThrottleConfig = {},
-    onClick = () => {
-    },
-    onChange = () => {
-    },
+    onClick = () => {},
+    onChange = () => {},
     className = "",
-    style = {},
+    style = {}
   } = props;
 
   const [isChecked, setIsChecked] = useState(tmDefaultChecked);
@@ -68,7 +66,7 @@ function TmSwitch(props: PropsInterface) {
         {
           "tm-switch-checked": isChecked,
           "tm-switch-loading": tmLoading,
-          "tm-switch-disabled": tmDisabled,
+          "tm-switch-disabled": tmDisabled
         },
         className
       )}
@@ -76,7 +74,7 @@ function TmSwitch(props: PropsInterface) {
       onClick={handleClick}
     >
       <View className="tm-switch__handle">
-        {tmLoading && <TmLoading className="tm-switch__loading"/>}
+        {tmLoading && <TmLoading className="tm-switch__loading" />}
       </View>
     </View>
   );

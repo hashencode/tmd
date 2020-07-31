@@ -23,10 +23,10 @@ interface PropsInterface {
   tmThrottle?: number; // 点击事件节流阀（毫秒）
   tmThrottleConfig?: {}; // 节流阀设置
   tmType?: "primary" | "default" | "dashed" | "link"; // 按钮类型
-  onClick?: (event?: any) => void | null; // 点击事件回调
+  onClick?: (event?: any) => void; // 点击事件回调
   children?: any; // 子组件内容
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmButton(props: PropsInterface) {

@@ -77,11 +77,6 @@ function DemoTransition() {
           <TmButton tmType={"primary"}>{motion}</TmButton>
         </TmTransition>
       </TmCard>
-      <TmCard tmRound className={"demo__card"} tmTitle={"首次渲染时执行动画"}>
-        <TmTransition tmShow={true} tmMotion={"fade"} tmAppear>
-          <TmButton tmType={"primary"}>fade</TmButton>
-        </TmTransition>
-      </TmCard>
     </View>
   );
 }

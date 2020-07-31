@@ -1,11 +1,11 @@
 import "./pickerOption.scss";
 
-import React, {useContext, useLayoutEffect} from "react";
-import {TmIcon, TmListItem} from "../index";
+import React, { useContext, useLayoutEffect } from "react";
+import { TmIcon, TmListItem } from "../index";
 
 import PickerContext from "./_context";
 import classNames from "classnames";
-import {colorPrimary} from "../_style/theme";
+import { colorPrimary } from "../_style/theme";
 
 interface PropsInterface {
   tmDisabled?: boolean; // 禁用
@@ -13,7 +13,7 @@ interface PropsInterface {
   tmValue: number | string; // 当前项的值
   children?: any; // 子组件内容
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmPickerOption(props: PropsInterface) {
@@ -22,13 +22,13 @@ function TmPickerOption(props: PropsInterface) {
     tmText = "",
     tmValue = "",
     className = "",
-    style = {},
+    style = {}
   } = props;
 
   const parentContext = useContext(PickerContext);
 
   useLayoutEffect(() => {
-    parentContext.optionInit({tmText, tmValue});
+    parentContext.optionInit({ tmText, tmValue });
   }, []);
 
   return (
@@ -37,13 +37,13 @@ function TmPickerOption(props: PropsInterface) {
       className={classNames("tm-dropdown-option", className)}
       tmAction={
         parentContext.activeKeys.includes(tmValue) && (
-          <TmIcon tmValue={"dagou"} tmSize={32} tmColor={colorPrimary}/>
+          <TmIcon tmValue={"dagou"} tmSize={32} tmColor={colorPrimary} />
         )
       }
       onClick={() => {
         parentContext.updateActiveKeys({
           tmText,
-          tmValue,
+          tmValue
         });
       }}
       style={style}

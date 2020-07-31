@@ -1,12 +1,12 @@
 import "./drawer.scss";
 
-import React, {ReactNode, useLayoutEffect, useState} from "react";
+import React, { ReactNode, useLayoutEffect, useState } from "react";
 
-import {TmPopup} from "../index";
-import {View} from "@tarojs/components";
+import { TmPopup } from "../index";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
-import {getEnv} from "@tarojs/taro";
-import {getGlobalSystemInfo} from "../_scripts";
+import { getEnv } from "@tarojs/taro";
+import { getGlobalSystemInfo } from "../_scripts";
 
 interface PropsInterface {
   tmCancel?: string | ReactNode; // 取消按钮
@@ -25,7 +25,7 @@ interface PropsInterface {
   onShow?: () => void; // 完成显示回调
   children?: any; // 子组件内容
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmDrawer(props: PropsInterface) {
@@ -39,18 +39,13 @@ function TmDrawer(props: PropsInterface) {
     tmShow = false,
     tmTitle = null,
     tmTitleStyle = {},
-    onCancel = () => {
-    },
-    onConfirm = () => {
-    },
-    onHide = () => {
-    },
-    onMaskClick = () => {
-    },
-    onShow = () => {
-    },
+    onCancel = () => {},
+    onConfirm = () => {},
+    onHide = () => {},
+    onMaskClick = () => {},
+    onShow = () => {},
     className = "",
-    style = {},
+    style = {}
   } = props;
 
   // 在侧边显示时，考虑到全面屏的情况
@@ -63,7 +58,7 @@ function TmDrawer(props: PropsInterface) {
       // 小程序模式下，设置到顶部的距离为状态栏的高度
       if (getEnv() !== "WEB") {
         setFixStyle({
-          paddingTop: getGlobalSystemInfo().navBarInfo.statusBarHeight + "px",
+          paddingTop: getGlobalSystemInfo().navBarInfo.statusBarHeight + "px"
         });
       }
     }
@@ -85,80 +80,80 @@ function TmDrawer(props: PropsInterface) {
           `tm-drawer-${tmPosition}`,
           className
         )}
-        style={{...fixStyle, ...style}}
+        style={{ ...fixStyle, ...style }}
       >
         {/*区别不同方向的显示方式*/}
         {tmPosition === "bottom"
           ? [
-            // 自定义头部
-            <View
-              className="tm-drawer__head"
-              style={tmTitleStyle}
-              key={"drawer-head"}
-            >
-              <View className="tm-drawer__head-cancel" onClick={onCancel}>
-                {tmCancel}
-              </View>
-              <View className="tm-drawer__head-title">{tmTitle}</View>
-              <View className="tm-drawer__head-confirm" onClick={onConfirm}>
-                {tmConfirm}
-              </View>
-            </View>,
-            // 自定义内容
-            <View
-              className="tm-drawer__slot"
-              style={tmBodyStyle}
-              key={"drawer-content"}
-            >
-              {props.children}
-            </View>,
-            // 自定义底部
-            tmFooter && (
+              // 自定义头部
               <View
-                className="tm-drawer__footer"
-                style={tmFooterStyle}
-                key={"drawer-footer"}
+                className="tm-drawer__head"
+                style={tmTitleStyle}
+                key={"drawer-head"}
               >
-                {tmFooter}
-              </View>
-            ),
-          ]
-          : [
-            // 自定义头部
-            <View
-              className="tm-drawer__head"
-              style={tmTitleStyle}
-              key={"drawer-head"}
-            >
-              {tmTitle}
-            </View>,
-            // 自定义内容
-            <View
-              className="tm-drawer__slot"
-              style={tmBodyStyle}
-              key={"drawer-content"}
-            >
-              {props.children}
-            </View>,
-            // 自定义底部
-            tmFooter || (
-              <View
-                className="tm-drawer__footer"
-                style={tmFooterStyle}
-                key={"drawer-footer"}
-              >
-                <View className="tm-drawer__footer-cancel" onClick={onCancel}>
+                <View className="tm-drawer__head-cancel" onClick={onCancel}>
                   {tmCancel}
                 </View>
-                <View
-                  className="tm-drawer__footer-confirm"
-                  onClick={onConfirm}
-                >
+                <View className="tm-drawer__head-title">{tmTitle}</View>
+                <View className="tm-drawer__head-confirm" onClick={onConfirm}>
                   {tmConfirm}
                 </View>
-              </View>
-            ),
-          ]}
+              </View>,
+              // 自定义内容
+              <View
+                className="tm-drawer__slot"
+                style={tmBodyStyle}
+                key={"drawer-content"}
+              >
+                {props.children}
+              </View>,
+              // 自定义底部
+              tmFooter && (
+                <View
+                  className="tm-drawer__footer"
+                  style={tmFooterStyle}
+                  key={"drawer-footer"}
+                >
+                  {tmFooter}
+                </View>
+              )
+            ]
+          : [
+              // 自定义头部
+              <View
+                className="tm-drawer__head"
+                style={tmTitleStyle}
+                key={"drawer-head"}
+              >
+                {tmTitle}
+              </View>,
+              // 自定义内容
+              <View
+                className="tm-drawer__slot"
+                style={tmBodyStyle}
+                key={"drawer-content"}
+              >
+                {props.children}
+              </View>,
+              // 自定义底部
+              tmFooter || (
+                <View
+                  className="tm-drawer__footer"
+                  style={tmFooterStyle}
+                  key={"drawer-footer"}
+                >
+                  <View className="tm-drawer__footer-cancel" onClick={onCancel}>
+                    {tmCancel}
+                  </View>
+                  <View
+                    className="tm-drawer__footer-confirm"
+                    onClick={onConfirm}
+                  >
+                    {tmConfirm}
+                  </View>
+                </View>
+              )
+            ]}
       </View>
     </TmPopup>
   );

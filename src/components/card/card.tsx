@@ -1,8 +1,8 @@
 import "./card.scss";
 
-import React, {ReactNode} from "react";
+import React, { ReactNode } from "react";
 
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
 
 interface PropsInterface {
@@ -18,7 +18,7 @@ interface PropsInterface {
   tmTitle?: string | ReactNode; // 主标题
   children?: any; // 子组件内容
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmCard(props: PropsInterface) {
@@ -34,7 +34,7 @@ function TmCard(props: PropsInterface) {
     tmShadow = false,
     tmTitle = null,
     className = "",
-    style = {},
+    style = {}
   } = props;
 
   return (
@@ -44,7 +44,7 @@ function TmCard(props: PropsInterface) {
         {
           "tm-card-shadow": tmShadow,
           "tm-card-round": tmRound,
-          "tm-card-bordered": tmBorder,
+          "tm-card-bordered": tmBorder
         },
         className
       )}

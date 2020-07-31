@@ -9,7 +9,7 @@ function DemoSpace() {
   return (
     <View className={"demo"}>
       <TmNavBar tmTitle={"间距"}/>
-      <TmCard tmRound className={"demo__card"} tmTitle={"间距大小"}>
+      <TmCard tmRound className={"demo__card"} tmTitle={"横向"}>
         <TmSpace>
           <TmButton tmType={"primary"}>1</TmButton>
           <TmButton tmType={"primary"}>2</TmButton>

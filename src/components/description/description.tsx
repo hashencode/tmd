@@ -1,7 +1,7 @@
 import "./description.scss";
 
 import React from "react";
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
 import DescriptionContext from "./_context";
 
@@ -10,20 +10,20 @@ interface PropsInterface {
   tmDescStyle?: object;
   children?: any; // 子组件内容
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmDescription(props: PropsInterface) {
   const {
     tmDescStyle = {},
-    tmTitleStyle = {width: "20%"},
+    tmTitleStyle = { width: "20%" },
     className = "",
-    style = {},
+    style = {}
   } = props;
 
   return (
     <View className={classNames("tm-description", className)} style={style}>
-      <DescriptionContext.Provider value={{tmDescStyle, tmTitleStyle}}>
+      <DescriptionContext.Provider value={{ tmDescStyle, tmTitleStyle }}>
         {props.children}
       </DescriptionContext.Provider>
     </View>

@@ -14,7 +14,7 @@ interface PropsInterface {
   tmMaskClosable?: boolean; // 点击蒙层关闭
   children?: any; // 子组件内容
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmDropdown(props: PropsInterface) {
@@ -29,12 +29,23 @@ function TmDropdown(props: PropsInterface) {
   } = props;
 
   const [maskVisible, setMaskVisible] = useState<boolean>(false);
+  const [hasDestroy, setHasDestroy] = useState(true);
+
+  const destroyTimer = useRef<any>(0);
 
   const headRef = useRef();
 
   const handleHeadClick = () => {
-    setMaskVisible(!maskVisible);
-    console.log(headRef.current);
+    clearTimeout(destroyTimer.current);
+    if (maskVisible) {
+      setMaskVisible(false);
+      destroyTimer.current = setTimeout(() => {
+        setHasDestroy(true);
+      }, 350);
+    } else {
+      setMaskVisible(true);
+      setHasDestroy(false);
+    }
   };
 
   const handleMaskClick = () => {
@@ -60,7 +71,7 @@ function TmDropdown(props: PropsInterface) {
           <TmIcon tmValue={"paixu_xia"} />
         </View>
       </View>
-      {maskVisible && (
+      {!hasDestroy && (
         <View className="tm-dropdown__body">
           <TmPopup
             tmAppear
@@ -70,7 +81,7 @@ function TmDropdown(props: PropsInterface) {
             tmMotion={"slide-down"}
             onMaskClick={handleMaskClick}
           >
-            <ScrollView scrollY style={{ height: "30vh" }}>
+            <ScrollView scrollY style={{ height: "30vh" }} scrollWithAnimation>
               <TmPicker
                 className="tm-dropdown__options"
                 tmMultiple={tmMultiple}

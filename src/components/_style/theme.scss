@@ -68,9 +68,7 @@ $font-size-regular: 26px; // 内容描述
 $font-size-primary: 28px; // 主要内容、提示文字、卡片按钮文案
 $font-size-subtitle: 32px; // 二级标题
 $font-size-title: 36px; // 一级标题
-$font-size-tab-title: 44px; // tab页标题
-$font-size-big-title: 52px; // 大标题
-$font-size-result-title: 60px; // 结果页大标题
+$font-size-title-lg: 40px; // 结果页标题
 
 // 图标尺寸 icon size
 $icon-size-xs: 26px;
@@ -130,12 +128,10 @@ $onePx: 1PX;
     position: absolute;
     z-index: 1;
     @if ($hasBorder) {
-      top: $onePx;
-      left: $onePx;
-      // prettier-ignore
-      width: calc(200% - 2PX);
-      // prettier-ignore
-      height: calc(200% - 2PX);
+      top: 1px;
+      left: 1px;
+      width: calc(200% - 2px);
+      height: calc(200% - 2px);
       transform: scale(0.5);
       transform-origin: left top;
     } @else {

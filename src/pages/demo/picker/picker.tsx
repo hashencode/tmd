@@ -1,11 +1,17 @@
 import "../demoStyle.scss";
 
-import {TmButton, TmCard, TmNavBar, TmPicker, TmPickerOption,} from "../../../components";
+import {
+  TmButton,
+  TmCard,
+  TmNavBar,
+  TmPicker,
+  TmPickerOption
+} from "../../../components";
 
-import React, {useState} from "react";
-import {View} from "@tarojs/components";
+import React, { useState } from "react";
+import { View } from "@tarojs/components";
 
-function DemoGrid() {
+function DemoPicker() {
   const [currentValue, setCurrentValue] = useState([1, 2]);
 
   const handleSwitch = () => {
@@ -15,9 +21,9 @@ function DemoGrid() {
 
   return (
     <View className={"demo"}>
-      <TmNavBar tmTitle={"选择列表"}/>
+      <TmNavBar tmTitle={"选择列表"} />
       <TmCard tmRound className={"demo__card"} tmTitle={"单选"}>
-        <TmPicker onChange={(event) => console.log(event)}>
+        <TmPicker onChange={event => console.log(event)}>
           {Array(3)
             .fill("")
             .map((_item, index) => {
@@ -34,7 +40,7 @@ function DemoGrid() {
         </TmPicker>
       </TmCard>
       <TmCard tmRound className={"demo__card"} tmTitle={"多选"}>
-        <TmPicker tmMultiple onChange={(event) => console.log(event)}>
+        <TmPicker tmMultiple onChange={event => console.log(event)}>
           {Array(3)
             .fill("")
             .map((_item, index) => {
@@ -51,7 +57,7 @@ function DemoGrid() {
         </TmPicker>
       </TmCard>
       <TmCard tmRound className={"demo__card"} tmTitle={"单选默认选项"}>
-        <TmPicker onChange={(event) => console.log(event)} tmDefaultValue={0}>
+        <TmPicker onChange={event => console.log(event)} tmDefaultValue={0}>
           {Array(3)
             .fill("")
             .map((_item, index) => {
@@ -69,7 +75,7 @@ function DemoGrid() {
       </TmCard>
       <TmCard tmRound className={"demo__card"} tmTitle={"多选默认选项"}>
         <TmPicker
-          onChange={(event) => console.log(event)}
+          onChange={event => console.log(event)}
           tmMultiple
           tmDefaultValue={[1, 2]}
         >
@@ -91,7 +97,7 @@ function DemoGrid() {
       </TmCard>
       <TmCard tmRound className={"demo__card"} tmTitle={"禁用"}>
         <TmPicker
-          onChange={(event) => console.log(event)}
+          onChange={event => console.log(event)}
           tmMultiple
           tmDefaultValue={[1, 2]}
           tmDisabled
@@ -122,7 +128,7 @@ function DemoGrid() {
         }
       >
         <TmPicker
-          onChange={(event) => console.log(event)}
+          onChange={event => console.log(event)}
           tmMultiple
           tmDefaultValue={currentValue}
         >
@@ -145,4 +151,4 @@ function DemoGrid() {
   );
 }
 
-export default DemoGrid;
+export default DemoPicker;

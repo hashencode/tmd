@@ -1,12 +1,18 @@
 import "../demoStyle.scss";
 
-import React, {useState} from "react";
-import {TmButton, TmCard, TmDrawer, TmNavBar, TmSpace,} from "../../../components";
+import React, { useState } from "react";
+import {
+  TmButton,
+  TmCard,
+  TmDrawer,
+  TmNavBar,
+  TmSpace
+} from "../../../components";
 
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 
-function DemoGrid() {
-  const togglePopup = (id) => {
+function DemoDrawer() {
+  const togglePopup = id => {
     setCurrentPopup(id);
   };
 
@@ -14,7 +20,7 @@ function DemoGrid() {
 
   return (
     <View className={"demo"}>
-      <TmNavBar tmTitle={"抽屉"}/>
+      <TmNavBar tmTitle={"抽屉"} />
       <TmCard tmRound className={"demo__card"} tmTitle={"方向"}>
         <TmSpace>
           <TmButton
@@ -56,7 +62,7 @@ function DemoGrid() {
           setCurrentPopup(0);
         }}
       >
-        <View style={{width: "300px", height: "300px"}}/>
+        <View style={{ width: "300px", height: "300px" }} />
       </TmDrawer>
       <TmDrawer
         tmShow={currentPopup === 2}
@@ -86,4 +92,4 @@ function DemoGrid() {
   );
 }
 
-export default DemoGrid;
+export default DemoDrawer;

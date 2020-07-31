@@ -1,8 +1,8 @@
 import "./billItem.scss";
 
-import React, {ReactNode} from "react";
+import React, { ReactNode } from "react";
 
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
 
 interface PropsInterface {
@@ -11,7 +11,7 @@ interface PropsInterface {
   tmName?: string | ReactNode; // 标题
   children?: any; // 子组件内容
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmBillItem(props: PropsInterface) {
@@ -20,7 +20,7 @@ function TmBillItem(props: PropsInterface) {
     tmValue = "",
     tmName = "",
     className = "",
-    style = {},
+    style = {}
   } = props;
 
   return (
@@ -28,7 +28,7 @@ function TmBillItem(props: PropsInterface) {
       className={classNames(
         "tm-bill-item",
         {
-          "tm-bill-item-bold": tmBold,
+          "tm-bill-item-bold": tmBold
         },
         className
       )}

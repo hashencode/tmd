@@ -1,8 +1,8 @@
 import "./statistic.scss";
 
-import React, {useLayoutEffect, useState} from "react";
+import React, { useLayoutEffect, useState } from "react";
 
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
 import nzhcn from "nzh/cn";
 
@@ -12,7 +12,7 @@ interface PropsInterface {
   tmValue?: number; // 数值
   children?: any; // 子组件内容
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmStatistic(props: PropsInterface) {
@@ -21,7 +21,7 @@ function TmStatistic(props: PropsInterface) {
     tmThousandth = false,
     tmValue = 0,
     className = "",
-    style = {},
+    style = {}
   } = props;
 
   const [formatValue, setFormatValue] = useState<number | string>(0);

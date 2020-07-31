@@ -1,9 +1,9 @@
 import "./notice.scss";
 
-import React, {ReactNode, useEffect, useRef, useState} from "react";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 
-import {TmIcon} from "../index";
-import {View} from "@tarojs/components";
+import { TmIcon } from "../index";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
 
 interface PropsInterface {
@@ -17,7 +17,7 @@ interface PropsInterface {
   onClose?: () => void; // 关闭事件回调
   children?: any; // 子组件内容
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmTag(props: PropsInterface) {
@@ -29,10 +29,9 @@ function TmTag(props: PropsInterface) {
     tmRound = false,
     tmSuffix = null,
     tmType = "default",
-    onClose = () => {
-    },
+    onClose = () => {},
     className = "",
-    style = {},
+    style = {}
   } = props;
 
   const closeTimer = useRef<any>(0);
@@ -65,7 +64,7 @@ function TmTag(props: PropsInterface) {
         {
           "tm-notice-tmMotion": tmMotion,
           "tm-notice-round": tmRound,
-          "tm-notice-visible": isVisible,
+          "tm-notice-visible": isVisible
         },
         className
       )}
@@ -75,7 +74,7 @@ function TmTag(props: PropsInterface) {
       <View className="tm-notice__text">
         <View
           className={classNames("tm-notice__slot", {
-            "tm-notice__slot-motion": tmMotion,
+            "tm-notice__slot-motion": tmMotion
           })}
         >
           {props.children}

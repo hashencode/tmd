@@ -1,11 +1,11 @@
 import "./coupon.scss";
 
-import React, {ReactNode, useState} from "react";
+import React, { ReactNode, useState } from "react";
 
-import {TmIcon} from "../index";
-import {View} from "@tarojs/components";
+import { TmIcon } from "../index";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
-import {colorPrimary} from "../_style/theme";
+import { colorPrimary } from "../_style/theme";
 
 interface PropsInterface {
   tmAmount?: number | string | ReactNode; // 金额
@@ -19,7 +19,7 @@ interface PropsInterface {
   tmVertical?: boolean; // 竖向显示
   children?: any; // 子组件内容
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmCoupon(props: PropsInterface) {
@@ -34,7 +34,7 @@ function TmCoupon(props: PropsInterface) {
     tmTitle = null,
     tmVertical = false,
     className = "",
-    style = {},
+    style = {}
   } = props;
 
   const [isFold, setIsFold] = useState(true);
@@ -56,7 +56,7 @@ function TmCoupon(props: PropsInterface) {
             {/*优惠券金额*/}
             <View
               className="tm-coupon-vertical__amount"
-              style={{color: tmColor}}
+              style={{ color: tmColor }}
             >
               {/*金额前缀*/}
               <View className="tm-coupon-vertical__prefix">{tmPrefix}</View>
@@ -78,7 +78,7 @@ function TmCoupon(props: PropsInterface) {
               >
                 {isFold ? "详细规则" : "收起"}
                 <View className="tm-coupon-vertical__toggle-icon">
-                  <TmIcon tmValue={isFold ? "jiantou_xia" : "jiantou_shang"}/>
+                  <TmIcon tmValue={isFold ? "jiantou_xia" : "jiantou_shang"} />
                 </View>
               </View>
             )}
@@ -94,7 +94,7 @@ function TmCoupon(props: PropsInterface) {
           {/*优惠券金额与描述*/}
           <View
             className="tm-coupon-horizon__left"
-            style={{backgroundColor: tmColor}}
+            style={{ backgroundColor: tmColor }}
           >
             <View className="tm-coupon-horizon__amount">
               <View className="tm-coupon-horizon__prefix">{tmPrefix}</View>

@@ -20,9 +20,10 @@
   }
 
   &__body {
-    position: relative;
-    height: 50vh;
-    //overflow: hidden;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    width: 100vw;
   }
 
   &__options {

@@ -1,9 +1,9 @@
 import "./collapse.scss";
 
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 import CollapseContext from "./_context";
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
 
 interface PropsInterface {
@@ -16,7 +16,7 @@ interface PropsInterface {
   tmShadow?: boolean; // 阴影
   children?: any; // 子组件内容
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmCollapse(props: PropsInterface) {
@@ -29,7 +29,7 @@ function TmCollapse(props: PropsInterface) {
     tmHideArrow = false,
     tmShadow = false,
     className = "",
-    style = {},
+    style = {}
   } = props;
 
   const [active, setActiveKey] = useState(tmDefaultKey);
@@ -41,7 +41,7 @@ function TmCollapse(props: PropsInterface) {
         {
           "tm-collapse-bordered": tmOuterBorder,
           "tm-collapse-round": tmRound,
-          "tm-collapse-shadow": tmShadow,
+          "tm-collapse-shadow": tmShadow
         },
         className
       )}
@@ -50,12 +50,12 @@ function TmCollapse(props: PropsInterface) {
       <CollapseContext.Provider
         value={{
           activeKey: active,
-          onIndexChange: (key) => {
+          onIndexChange: key => {
             setActiveKey(key === active ? -1 : key);
           },
           isAccordion: tmAccordion,
           tmInnerBorder,
-          tmHideArrow,
+          tmHideArrow
         }}
       >
         {props.children}

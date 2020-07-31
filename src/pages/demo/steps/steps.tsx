@@ -75,7 +75,7 @@ function DemoSteps() {
             },
           ]}
           tmVertical
-          tmValue={70}
+          tmValue={50}
         />
       </TmCard>
     </View>

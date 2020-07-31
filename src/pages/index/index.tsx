@@ -129,7 +129,7 @@ function Index() {
         tmTitle={"数据录入"}
         tmBodyStyle={{ padding: 0 }}
       >
-        <TmList tmInnerBorder tmDisabled>
+        <TmList tmInnerBorder>
           <TmListItem
             tmTitle={"Checkbox 多选框"}
             tmHref={"/pages/demo//"}
@@ -138,6 +138,11 @@ function Index() {
           <TmListItem
             tmTitle={"Cascader 级联选择"}
             tmHref={"/pages/demo//"}
+            tmShowArrow
+          />
+          <TmListItem
+            tmTitle={"DropDown 下拉菜单"}
+            tmHref={"/pages/demo/dropdown/dropdown"}
             tmShowArrow
           />
           <TmListItem
@@ -246,11 +251,6 @@ function Index() {
             tmShowArrow
           />
           <TmListItem
-            tmTitle={"DropDown 下拉菜单"}
-            tmHref={"/pages/demo/dropdown/dropdown"}
-            tmShowArrow
-          />
-          <TmListItem
             tmTitle={"List 列表"}
             tmHref={"/pages/demo/list/list"}
             tmShowArrow
@@ -261,13 +261,13 @@ function Index() {
             tmShowArrow
           />
           <TmListItem
-            tmTitle={"Statistic 统计数值"}
-            tmHref={"/pages/demo/statistic/statistic"}
+            tmTitle={"Scroll 滚动增强"}
+            tmHref={"/pages/demo/scroll/scroll"}
             tmShowArrow
           />
           <TmListItem
-            tmTitle={"Swiper 走马灯"}
-            tmHref={"/pages/demo/swiper/swiper"}
+            tmTitle={"Statistic 统计数值"}
+            tmHref={"/pages/demo/statistic/statistic"}
             tmShowArrow
           />
           <TmListItem

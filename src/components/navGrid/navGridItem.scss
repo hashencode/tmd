@@ -6,7 +6,11 @@
   display: inline-flex;
   justify-content: center;
   // 竖向显示
-  &__vertical {
+  &-vertical {
     flex-direction: column;
+  }
+  // 文字
+  &__text{
+    font-size:$font-size-secondary
   }
 }

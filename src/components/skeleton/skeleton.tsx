@@ -1,7 +1,7 @@
 import "./skeleton.scss";
 
 import React from "react";
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
 
 interface PropsInterface {
@@ -9,7 +9,7 @@ interface PropsInterface {
   tmShowImage?: boolean; // 是否显示图片
   children?: any; // 子组件内容
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmSkeleton(props: PropsInterface) {
@@ -17,7 +17,7 @@ function TmSkeleton(props: PropsInterface) {
     tmAmount = 1,
     tmShowImage = false,
     className = "",
-    style = {},
+    style = {}
   } = props;
 
   return (
@@ -30,12 +30,12 @@ function TmSkeleton(props: PropsInterface) {
               className="tm-skeleton__item"
               key={`tm-skeleton-item-${index}`}
             >
-              {tmShowImage && <View className="tm-skeleton__image"/>}
+              {tmShowImage && <View className="tm-skeleton__image" />}
               <View className="tm-skeleton__text">
-                <View className="tm-skeleton__text-item"/>
-                <View className="tm-skeleton__text-item"/>
-                <View className="tm-skeleton__text-item"/>
-                <View className="tm-skeleton__text-item"/>
+                <View className="tm-skeleton__text-item" />
+                <View className="tm-skeleton__text-item" />
+                <View className="tm-skeleton__text-item" />
+                <View className="tm-skeleton__text-item" />
               </View>
             </View>
           );

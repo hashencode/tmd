@@ -1,9 +1,9 @@
 import "./col.scss";
 
 import React from "react";
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
-import {sizeTransform} from "../_scripts";
+import { sizeTransform } from "../_scripts";
 
 interface PropsInterface {
   tmFlex?: number | string;
@@ -15,7 +15,7 @@ interface PropsInterface {
   tmSpan?: number; // 栅格占位格数
   children?: any; // 子组件内容
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmCol(props: PropsInterface) {
@@ -27,24 +27,24 @@ function TmCol(props: PropsInterface) {
     tmPush = 0,
     tmSpan = 0,
     className = "",
-    style = {},
+    style = {}
   } = props;
 
   return (
     <View
       className={classNames(
         "tm-col",
-        {[`tm-col-offset-${tmOffset}`]: tmOffset},
-        {[`tm-col-pull-${tmPull}`]: tmPull},
-        {[`tm-col-push-${tmPush}`]: tmPush},
-        {[`tm-col-order-${tmOrder}`]: tmOrder},
+        { [`tm-col-offset-${tmOffset}`]: tmOffset },
+        { [`tm-col-pull-${tmPull}`]: tmPull },
+        { [`tm-col-push-${tmPush}`]: tmPush },
+        { [`tm-col-order-${tmOrder}`]: tmOrder },
         `tm-col-span-${tmSpan}`,
         className
       )}
       style={{
         paddingLeft: sizeTransform(tmGutter),
         paddingRight: sizeTransform(tmGutter),
-        ...style,
+        ...style
       }}
     >
       {props.children}

@@ -1,9 +1,9 @@
 import "./row.scss";
 
 import React from "react";
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
-import {sizeTransform} from "../_scripts";
+import { sizeTransform } from "../_scripts";
 
 interface PropsInterface {
   tmAlign?: "flex-start" | "center" | "flex-end" | "baseline"; // 垂直对齐方式
@@ -16,7 +16,7 @@ interface PropsInterface {
     | "space-between"; // 水平排列方式
   children?: any; // 子组件内容
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmRow(props: PropsInterface) {
@@ -25,7 +25,7 @@ function TmRow(props: PropsInterface) {
     tmGutter = 0,
     tmJustify = "start",
     className = "",
-    style = {},
+    style = {}
   } = props;
 
   return (
@@ -36,18 +36,18 @@ function TmRow(props: PropsInterface) {
         marginRight: sizeTransform(-tmGutter),
         justifyContent: tmJustify,
         alignItems: tmAlign,
-        ...style,
+        ...style
       }}
     >
       {props.children &&
-      React.Children.map(props.children, (child) =>
-        React.isValidElement(child)
-          ? React.cloneElement(child, {
-            // @ts-ignore
-            tmGutter,
-          })
-          : props.children
-      )}
+        React.Children.map(props.children, child =>
+          React.isValidElement(child)
+            ? React.cloneElement(child, {
+                // @ts-ignore
+                tmGutter
+              })
+            : props.children
+        )}
     </View>
   );
 }

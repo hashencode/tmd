@@ -14,7 +14,7 @@ interface PropsInterface {
   tmType?: "default" | "success" | "warning" | "loading" | "error"; // 内置状态
   children?: any; // 子组件内容
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmMessage(props: PropsInterface) {

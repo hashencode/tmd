@@ -1,9 +1,9 @@
 import "./progress.scss";
 
-import React, {useEffect, useState} from "react";
-import {backgroundDefault, colorPrimary} from "../_style/theme";
+import React, { useEffect, useState } from "react";
+import { backgroundDefault, colorPrimary } from "../_style/theme";
 
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
 
 interface PropsInterface {
@@ -13,7 +13,7 @@ interface PropsInterface {
   tmBackgroundColor?: "string"; // 背景色
   children?: any; // 子组件内容
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmProgress(props: PropsInterface) {
@@ -23,7 +23,7 @@ function TmProgress(props: PropsInterface) {
     tmBarColor = colorPrimary,
     tmBackgroundColor = backgroundDefault,
     className = "",
-    style = {},
+    style = {}
   } = props;
 
   const [barStyle, setBarStyle] = useState(`background:${tmBackgroundColor}`);
@@ -60,15 +60,15 @@ function TmProgress(props: PropsInterface) {
         );
       } else if (tmValue <= 50) {
         setBarStyle(
-          `background:linear-gradient(${
-            (tmValue / 25 - 1) * 90
-          }deg, ${tmBackgroundColor} 50%, transparent 50%), linear-gradient(-90deg, ${tmBarColor} 50%, ${tmBackgroundColor} 50%);`
+          `background:linear-gradient(${(tmValue / 25 - 1) *
+            90}deg, ${tmBackgroundColor} 50%, transparent 50%), linear-gradient(-90deg, ${tmBarColor} 50%, ${tmBackgroundColor} 50%);`
         );
       } else {
         setBarStyle(
-          `background:linear-gradient(-90deg, ${tmBarColor} 50%, transparent 50%), linear-gradient(${
-            (tmValue / 25 - 3) * 90
-          }deg, ${tmBarColor} 50%, ${tmBackgroundColor} 50%)`
+          `background:linear-gradient(-90deg, ${tmBarColor} 50%, transparent 50%), linear-gradient(${(tmValue /
+            25 -
+            3) *
+            90}deg, ${tmBarColor} 50%, ${tmBackgroundColor} 50%)`
         );
       }
     }

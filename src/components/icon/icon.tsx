@@ -1,11 +1,11 @@
 import "./icon.scss";
 import "../_style/iconfont.scss";
 
-import React, {useLayoutEffect, useState} from "react";
+import React, { useLayoutEffect, useState } from "react";
 
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
-import {sizeTransform} from "../_scripts";
+import { sizeTransform } from "../_scripts";
 
 interface PropsInterface {
   tmColor?: string; // 图标颜色
@@ -16,7 +16,7 @@ interface PropsInterface {
   tmValue: string; // 图标图案
   onClick?: (event?: any) => void; // 点击事件
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmIcon(props: PropsInterface) {
@@ -27,10 +27,9 @@ function TmIcon(props: PropsInterface) {
     tmSize = 0,
     tmSpin = false,
     tmValue,
-    onClick = () => {
-    },
+    onClick = () => {},
     className = "",
-    style = {},
+    style = {}
   } = props;
 
   const calcStyle = () => {
@@ -60,13 +59,13 @@ function TmIcon(props: PropsInterface) {
         `${tmPrefix}`,
         `${tmPrefix}_${tmValue}`,
         {
-          "tm-icon-spin": tmSpin,
+          "tm-icon-spin": tmSpin
         },
         className
       )}
       style={{
         ...iconStyle,
-        ...style,
+        ...style
       }}
       onClick={onClick}
     />

@@ -20,10 +20,10 @@ interface PropsInterface {
   tmThrottleConfig?: {}; // 节流阀设置
   tmTitle?: string | ReactNode; // 标题
   TmTitleAlignTop?: boolean; // 标题顶端对齐
-  onClick?: () => void; // 点击事件回调
+  onClick?: (event?: any) => void; // 点击事件回调
   children?: any; // 子组件内容
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmListItem(props: PropsInterface) {

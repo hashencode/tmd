@@ -29,7 +29,7 @@ interface PropsInterface {
   tmTitle?: ReactNode; // 页面标题
   children?: any; // 客制slot，若已设置title，slot无效
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 interface navBarStyleInterface {

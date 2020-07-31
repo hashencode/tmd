@@ -1,9 +1,10 @@
 import "./transition.scss";
 
-import {CSSTransition} from "react-transition-group";
+import { CSSTransition } from "react-transition-group";
 import React from "react";
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
+import { getDataOrAriaProps } from "../_scripts";
 
 interface PropsInterface {
   tmAppear?: boolean; // 初次加载时执行动画
@@ -25,10 +26,10 @@ interface PropsInterface {
   tmShow?: boolean; // 是否显示
   onHide?: () => void; // 完成隐藏回调
   onShow?: () => void; // 完成显示回调
-  onClick?: (event?: any) => void | null; // 点击事件回调
+  onClick?: (event?: any) => void; // 点击事件回调
   children?: any; // 子组件内容
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmTransition(props: PropsInterface) {
@@ -38,15 +39,14 @@ function TmTransition(props: PropsInterface) {
     tmDestroyAfterHide = false,
     tmMotion = "fade",
     tmShow = false,
-    onHide = () => {
-    },
-    onShow = () => {
-    },
-    onClick = () => {
-    },
+    onHide = () => {},
+    onShow = () => {},
+    onClick = () => {},
     className = "",
-    style = {},
+    style = {}
   } = props;
+
+  const dataOrAriaProps = getDataOrAriaProps(props);
 
   return (
     <CSSTransition
@@ -63,6 +63,7 @@ function TmTransition(props: PropsInterface) {
       onEntered={onShow}
       onExited={onHide}
       style={style}
+      {...dataOrAriaProps}
     >
       <View onClick={onClick}>{props.children}</View>
     </CSSTransition>

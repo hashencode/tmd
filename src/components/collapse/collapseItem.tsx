@@ -1,10 +1,10 @@
 import "./collapseItem.scss";
 
-import React, {ReactNode, useContext, useEffect, useState} from "react";
+import React, { ReactNode, useContext, useEffect, useState } from "react";
 
 import CollapseItemContext from "./_context";
-import {TmIcon} from "../index";
-import {View} from "@tarojs/components";
+import { TmIcon } from "../index";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
 
 interface PropsInterface {
@@ -12,11 +12,11 @@ interface PropsInterface {
   tmKey: number | string; // 唯一值，用于控制展开
   children?: any; // 子组件内容
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmCollapseItem(props: PropsInterface) {
-  const {tmTitle = "", tmKey = "", className = "", style = {}} = props;
+  const { tmTitle = "", tmKey = "", className = "", style = {} } = props;
 
   const parentContext = useContext(CollapseItemContext);
 
@@ -45,7 +45,7 @@ function TmCollapseItem(props: PropsInterface) {
     <View
       className={classNames(
         "tm-collapse-item",
-        {"tm-collapse-item-bordered": parentContext.tmInnerBorder},
+        { "tm-collapse-item-bordered": parentContext.tmInnerBorder },
         className
       )}
       style={style}

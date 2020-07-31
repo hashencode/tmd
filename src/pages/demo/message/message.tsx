@@ -1,26 +1,46 @@
 import "../demoStyle.scss";
 
-import React, {useState} from "react";
-import {TmButton, TmCard, TmIcon, TmMessage, TmNavBar, TmSpace,} from "../../../components";
+import React, { useState } from "react";
+import {
+  TmButton,
+  TmCard,
+  TmIcon,
+  TmMessage,
+  TmNavBar,
+  TmSpace
+} from "../../../components";
 
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 
 function DemoMessage() {
   const [currentKey, setCurrentKey] = useState(0);
 
   return (
     <View className={"demo"}>
-      <TmNavBar tmTitle={"消息"}/>
+      <TmNavBar tmTitle={"消息"} />
       <TmCard tmRound className={"demo__card"}>
         <TmButton
           onClick={() => {
             setCurrentKey(1);
           }}
         >
-          显/隐
+          默认
         </TmButton>
         <TmMessage tmType={"loading"} tmShow={currentKey === 1}>
           加载中
+        </TmMessage>
+        <TmButton
+          onClick={() => {
+            setCurrentKey(4);
+          }}
+        >
+          自定义图标
+        </TmButton>
+        <TmMessage
+          tmShow={currentKey === 4}
+          tmIcon={<TmIcon tmValue={"maikefeng"} tmSize={36} />}
+        >
+          录音中
         </TmMessage>
       </TmCard>
       <TmCard tmRound className={"demo__card"} tmTitle={"内置状态"}>
@@ -46,21 +66,6 @@ function DemoMessage() {
         </TmMessage>
         <TmMessage tmShow={currentKey === 3} tmType={"success"}>
           成功
-        </TmMessage>
-      </TmCard>
-      <TmCard tmRound className={"demo__card"} tmTitle={"自定义图标"}>
-        <TmButton
-          onClick={() => {
-            setCurrentKey(4);
-          }}
-        >
-          显/隐
-        </TmButton>
-        <TmMessage
-          tmShow={currentKey === 4}
-          tmIcon={<TmIcon tmValue={"maikefeng"} tmSize={36}/>}
-        >
-          录音中
         </TmMessage>
       </TmCard>
       <TmCard tmRound className={"demo__card"} tmTitle={"显示位置"}>

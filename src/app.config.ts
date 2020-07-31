@@ -25,7 +25,6 @@ export default {
     "pages/demo/space/space",
     "pages/demo/statistic/statistic",
     "pages/demo/steps/steps",
-    "pages/demo/swiper/swiper",
     "pages/demo/switch/switch",
     "pages/demo/tag/tag",
     "pages/me/me",
@@ -37,7 +36,8 @@ export default {
     "pages/demo/tabs/tabs",
     "pages/demo/description/description",
     "pages/demo/dropdown/dropdown",
-    "pages/demo/picker/picker"
+    "pages/demo/picker/picker",
+    "pages/demo/scroll/scroll"
   ],
   window: {
     navigationStyle: "custom",

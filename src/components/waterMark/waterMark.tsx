@@ -1,10 +1,10 @@
 import "./waterMark.scss";
 
-import React, {ReactNode} from "react";
+import React, { ReactNode } from "react";
 
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
-import {sizeTransform} from "../_scripts";
+import { sizeTransform } from "../_scripts";
 
 interface PropsInterface {
   tmOpacity?: number; // 透明度
@@ -12,7 +12,7 @@ interface PropsInterface {
   tmText?: string | ReactNode; // 水印内容
   children?: any; // 子组件内容
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmWaterMark(props: PropsInterface) {
@@ -21,7 +21,7 @@ function TmWaterMark(props: PropsInterface) {
     tmSpace = 100,
     tmText = "",
     className = "",
-    style = {},
+    style = {}
   } = props;
 
   return (
@@ -29,7 +29,7 @@ function TmWaterMark(props: PropsInterface) {
       <View
         className="tm-water-mark__content"
         style={{
-          opacity: tmOpacity,
+          opacity: tmOpacity
         }}
       >
         {Array(20)
@@ -39,7 +39,7 @@ function TmWaterMark(props: PropsInterface) {
               <View
                 className={"tm-water-mark__line"}
                 key={`tm-water-mark-line-index-${index}`}
-                style={{marginBottom: sizeTransform(tmSpace)}}
+                style={{ marginBottom: sizeTransform(tmSpace) }}
               >
                 {Array(20)
                   .fill("")
@@ -52,7 +52,7 @@ function TmWaterMark(props: PropsInterface) {
                           marginLeft:
                             index % 2 === 0 && cIndex === 0
                               ? 0
-                              : sizeTransform(tmSpace),
+                              : sizeTransform(tmSpace)
                         }}
                       >
                         {tmText}

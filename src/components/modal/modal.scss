@@ -8,7 +8,7 @@
   min-height: 80px;
   overflow: hidden;
   position: relative;
-  width: 80vw;
+  width: 75vw;
 
   // 关闭按钮
   &__close {
@@ -29,31 +29,31 @@
 
   // 自定义图标
   &__icon {
-    font-size: $icon-size-lg * 2;
+    margin-bottom: $spacing-sm;
   }
 
   // 标题
   &__title {
-    font-size: $font-size-tab-title;
+    font-size: $font-size-title-lg;
   }
 
   // 描述
   &__desc {
     color: $font-color-desc;
-    margin-top: $spacing-sm;
+    margin-top: $spacing-xs;
   }
 
   // 按钮
   &__btn {
     border-top: 1px solid $border-color-default;
     display: flex;
+    font-size: $font-size-title;
 
     &-cancel,
     &-confirm {
       align-items: center;
       display: flex;
       flex-grow: 1;
-      font-size: $font-size-subtitle;
       height: 100px;
       justify-content: center;
     }

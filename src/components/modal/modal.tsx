@@ -20,7 +20,6 @@ interface PropsInterface {
   tmFooter?: string | ReactNode; // 自定义底部
   tmHead?: string | ReactNode; // 自定义头部
   tmIcon?: ReactNode; // 自定义图标
-  tmMaskClosable?: boolean; // 可通过蒙层关闭
   tmMotion?:
     | "bounce"
     | "zoom"
@@ -44,7 +43,7 @@ interface PropsInterface {
   onShow?: () => void; // 显示事件回调
   children?: any; // 子组件内容
   className?: string; // 自定义类名
-  style?: object; // 自定义行内样式
+  style?: React.CSSProperties; // 自定义行内样式
 }
 
 function TmModal(props: PropsInterface) {
@@ -56,7 +55,6 @@ function TmModal(props: PropsInterface) {
     tmFooter = null,
     tmHead = null,
     tmIcon = null,
-    tmMaskClosable = false,
     tmMotion = "bounce",
     tmShow = false,
     tmTitle = "",
@@ -70,18 +68,19 @@ function TmModal(props: PropsInterface) {
     style = {}
   } = props;
 
-  // 如果允许点击遮罩关闭，则调用onClose事件
-  const handleMaskClick = () => {
-    if (tmMaskClosable) onClose();
-  };
-
   // 内置图标
   const buildInIconObj = {
     default: "",
-    info: <TmIcon tmValue={"tanhao_fill"} tmColor={colorPrimary} />,
-    success: <TmIcon tmValue={"chenggong_fill"} tmColor={colorSuccess} />,
-    warning: <TmIcon tmValue={"tanhao_fill"} tmColor={colorWarning} />,
-    error: <TmIcon tmValue={"shibai_fill"} tmColor={colorDanger} />
+    info: (
+      <TmIcon tmValue={"tanhao_fill"} tmSize={100} tmColor={colorPrimary} />
+    ),
+    success: (
+      <TmIcon tmValue={"chenggong_fill"} tmSize={100} tmColor={colorSuccess} />
+    ),
+    warning: (
+      <TmIcon tmValue={"tanhao_fill"} tmSize={100} tmColor={colorWarning} />
+    ),
+    error: <TmIcon tmValue={"shibai_fill"} tmSize={100} tmColor={colorDanger} />
   };
 
   return (
@@ -91,7 +90,7 @@ function TmModal(props: PropsInterface) {
       tmShow={tmShow}
       onHide={onHide}
       onShow={onShow}
-      onMaskClick={handleMaskClick}
+      onMaskClick={onClose}
     >
       <View
         className={classNames("tm-modal", `tm-modal-${tmType}`, className)}
