@@ -86,7 +86,7 @@ function TmTag(props: PropsInterface) {
           <TmIcon
             onClick={handleSuffixClick}
             className="tm-notice__suffix-close"
-            tmValue={"guanbi"}
+            tmValue={"close"}
           />
         )}
       </View>

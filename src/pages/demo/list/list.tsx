@@ -29,7 +29,9 @@ function DemoList() {
           tmImage={
             <TmAvatar
               tmSize={100}
-              tmSrc={"https://i.loli.net/2020/06/02/BqaQ5fRbeNEw4A6.jpg"}
+              tmSrc={
+                " https://tva3.sinaimg.cn/large/007VJd8cly1ghmmxa9u9uj3069069q2t.jpg"
+              }
             />
           }
         />
@@ -56,7 +58,9 @@ function DemoList() {
           tmImage={
             <TmAvatar
               tmSize={100}
-              tmSrc={"https://i.loli.net/2020/06/02/BqaQ5fRbeNEw4A6.jpg"}
+              tmSrc={
+                " https://tva3.sinaimg.cn/large/007VJd8cly1ghmmxa9u9uj3069069q2t.jpg"
+              }
             />
           }
         />
@@ -66,7 +70,9 @@ function DemoList() {
           tmImage={
             <TmAvatar
               tmSize={100}
-              tmSrc={"https://i.loli.net/2020/06/02/BqaQ5fRbeNEw4A6.jpg"}
+              tmSrc={
+                " https://tva3.sinaimg.cn/large/007VJd8cly1ghmmxa9u9uj3069069q2t.jpg"
+              }
             />
           }
         />

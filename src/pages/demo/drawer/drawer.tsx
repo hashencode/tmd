@@ -50,7 +50,7 @@ function DemoDrawer() {
         }}
         tmFooter={
           <View>
-            <TmButton tmType={"primary"} tmBlock tmSize={"lg"}>
+            <TmButton tmType={"primary"} tmBlock tmBig>
               立即支付
             </TmButton>
           </View>
@@ -69,12 +69,12 @@ function DemoDrawer() {
         tmPosition={"left"}
         tmTitle={"高级搜索"}
         tmConfirm={
-          <TmButton tmType={"primary"} tmBlock tmSize={"lg"}>
+          <TmButton tmType={"primary"} tmBlock tmBig>
             确认
           </TmButton>
         }
         tmCancel={
-          <TmButton tmType={"default"} tmBlock tmSize={"lg"}>
+          <TmButton tmType={"default"} tmBlock tmBig>
             取消
           </TmButton>
         }

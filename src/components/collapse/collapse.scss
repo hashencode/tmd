@@ -1,7 +1,7 @@
 @import "../_style/theme";
 
 .tm-collapse {
-  $this: &;
+  $self: &;
   padding: $spacing-mid 0;
 
   // 子项
@@ -39,7 +39,7 @@
   &-round {
     border-radius: $border-radius-mid;
 
-    &#{$this}-bordered:after {
+    &#{$self}-bordered:after {
       border-radius: $border-radius-mid * 2;
     }
   }

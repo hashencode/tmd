@@ -37,7 +37,7 @@ function TmPickerOption(props: PropsInterface) {
       className={classNames("tm-dropdown-option", className)}
       tmAction={
         parentContext.activeKeys.includes(tmValue) && (
-          <TmIcon tmValue={"dagou"} tmSize={32} tmColor={colorPrimary} />
+          <TmIcon tmValue={"check"} tmSize={32} tmColor={colorPrimary} />
         )
       }
       onClick={() => {

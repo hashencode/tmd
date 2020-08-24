@@ -46,6 +46,7 @@ function TmListItem(props: PropsInterface) {
   const handleClick = throttle(
     event => {
       event.stopPropagation();
+      event.preventDefault();
       if (tmDisabled) return false;
       if (tmHref) {
         navigateTo({ url: tmHref });
@@ -92,7 +93,7 @@ function TmListItem(props: PropsInterface) {
         {tmShowArrow && (
           <TmIcon
             className="tm-list-item__arrow"
-            tmValue={"jiantou_you"}
+            tmValue={"arrow_right"}
             tmSize={32}
           />
         )}

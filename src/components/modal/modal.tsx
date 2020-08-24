@@ -72,15 +72,15 @@ function TmModal(props: PropsInterface) {
   const buildInIconObj = {
     default: "",
     info: (
-      <TmIcon tmValue={"tanhao_fill"} tmSize={100} tmColor={colorPrimary} />
+      <TmIcon tmValue={"warning_fill"} tmSize={100} tmColor={colorPrimary} />
     ),
     success: (
-      <TmIcon tmValue={"chenggong_fill"} tmSize={100} tmColor={colorSuccess} />
+      <TmIcon tmValue={"success_fill"} tmSize={100} tmColor={colorSuccess} />
     ),
     warning: (
-      <TmIcon tmValue={"tanhao_fill"} tmSize={100} tmColor={colorWarning} />
+      <TmIcon tmValue={"warning_fill"} tmSize={100} tmColor={colorWarning} />
     ),
-    error: <TmIcon tmValue={"shibai_fill"} tmSize={100} tmColor={colorDanger} />
+    error: <TmIcon tmValue={"error_fill"} tmSize={100} tmColor={colorDanger} />
   };
 
   return (
@@ -102,7 +102,7 @@ function TmModal(props: PropsInterface) {
         {tmClosable && (
           <TmIcon
             className="tm-modal__close"
-            tmValue={"guanbi"}
+            tmValue={"close"}
             onClick={onClose}
           />
         )}

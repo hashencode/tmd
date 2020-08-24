@@ -1,7 +1,7 @@
 @import "../_style/theme";
 
 .tm-loading {
-  $this: &;
+  $self: &;
   display: inline-block;
   position: relative;
   vertical-align: middle;
@@ -15,7 +15,7 @@
     &-vertical {
       flex-direction: column;
 
-      #{$this}__text {
+      #{$self}__text {
         margin-left: 0;
         margin-top: $spacing-xs;
       }

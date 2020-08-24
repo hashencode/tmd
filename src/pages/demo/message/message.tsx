@@ -19,26 +19,28 @@ function DemoMessage() {
     <View className={"demo"}>
       <TmNavBar tmTitle={"消息"} />
       <TmCard tmRound className={"demo__card"}>
-        <TmButton
-          onClick={() => {
-            setCurrentKey(1);
-          }}
-        >
-          默认
-        </TmButton>
+        <TmSpace>
+          <TmButton
+            onClick={() => {
+              setCurrentKey(1);
+            }}
+          >
+            默认
+          </TmButton>
+          <TmButton
+            onClick={() => {
+              setCurrentKey(4);
+            }}
+          >
+            自定义图标
+          </TmButton>
+        </TmSpace>
         <TmMessage tmType={"loading"} tmShow={currentKey === 1}>
           加载中
         </TmMessage>
-        <TmButton
-          onClick={() => {
-            setCurrentKey(4);
-          }}
-        >
-          自定义图标
-        </TmButton>
         <TmMessage
           tmShow={currentKey === 4}
-          tmIcon={<TmIcon tmValue={"maikefeng"} tmSize={36} />}
+          tmIcon={<TmIcon tmValue={"microphone"} tmSize={36} />}
         >
           录音中
         </TmMessage>

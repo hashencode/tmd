@@ -1,7 +1,7 @@
 @import "../_style/theme";
 
 .tm-switch {
-  $this: &;
+  $self: &;
   background-color: $background-unchecked;
   display: inline-block;
   height: $height-mid;
@@ -15,7 +15,7 @@
     height: $height-sm;
     width: calc(40px * 1.6);
 
-    #{$this}__handle {
+    #{$self}__handle {
       height: calc(40px - 4px);
       width: calc(40px - 4px);
 
@@ -30,7 +30,7 @@
     height: $height-mid;
     width: calc(60px * 1.6);
 
-    #{$this}__handle {
+    #{$self}__handle {
       height: calc(60px - 4px);
       width: calc(60px - 4px);
 
@@ -44,20 +44,20 @@
   &-checked {
     background-color: $color-primary;
 
-    &#{$this}-sm {
-      #{$this}__handle {
+    &#{$self}-sm {
+      #{$self}__handle {
         transform: translateX(calc(40px * 0.6));
       }
     }
 
-    &#{$this}-mid {
-      #{$this}__handle {
+    &#{$self}-mid {
+      #{$self}__handle {
         transform: translateX(calc(60px * 0.6));
       }
     }
 
-    &#{$this}-loading {
-      #{$this}__handle-icon {
+    &#{$self}-loading {
+      #{$self}__handle-icon {
         color: $color-primary;
       }
     }
@@ -65,7 +65,7 @@
 
   // 禁用状态
   &-disabled {
-    @include disabled-mask;
+    @include disabled-mask(false, 9999px);
   }
 
   // 圆形操作部分

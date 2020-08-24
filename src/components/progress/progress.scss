@@ -1,11 +1,11 @@
 @import "../_style/theme";
 
 .tm-progress {
-  $this: &;
+  $self: &;
 
   // 圆环
   &-circle {
-    #{$this}__bar {
+    #{$self}__bar {
       align-items: center;
       border-radius: 50%;
       display: flex;
@@ -14,7 +14,7 @@
       width: 200px;
     }
 
-    #{$this}__slot {
+    #{$self}__slot {
       background: $color-white;
       border-radius: 50%;
       height: 160px;
@@ -26,7 +26,7 @@
 
   // 条形
   &-line {
-    #{$this}__bar {
+    #{$self}__bar {
       border-radius: 9999px;
       height: $height-sm/2;
       overflow: hidden;
@@ -34,7 +34,7 @@
       transform: translateX(0);
     }
 
-    #{$this}__slot {
+    #{$self}__slot {
       border-radius: 9999px;
       height: 100%;
       left: -100%;

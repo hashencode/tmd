@@ -28,10 +28,10 @@ function TmMessage(props: PropsInterface) {
   } = props;
 
   const buildInIconObj = {
-    success: "chenggong_fill",
-    warning: "tanhao_fill",
-    loading: "jiazai",
-    error: "shibai_fill"
+    success: "success_fill",
+    warning: "warning_fill",
+    loading: "loading",
+    error: "error_fill"
   };
 
   const [fixStyle, setFixStyle] = useState({});

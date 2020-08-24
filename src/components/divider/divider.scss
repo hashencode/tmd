@@ -1,7 +1,7 @@
 @import "../_style/theme";
 
 .tm-divider {
-  $this: &;
+  $self: &;
   align-items: center;
   display: flex;
   justify-content: center;

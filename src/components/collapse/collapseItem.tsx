@@ -22,7 +22,8 @@ function TmCollapseItem(props: PropsInterface) {
 
   const [isActive, setIsActive] = useState(false);
 
-  const handleClick = () => {
+  const handleClick = event => {
+    event.preventDefault();
     if (isActive) {
       setIsActive(false);
       parentContext.onIndexChange(-1);
@@ -58,7 +59,7 @@ function TmCollapseItem(props: PropsInterface) {
         {!parentContext.tmHideArrow && (
           <TmIcon
             className="tm-collapse-item__arrow"
-            tmValue={isActive ? "jiantou_shang" : "jiantou_xia"}
+            tmValue={isActive ? "arrow_up" : "arrow_down"}
           />
         )}
       </View>

@@ -13,7 +13,9 @@ function DemoBadge() {
         <TmBadge tmValue={9} tmMax={24}>
           <TmAvatar
             tmShape={"rect"}
-            tmSrc={"https://i.loli.net/2020/06/02/BqaQ5fRbeNEw4A6.jpg"}
+            tmSrc={
+              " https://tva3.sinaimg.cn/large/007VJd8cly1ghmmxa9u9uj3069069q2t.jpg"
+            }
           />
         </TmBadge>
       </TmCard>
@@ -21,7 +23,9 @@ function DemoBadge() {
         <TmBadge tmValue={15} tmMax={10}>
           <TmAvatar
             tmShape={"rect"}
-            tmSrc={"https://i.loli.net/2020/06/02/BqaQ5fRbeNEw4A6.jpg"}
+            tmSrc={
+              " https://tva3.sinaimg.cn/large/007VJd8cly1ghmmxa9u9uj3069069q2t.jpg"
+            }
           />
         </TmBadge>
       </TmCard>
@@ -29,7 +33,9 @@ function DemoBadge() {
         <TmBadge tmValue={0} tmShowZero>
           <TmAvatar
             tmShape={"rect"}
-            tmSrc={"https://i.loli.net/2020/06/02/BqaQ5fRbeNEw4A6.jpg"}
+            tmSrc={
+              " https://tva3.sinaimg.cn/large/007VJd8cly1ghmmxa9u9uj3069069q2t.jpg"
+            }
           />
         </TmBadge>
       </TmCard>
@@ -37,14 +43,18 @@ function DemoBadge() {
         <TmBadge tmValue={5} tmShowZero tmColor={"#1890ff"}>
           <TmAvatar
             tmShape={"rect"}
-            tmSrc={"https://i.loli.net/2020/06/02/BqaQ5fRbeNEw4A6.jpg"}
+            tmSrc={
+              " https://tva3.sinaimg.cn/large/007VJd8cly1ghmmxa9u9uj3069069q2t.jpg"
+            }
           />
         </TmBadge>
       </TmCard>
       <TmCard tmRound className={"demo__card"} tmTitle={"设置偏移量"}>
         <TmBadge tmValue={5} tmShowZero tmTranslate={{ x: -15, y: 10 }}>
           <TmAvatar
-            tmSrc={"https://i.loli.net/2020/06/02/BqaQ5fRbeNEw4A6.jpg"}
+            tmSrc={
+              " https://tva3.sinaimg.cn/large/007VJd8cly1ghmmxa9u9uj3069069q2t.jpg"
+            }
           />
         </TmBadge>
       </TmCard>

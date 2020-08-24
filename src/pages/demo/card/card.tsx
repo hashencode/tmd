@@ -19,7 +19,7 @@ function DemoCard() {
         tmRound
         className={"demo__card"}
         tmTitle={"操作按钮"}
-        tmAction={<TmIcon tmValue={"bianji"} />}
+        tmAction={<TmIcon tmValue={"edit"} />}
       />
       <TmCard className={"demo__card"} tmFooter={"卡片底部"} />
     </View>

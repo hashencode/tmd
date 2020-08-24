@@ -1,6 +1,6 @@
 import "./loading.scss";
 
-import React, { ReactNode } from "react";
+import React, { ReactNode, useMemo } from "react";
 import { TmIcon, TmImage, TmPopup } from "../index";
 
 import { View } from "@tarojs/components";
@@ -31,7 +31,7 @@ function TmLoading(props: PropsInterface) {
   } = props;
 
   // 渲染公共内容部分
-  const renderContent = () => {
+  const renderContent = useMemo(() => {
     return (
       <View
         className={classNames("tm-loading__content", {
@@ -41,7 +41,7 @@ function TmLoading(props: PropsInterface) {
         {/*显示图标*/}
         <View className="tm-loading__icon">
           {tmShape === "quarter" ? (
-            <TmIcon style={tmIconStyle} tmValue={"jiazai"} tmSpin />
+            <TmIcon style={tmIconStyle} tmValue={"loading"} tmSpin />
           ) : (
             <TmImage
               style={tmIconStyle}
@@ -53,7 +53,7 @@ function TmLoading(props: PropsInterface) {
         {tmText && <View className="tm-loading__text">{tmText}</View>}
       </View>
     );
-  };
+  }, [tmVertical, tmShape, tmIconStyle, tmText]);
 
   return (
     <View className={classNames("tm-loading", className)} style={style}>
@@ -66,12 +66,12 @@ function TmLoading(props: PropsInterface) {
             tmMaskColor={"rgba(255,255,255,.9)"}
             tmShow={tmShow}
           >
-            {renderContent()}
+            {renderContent}
           </TmPopup>
           {props.children}
         </View>
       ) : (
-        renderContent()
+        renderContent
       )}
     </View>
   );

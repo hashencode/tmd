@@ -1,7 +1,7 @@
 @import "../_style/theme";
 
 .tm-tag {
-  $this: &;
+  $self: &;
   align-items: center;
   border-radius: $border-radius-xs;
   color: $color-white;
@@ -16,27 +16,27 @@
   }
 
   &-ghost {
-    &#{$this}-default {
-      background-color: $background-mask-light-slim;
+    &#{$self}-default {
+      background-color: $background-ghost;
       color: $color-white;
     }
 
-    &#{$this}-success {
+    &#{$self}-success {
       background-color: $background-success;
       color: $color-success;
     }
 
-    &#{$this}-info {
+    &#{$self}-info {
       background-color: $background-primary;
       color: $color-primary;
     }
 
-    &#{$this}-danger {
+    &#{$self}-danger {
       background-color: $background-danger;
       color: $color-danger;
     }
 
-    &#{$this}-warning {
+    &#{$self}-warning {
       background-color: $background-warning;
       color: $color-warning;
     }
@@ -64,29 +64,29 @@
   }
 
   &-bordered {
-    &#{$this}-ghost {
-      &#{$this}-default {
+    &#{$self}-ghost {
+      &#{$self}-default {
         @include one-px-border(round, $border-radius-xs, $color-white);
       }
 
-      &#{$this}-success {
+      &#{$self}-success {
         @include one-px-border(round, $border-radius-xs, $border-color-success);
       }
 
-      &#{$this}-info {
+      &#{$self}-info {
         @include one-px-border(round, $border-radius-xs, $border-color-primary);
       }
 
-      &#{$this}-danger {
+      &#{$self}-danger {
         @include one-px-border(round, $border-radius-xs, $border-color-danger);
       }
 
-      &#{$this}-warning {
+      &#{$self}-warning {
         @include one-px-border(round, $border-radius-xs, $border-color-warning);
       }
     }
 
-    &#{$this}-round {
+    &#{$self}-round {
       &:after {
         border-radius: 9999px;
       }

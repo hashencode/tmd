@@ -1,7 +1,7 @@
 @import "../_style/theme";
 
 .tm-popup {
-  $this: &;
+  $self: &;
   display: flex;
   height: 100%;
   left: 0;
@@ -15,7 +15,7 @@
   &-no-mask {
     pointer-events: none;
 
-    #{$this}__content {
+    #{$self}__content {
       pointer-events: auto;
     }
   }

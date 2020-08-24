@@ -55,16 +55,16 @@ function TmResult(props: PropsInterface) {
     const defaultConfig = {
       default: {},
       success: {
-        icon: <TmIcon tmValue={"chenggong_fill"} tmColor={colorSuccess} />
+        icon: <TmIcon tmValue={"success_fill"} tmColor={colorSuccess} />
       },
       error: {
-        icon: <TmIcon tmValue={"shibai_fill"} tmColor={colorDanger} />
+        icon: <TmIcon tmValue={"error_fill"} tmColor={colorDanger} />
       },
       warning: {
-        icon: <TmIcon tmValue={"jinggao_fill"} tmColor={colorWarning} />
+        icon: <TmIcon tmValue={"warning_fill"} tmColor={colorWarning} />
       },
       waiting: {
-        icon: <TmIcon tmValue={"shijian_fill"} tmColor={colorPrimary} />
+        icon: <TmIcon tmValue={"clock_fill"} tmColor={colorPrimary} />
       },
       empty: {
         icon: (

@@ -1,14 +1,21 @@
 import "../demoStyle.scss";
 
-import {TmButton, TmCard, TmIcon, TmNavBar, TmSpace, TmTag,} from "../../../components";
+import {
+  TmButton,
+  TmCard,
+  TmIcon,
+  TmNavBar,
+  TmSpace,
+  TmTag
+} from "../../../components";
 
 import React from "react";
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 
 function DemoTag() {
   return (
     <View className={"demo"}>
-      <TmNavBar tmTitle={"标签"}/>
+      <TmNavBar tmTitle={"标签"} />
       <TmCard tmRound className={"demo__card"} tmTitle={"圆角"}>
         <TmSpace>
           <TmTag tmRound>圆角</TmTag>
@@ -56,7 +63,7 @@ function DemoTag() {
       </TmCard>
       <TmCard tmRound className={"demo__card"} tmTitle={"图标"}>
         <TmSpace>
-          <TmTag tmBorder tmIcon={<TmIcon tmValue={"maikefeng"}/>}>
+          <TmTag tmBorder tmIcon={<TmIcon tmValue={"microphone"} />}>
             默认
           </TmTag>
         </TmSpace>

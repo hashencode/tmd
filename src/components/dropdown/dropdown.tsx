@@ -29,7 +29,6 @@ function TmDropdown(props: PropsInterface) {
   } = props;
 
   const [maskVisible, setMaskVisible] = useState<boolean>(false);
-  const [hasDestroy, setHasDestroy] = useState(true);
 
   const destroyTimer = useRef<any>(0);
 
@@ -37,15 +36,7 @@ function TmDropdown(props: PropsInterface) {
 
   const handleHeadClick = () => {
     clearTimeout(destroyTimer.current);
-    if (maskVisible) {
-      setMaskVisible(false);
-      destroyTimer.current = setTimeout(() => {
-        setHasDestroy(true);
-      }, 350);
-    } else {
-      setMaskVisible(true);
-      setHasDestroy(false);
-    }
+    setMaskVisible(!maskVisible);
   };
 
   const handleMaskClick = () => {
@@ -68,32 +59,30 @@ function TmDropdown(props: PropsInterface) {
       >
         <View className="tm-dropdown__text">sou</View>
         <View className="tm-dropdown__arrow">
-          <TmIcon tmValue={"paixu_xia"} />
+          <TmIcon tmValue={"sort_down"} />
         </View>
       </View>
-      {!hasDestroy && (
-        <View className="tm-dropdown__body">
-          <TmPopup
-            tmAppear
-            tmShow={maskVisible}
-            tmFullScreen={false}
-            tmPosition={"top"}
-            tmMotion={"slide-down"}
-            onMaskClick={handleMaskClick}
-          >
-            <ScrollView scrollY style={{ height: "30vh" }} scrollWithAnimation>
-              <TmPicker
-                className="tm-dropdown__options"
-                tmMultiple={tmMultiple}
-                tmValue={tmValue}
-                tmDefaultValue={tmDefaultValue}
-              >
-                {props.children}
-              </TmPicker>
-            </ScrollView>
-          </TmPopup>
-        </View>
-      )}
+      <View className="tm-dropdown__body">
+        <TmPopup
+          tmAppear
+          tmShow={maskVisible}
+          tmFullScreen={false}
+          tmPosition={"top"}
+          tmMotion={"slide-down"}
+          onMaskClick={handleMaskClick}
+        >
+          <ScrollView scrollY style={{ height: "30vh" }} scrollWithAnimation>
+            <TmPicker
+              className="tm-dropdown__options"
+              tmMultiple={tmMultiple}
+              tmValue={tmValue}
+              tmDefaultValue={tmDefaultValue}
+            >
+              {props.children}
+            </TmPicker>
+          </ScrollView>
+        </TmPopup>
+      </View>
     </View>
   );
 }

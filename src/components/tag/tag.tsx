@@ -10,7 +10,6 @@ interface PropsInterface {
   tmGhost?: boolean; // 幽灵标签
   tmIcon?: ReactNode; // 自定义图标
   tmRound?: boolean; // 圆角显示
-  tmSize?: "sm" | "mid"; // 尺寸大小
   tmType?: "default" | "info" | "success" | "warning" | "danger"; // 预设状态
   children?: any; // 子组件内容
   className?: string; // 自定义类名
@@ -23,7 +22,6 @@ function TmTag(props: PropsInterface) {
     tmGhost = false,
     tmIcon = null,
     tmRound = false,
-    tmSize = "mid",
     tmType = "default",
     className = "",
     style = {}
@@ -39,7 +37,6 @@ function TmTag(props: PropsInterface) {
           "tm-tag-ghost": tmGhost
         },
         `tm-tag-${tmType}`,
-        `tm-tag-${tmSize}`,
         className
       )}
       style={style}

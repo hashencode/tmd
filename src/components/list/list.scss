@@ -1,7 +1,7 @@
 @import "../_style/theme";
 
 .tm-list {
-  $this: &;
+  $self: &;
   position: relative;
 
   &-disabled {
@@ -11,7 +11,7 @@
   &-round {
     border-radius: $border-radius-mid;
 
-    &#{$this}-outer-border {
+    &#{$self}-outer-border {
       &:after {
         border-radius: $border-radius-mid * 2;
       }

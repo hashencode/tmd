@@ -1,0 +1,101 @@
+@import "../_style/theme";
+
+.tm-input-number {
+  $self: &;
+  display: flex;
+  align-items: center;
+  border-radius: 999px;
+  width: auto;
+
+  input {
+    text-align: center;
+  }
+
+  // 尺寸
+  &-sm {
+    height: $height-sm;
+    #{$self}__prefix,
+    #{$self}__suffix {
+      width: $height-sm;
+      height: $height-sm;
+    }
+
+    #{$self}__content {
+      width: $height-sm * 2;
+    }
+    input {
+      height: $height-sm;
+    }
+    .tm-icon {
+      font-size: $icon-size-xs;
+      font-weight: bold;
+    }
+  }
+
+  &-mid {
+    height: $height-mid;
+    font-size: $font-size-subtitle;
+    // 前后缀
+    #{$self}__prefix,
+    #{$self}__suffix {
+      width: $height-mid;
+      height: $height-mid;
+    }
+    // 输入框宽度
+    #{$self}__content {
+      width: $height-mid * 2;
+    }
+
+    // 输入框高度
+    input {
+      height: $height-mid;
+    }
+    .tm-icon {
+      font-size: $icon-size-sm;
+      font-weight: bold;
+    }
+  }
+
+  // 禁用
+  &-disabled {
+    @include disabled-mask(false, $border-radius-sm);
+  }
+
+  &-bordered {
+    #{$self}__content,
+    #{$self}__prefix,
+    #{$self}__suffix {
+      @include one-px-border("round", $border-radius-sm);
+    }
+  }
+
+  &__content {
+    text-align: center;
+    background-color: $background-action;
+    border-radius: $border-radius-sm;
+  }
+
+  // 前后缀
+  &__prefix,
+  &__suffix {
+    position: relative;
+    line-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $background-action;
+    border-radius: $border-radius-sm;
+    &-disabled {
+      @include disabled-mask(false, $border-radius-sm);
+    }
+  }
+
+  &__prefix {
+    margin-right: $spacing-xs;
+  }
+
+  // 后缀
+  &__suffix {
+    margin-left: $spacing-xs;
+  }
+}

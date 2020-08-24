@@ -1,7 +1,7 @@
 @import "../_style/theme";
 
 .tm-list-item {
-  $this: &;
+  $self: &;
   align-items: stretch;
   border: 1px solid transparent;
   display: flex;
@@ -12,20 +12,20 @@
   &-indent {
     padding-left: $spacing-lg;
 
-    #{$this}__content {
+    #{$self}__content {
       padding-left: 0;
     }
   }
 
   &-bordered {
-    #{$this}__content {
+    #{$self}__content {
       @include one-px-border("bottom", 0);
     }
   }
 
   &-link {
     &:active {
-      background-color: $background-mask-slim;
+      background-color: $background-action;
     }
   }
 
@@ -34,12 +34,12 @@
   }
 
   &-has-image {
-    #{$this}__content {
+    #{$self}__content {
       padding-left: 0;
     }
 
-    &#{$this}-indent {
-      #{$this}__image {
+    &#{$self}-indent {
+      #{$self}__image {
         margin-left: 0;
       }
     }

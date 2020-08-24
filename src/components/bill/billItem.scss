@@ -1,7 +1,7 @@
 @import "../_style/theme";
 
 .tm-bill-item {
-  $this: &;
+  $self: &;
   display: flex;
   justify-content: space-between;
   margin-bottom: $spacing-mid;
@@ -10,7 +10,7 @@
     color: $font-color-title;
     font-weight: 600;
 
-    #{$this}__title {
+    #{$self}__title {
       color: $font-color-title;
     }
   }

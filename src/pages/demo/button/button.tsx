@@ -1,39 +1,37 @@
 import "../demoStyle.scss";
 
-import React, {useEffect} from "react";
-import {TmButton, TmCard, TmDivider, TmIcon, TmNavBar, TmSpace,} from "../../../components";
+import React, { useEffect } from "react";
+import {
+  TmButton,
+  TmCard,
+  TmDivider,
+  TmIcon,
+  TmNavBar,
+  TmSpace
+} from "../../../components";
 
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 
 function DemoButton() {
-  useEffect(() => {
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <View className={"demo "}>
-      <TmNavBar tmTitle={"按钮"}/>
-      <TmCard tmRound className={"demo__card"} tmTitle={"大小"}>
+      <TmNavBar tmTitle={"按钮"} />
+      <TmCard tmRound className={"demo__card"} tmTitle={"尺寸"}>
         <TmSpace>
-          <TmButton tmSize={"lg"} tmType={"primary"}>
+          <TmButton tmBig tmType={"primary"}>
             大
           </TmButton>
-          <TmButton tmSize={"mid"} tmType={"primary"}>
-            中
-          </TmButton>
-          <TmButton tmSize={"sm"} tmType={"primary"}>
-            小
-          </TmButton>
+          <TmButton tmType={"primary"}>中</TmButton>
         </TmSpace>
-        <TmDivider/>
+        <TmDivider />
         <TmSpace>
-          <TmButton tmSize={"lg"} tmShape={"circle"} tmType={"primary"}>
+          <TmButton tmBig tmShape={"circle"} tmType={"primary"}>
             大
           </TmButton>
-          <TmButton tmSize={"mid"} tmShape={"circle"} tmType={"primary"}>
+          <TmButton tmShape={"circle"} tmType={"primary"}>
             中
-          </TmButton>
-          <TmButton tmSize={"sm"} tmShape={"circle"} tmType={"primary"}>
-            小
           </TmButton>
         </TmSpace>
       </TmCard>
@@ -73,7 +71,7 @@ function DemoButton() {
         </TmSpace>
       </TmCard>
       <TmCard tmRound className={"demo__card"} tmTitle={"幽灵按钮"}>
-        <TmSpace style={{background: "#cdcdcd", padding: "12px"}}>
+        <TmSpace style={{ background: "#cdcdcd", padding: "12px" }}>
           <TmButton tmType={"primary"} tmGhost>
             幽灵
           </TmButton>
@@ -85,7 +83,7 @@ function DemoButton() {
             幽灵
           </TmButton>
         </TmSpace>
-        <TmSpace style={{background: "#cdcdcd", padding: "12px"}}>
+        <TmSpace style={{ background: "#cdcdcd", padding: "12px" }}>
           <TmButton tmType={"primary"} tmGhost tmDanger>
             幽灵
           </TmButton>
@@ -110,16 +108,16 @@ function DemoButton() {
           <TmButton
             tmShape={"circle"}
             tmType={"primary"}
-            tmIcon={<TmIcon tmValue={"maikefeng"}/>}
+            tmIcon={<TmIcon tmValue={"microphone"} />}
           />
           <TmButton
             tmShape={"rect"}
             tmType={"primary"}
-            tmIcon={<TmIcon tmValue={"maikefeng"}/>}
+            tmIcon={<TmIcon tmValue={"microphone"} />}
           >
             图标
           </TmButton>
-          <TmButton tmType={"link"} tmIcon={<TmIcon tmValue={"maikefeng"}/>}>
+          <TmButton tmType={"link"} tmIcon={<TmIcon tmValue={"microphone"} />}>
             图标
           </TmButton>
         </TmSpace>
@@ -127,10 +125,10 @@ function DemoButton() {
       <TmCard tmRound className={"demo__card"} tmTitle={"加载"}>
         <TmSpace>
           <TmButton tmType={"primary"} tmLoading>
-            加载
+            加载中...
           </TmButton>
           <TmButton tmType={"link"} tmLoading>
-            加载
+            加载中...
           </TmButton>
         </TmSpace>
       </TmCard>

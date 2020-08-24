@@ -1,6 +1,6 @@
 import "./badge.scss";
 
-import React, { useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect, useMemo, useState } from "react";
 
 import { View } from "@tarojs/components";
 import classNames from "classnames";
@@ -33,7 +33,7 @@ function TmBadge(props: PropsInterface) {
 
   const [number, setNumber] = useState<number | string>(0);
 
-  const renderBadge = () => {
+  const renderBadge = useMemo(() => {
     // 是否显示零值
     if (tmShowZero || (!tmShowZero && tmValue > 0)) {
       // 显示为数字或点标
@@ -60,7 +60,7 @@ function TmBadge(props: PropsInterface) {
         );
       }
     }
-  };
+  }, [tmShowZero, tmValue, tmDot, tmColor, number]);
 
   useLayoutEffect(() => {
     setNumber(tmValue < tmMax ? tmValue : `${tmMax}+`);
@@ -76,7 +76,7 @@ function TmBadge(props: PropsInterface) {
           )},${sizeTransform(tmTranslate.y)},0)`
         }}
       >
-        {renderBadge()}
+        {renderBadge}
       </View>
       {/*自定义元素撑开*/}
       {props.children}

@@ -2,7 +2,7 @@
 @import "../_style/animation";
 
 .tm-calendar {
-  $this: &;
+  $self: &;
   padding: $spacing-sm;
   // 显示边框
   &-bordered {

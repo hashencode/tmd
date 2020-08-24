@@ -14,6 +14,8 @@ export { default as TmNavBar } from "./navBar/navBar";
 export { default as TmNavGrid } from "./navGrid/navGrid";
 export { default as TmSteps } from "./steps/steps";
 // 数据录入
+export { default as TmInput } from "./input/input";
+export { default as TmInputNumber } from "./inputNumber/inputNumber";
 export { default as TmSwitch } from "./switch/switch";
 // 数据展示
 export { default as TmAvatar } from "./avatar/avatar";

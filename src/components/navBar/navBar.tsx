@@ -137,6 +137,9 @@ function TmNavBar(props: PropsInterface) {
     { trailing: false }
   );
 
+  // 点击菜单按钮
+  const handleMenuClick = throttle(() => {}, 500, { trailing: false });
+
   // 根据滚动距离设置背景透明度
   const updateOpacity = scrollTop => {
     const percent = tmDynamicOpacity ? Number((scrollTop / 140).toFixed(2)) : 1;
@@ -207,14 +210,14 @@ function TmNavBar(props: PropsInterface) {
           >
             {/*返回按钮*/}
             <TmIcon
-              tmValue={isFirstLoad ? "shouye" : "jiantou_zuo"}
+              tmValue={isFirstLoad ? "home" : "arrow_left"}
               tmSize={40}
               onClick={handleBackBtnClick}
             />
             {/*分割线*/}
             <TmDivider tmVertical tmSpace={12} />
             {/*菜单按钮*/}
-            <TmIcon tmValue={"liebiao"} tmSize={40} />
+            <TmIcon tmValue={"list"} tmSize={40} onClick={handleMenuClick} />
           </View>
         )}
         {/*显示插槽或者自定义标题*/}

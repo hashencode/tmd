@@ -241,7 +241,7 @@ function TmCalendar(props: PropsInterface) {
             {/*年份减少按钮*/}
             {!tmHideYearBtn && (
               <TmIcon
-                tmValue={"shuangjiantou_zuo"}
+                tmValue={"double_arrow_left"}
                 tmSize={30}
                 onClick={() => {
                   handleYearChange("decrease");
@@ -251,7 +251,7 @@ function TmCalendar(props: PropsInterface) {
             {/*月份减少按钮*/}
             {!tmHideMonthBtn && (
               <TmIcon
-                tmValue={"jiantou_zuo"}
+                tmValue={"arrow_left"}
                 tmSize={30}
                 onClick={() => {
                   handleMonthChange("decrease");
@@ -266,7 +266,7 @@ function TmCalendar(props: PropsInterface) {
             {/*月份增加按钮*/}
             {!tmHideMonthBtn && (
               <TmIcon
-                tmValue={"jiantou_you"}
+                tmValue={"arrow_right"}
                 tmSize={30}
                 onClick={() => {
                   handleMonthChange("increase");
@@ -276,7 +276,7 @@ function TmCalendar(props: PropsInterface) {
             {/*年份增加按钮*/}
             {!tmHideYearBtn && (
               <TmIcon
-                tmValue={"shuangjiantou_you"}
+                tmValue={"double_arrow_right"}
                 tmSize={30}
                 onClick={() => {
                   handleYearChange("increase");

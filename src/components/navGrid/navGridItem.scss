@@ -1,7 +1,7 @@
 @import "../_style/theme";
 
 .tm-nav-grid-item {
-  $this: &;
+  $self: &;
   align-items: center;
   display: inline-flex;
   justify-content: center;
@@ -10,7 +10,7 @@
     flex-direction: column;
   }
   // 文字
-  &__text{
-    font-size:$font-size-secondary
+  &__text {
+    font-size: $font-size-secondary;
   }
 }

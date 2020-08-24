@@ -37,7 +37,9 @@ export default {
     "pages/demo/description/description",
     "pages/demo/dropdown/dropdown",
     "pages/demo/picker/picker",
-    "pages/demo/scroll/scroll"
+    "pages/demo/scroll/scroll",
+    "pages/demo/input/input",
+    "pages/demo/inputNumber/inputNumber"
   ],
   window: {
     navigationStyle: "custom",

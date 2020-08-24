@@ -1,7 +1,7 @@
 @import "../_style/theme";
 
 .tm-drawer {
-  $this: &;
+  $self: &;
   background-color: $color-white;
   display: flex;
   flex-direction: column;
@@ -15,7 +15,7 @@
     min-height: 200px;
     width: 100vw;
 
-    #{$this}__head {
+    #{$self}__head {
       line-height: 1;
       display: flex;
       font-size: $font-size-primary;
@@ -56,12 +56,12 @@
     height: 100%;
     width: 90vw;
 
-    #{$this}__head {
+    #{$self}__head {
       color: $font-color-title;
       font-size: $font-size-title;
     }
 
-    #{$this}__footer {
+    #{$self}__footer {
       align-items: center;
       display: flex;
       justify-content: space-between;

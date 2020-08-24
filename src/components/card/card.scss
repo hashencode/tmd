@@ -1,7 +1,7 @@
 @import "../_style/theme";
 
 .tm-card {
-  $this: &;
+  $self: &;
   background-color: $color-white;
 
   // 显示阴影
@@ -13,7 +13,7 @@
   &-bordered {
     @include one-px-border("round");
     // 圆角边框
-    &#{$this}-round {
+    &#{$self}-round {
       border-radius: $border-radius-mid;
 
       &:after {

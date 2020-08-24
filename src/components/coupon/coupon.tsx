@@ -78,7 +78,7 @@ function TmCoupon(props: PropsInterface) {
               >
                 {isFold ? "详细规则" : "收起"}
                 <View className="tm-coupon-vertical__toggle-icon">
-                  <TmIcon tmValue={isFold ? "jiantou_xia" : "jiantou_shang"} />
+                  <TmIcon tmValue={isFold ? "arrow_down" : "arrow_up"} />
                 </View>
               </View>
             )}

@@ -1,7 +1,7 @@
 @import "../_style/theme";
 
 .tm-nav-bar {
-  $this: &;
+  $self: &;
 
   // 主要内容
   &__content {
@@ -23,15 +23,15 @@
     z-index: $z-index-nav-bar;
 
     // 黑暗模式
-    &#{$this}__dark {
+    &#{$self}__dark {
       background-color: $background-mask;
       @include one-px-border("round", 9999px, $color-white);
       color: $color-white;
     }
 
     // 普通模式
-    &#{$this}__light {
-      background-color: $background-mask-light;
+    &#{$self}__light {
+      background-color: $background-ghost;
       @include one-px-border("round", 9999px);
     }
 

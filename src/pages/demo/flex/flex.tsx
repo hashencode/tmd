@@ -1,14 +1,21 @@
 import "../demoStyle.scss";
 
-import {TmButton, TmCard, TmCol, TmDivider, TmNavBar, TmRow,} from "../../../components";
+import {
+  TmButton,
+  TmCard,
+  TmCol,
+  TmDivider,
+  TmNavBar,
+  TmRow
+} from "../../../components";
 
 import React from "react";
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 
 function DemoFlex() {
   return (
     <View className={"demo"}>
-      <TmNavBar tmTitle={"栅格"}/>
+      <TmNavBar tmTitle={"栅格"} />
       <TmCard tmRound className={"demo__card"} tmTitle={"间距"}>
         <TmRow tmGutter={8}>
           {Array(4)
@@ -17,7 +24,7 @@ function DemoFlex() {
             .map((item, index) => {
               return (
                 <TmCol tmSpan={6} key={index}>
-                  <TmButton tmType={"primary"} tmBlock/>
+                  <TmButton tmType={"primary"} tmBlock />
                 </TmCol>
               );
             })}
@@ -31,12 +38,12 @@ function DemoFlex() {
             .map((item, index) => {
               return (
                 <TmCol tmSpan={4} key={`flex-start-${index}`}>
-                  <TmButton tmType={"primary"} tmBlock/>
+                  <TmButton tmType={"primary"} tmBlock />
                 </TmCol>
               );
             })}
         </TmRow>
-        <TmDivider/>
+        <TmDivider />
         <TmRow tmGutter={8} tmJustify={"center"}>
           {Array(4)
             .fill("")
@@ -44,12 +51,12 @@ function DemoFlex() {
             .map((item, index) => {
               return (
                 <TmCol tmSpan={4} key={`center-${index}`}>
-                  <TmButton tmType={"primary"} tmBlock/>
+                  <TmButton tmType={"primary"} tmBlock />
                 </TmCol>
               );
             })}
         </TmRow>
-        <TmDivider/>
+        <TmDivider />
         <TmRow tmGutter={8} tmJustify={"flex-end"}>
           {Array(4)
             .fill("")
@@ -57,12 +64,12 @@ function DemoFlex() {
             .map((item, index) => {
               return (
                 <TmCol tmSpan={4} key={`flex-end-${index}`}>
-                  <TmButton tmType={"primary"} tmBlock/>
+                  <TmButton tmType={"primary"} tmBlock />
                 </TmCol>
               );
             })}
         </TmRow>
-        <TmDivider/>
+        <TmDivider />
         <TmRow tmGutter={8} tmJustify={"space-around"}>
           {Array(4)
             .fill("")
@@ -70,12 +77,12 @@ function DemoFlex() {
             .map((item, index) => {
               return (
                 <TmCol tmSpan={4} key={index}>
-                  <TmButton tmType={"primary"} tmBlock/>
+                  <TmButton tmType={"primary"} tmBlock />
                 </TmCol>
               );
             })}
         </TmRow>
-        <TmDivider/>
+        <TmDivider />
         <TmRow tmGutter={8} tmJustify={"space-between"}>
           {Array(4)
             .fill("")
@@ -83,13 +90,13 @@ function DemoFlex() {
             .map((item, index) => {
               return (
                 <TmCol tmSpan={4} key={index}>
-                  <TmButton tmType={"primary"} tmBlock/>
+                  <TmButton tmType={"primary"} tmBlock />
                 </TmCol>
               );
             })}
         </TmRow>
       </TmCard>
-      <TmCard tmRound className={"demo__card"} tmTitle={"大小"}>
+      <TmCard tmRound className={"demo__card"} tmTitle={"尺寸"}>
         <TmRow tmGutter={8}>
           <TmCol tmSpan={16}>
             <TmButton tmType={"primary"} tmBlock>

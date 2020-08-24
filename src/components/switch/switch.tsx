@@ -12,7 +12,7 @@ interface PropsInterface {
   tmDefaultChecked?: boolean; // 默认选中状态
   tmDisabled?: boolean; // 禁用
   tmLoading?: boolean; // 加载中
-  tmSize?: "sm" | "mid"; // 尺寸大小
+  tmSmall?: boolean; // 小尺寸
   tmThrottle?: number; // 点击事件节流阀（毫秒）
   tmThrottleConfig?: {}; // 节流阀设置
   onClick?: (event?: any) => void; // 点击事件回调
@@ -28,7 +28,7 @@ function TmSwitch(props: PropsInterface) {
     tmDefaultChecked = false,
     tmDisabled = false,
     tmLoading = false,
-    tmSize = "mid",
+    tmSmall = false,
     tmThrottle = 500,
     tmThrottleConfig = {},
     onClick = () => {},
@@ -47,7 +47,9 @@ function TmSwitch(props: PropsInterface) {
   }, [tmChecked]);
 
   const handleClick = throttle(
-    () => {
+    event => {
+      event.stopPropagation();
+      event.preventDefault();
       if (tmLoading || tmDisabled) return;
       const _isChecked = !isChecked;
       setIsChecked(_isChecked);
@@ -62,7 +64,7 @@ function TmSwitch(props: PropsInterface) {
     <View
       className={classNames(
         "tm-switch",
-        `tm-switch-${tmSize}`,
+        tmSmall ? "tm-switch-sm" : "tm-switch-mid",
         {
           "tm-switch-checked": isChecked,
           "tm-switch-loading": tmLoading,

@@ -1,7 +1,7 @@
 @import "../_style/theme";
 
 .tm-steps {
-  $this: &;
+  $self: &;
   align-items: center;
   display: flex;
   padding: 20px 40px 40px;
@@ -71,18 +71,18 @@
     flex-direction: column;
     padding: 20px;
 
-    #{$this}__icon {
+    #{$self}__icon {
       margin-right: $spacing-sm;
       min-width: 44px;
     }
 
-    #{$this}__text {
+    #{$self}__text {
       left: 100%;
       top: 0;
       transform: translateX(0);
     }
 
-    #{$this}__connection {
+    #{$self}__connection {
       flex: auto;
       margin-left: 21px;
       min-height: 50px;

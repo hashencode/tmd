@@ -2,7 +2,7 @@
 @import "../_style/animation";
 
 .tm-notice {
-  $this: &;
+  $self: &;
   align-items: center;
   display: none;
   padding: $spacing-xs 0;

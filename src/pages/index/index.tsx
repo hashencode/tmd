@@ -7,33 +7,6 @@ import React from "react";
 import { View } from "@tarojs/components";
 
 function Index() {
-  // const handleUpload = () => {
-  //   Taro.chooseImage({
-  //     count: 1,
-  //     success: (res) => {
-  //       const { host, signature, accessId, policy } = ossSTS;
-  //       Taro.uploadFile({
-  //         url: host,
-  //         filePath: res.tempFilePaths[0],
-  //         name: "file",
-  //         formData: {
-  //           key: "upload_test/empty.png",
-  //           policy,
-  //           OSSAccessKeyId: accessId,
-  //           signature,
-  //           success_action_status: "200",
-  //         },
-  //         success(res) {
-  //           console.log(res);
-  //         },
-  //         fail(err) {
-  //           console.log(err);
-  //         },
-  //       });
-  //     },
-  //   });
-  // };
-
   return (
     <View className={"demo demo-index"}>
       <TmNavBar tmTitle={"组件"} tmHideBtn />
@@ -131,12 +104,12 @@ function Index() {
       >
         <TmList tmInnerBorder>
           <TmListItem
-            tmTitle={"Checkbox 多选框"}
+            tmTitle={"Checkbox 多选框🛠"}
             tmHref={"/pages/demo//"}
             tmShowArrow
           />
           <TmListItem
-            tmTitle={"Cascader 级联选择"}
+            tmTitle={"Cascader 级联选择🛠"}
             tmHref={"/pages/demo//"}
             tmShowArrow
           />
@@ -146,37 +119,32 @@ function Index() {
             tmShowArrow
           />
           <TmListItem
-            tmTitle={"Form 表单"}
-            tmHref={"/pages/demo//"}
-            tmShowArrow
-          />
-          <TmListItem
             tmTitle={"Input 输入框"}
-            tmHref={"/pages/demo//"}
+            tmHref={"/pages/demo/input/input"}
             tmShowArrow
           />
           <TmListItem
             tmTitle={"InputNumber 数字输入框"}
+            tmHref={"/pages/demo/inputNumber/inputNumber"}
+            tmShowArrow
+          />
+          <TmListItem
+            tmTitle={"Textarea 多行文本🛠"}
             tmHref={"/pages/demo//"}
             tmShowArrow
           />
           <TmListItem
-            tmTitle={"Textarea 多行文本"}
+            tmTitle={"Rate 评分🛠"}
             tmHref={"/pages/demo//"}
             tmShowArrow
           />
           <TmListItem
-            tmTitle={"Rate 评分"}
+            tmTitle={"Radio 单选框🛠"}
             tmHref={"/pages/demo//"}
             tmShowArrow
           />
           <TmListItem
-            tmTitle={"Radio 单选框"}
-            tmHref={"/pages/demo//"}
-            tmShowArrow
-          />
-          <TmListItem
-            tmTitle={"Search 搜索"}
+            tmTitle={"Search 搜索🛠"}
             tmHref={"/pages/demo//"}
             tmShowArrow
           />
@@ -186,17 +154,17 @@ function Index() {
             tmShowArrow
           />
           <TmListItem
-            tmTitle={"Slider 滑动输入条"}
+            tmTitle={"Slider 滑动输入条🛠"}
             tmHref={"/pages/demo//"}
             tmShowArrow
           />
           <TmListItem
-            tmTitle={"Select 选择器"}
+            tmTitle={"Select 选择器🛠"}
             tmHref={"/pages/demo//"}
             tmShowArrow
           />
           <TmListItem
-            tmTitle={"Upload 上传"}
+            tmTitle={"Upload 上传🛠"}
             tmHref={"/pages/demo//"}
             tmShowArrow
           />

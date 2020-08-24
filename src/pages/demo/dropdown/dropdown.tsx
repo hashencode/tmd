@@ -24,56 +24,6 @@ function DemoDropdown() {
             );
           })}
       </TmDropdown>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
-      <View>1</View>
     </View>
   );
 }

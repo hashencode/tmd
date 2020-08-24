@@ -1,11 +1,4 @@
 // 背景色 background color
-$background-mask-slim: rgba(0, 0, 0, 0.2);
-$background-mask: rgba(0, 0, 0, 0.5);
-$background-mask-important: rgba(0, 0, 0, 0.7);
-$background-mask-light-slim: rgba(255, 255, 255, 0.2);
-$background-mask-light: rgba(255, 255, 255, 0.5);
-$background-mask-light-important: rgba(255, 255, 255, 0.7);
-
 $background-default: #f0f2f5; // 默认背景色
 $background-primary: #e6f7ff; // 品牌背景色
 $background-warning: #fff7e6; // 警告背景色
@@ -14,6 +7,8 @@ $background-danger: #fff1f0; // 危险背景色
 $background-disabled: #f5f5f5; // 禁用背景色
 $background-unchecked: #e2e4ea; // 未被选中背景色
 $background-action: #f9fafb; // 操作区域背景色
+$background-mask: rgba(0, 0, 0, 0.7);
+$background-ghost: rgba(255, 255, 255, 0.5);
 
 // 边框颜色 border color
 $border-color-default: #e2e4ea; // 默认边框
@@ -121,13 +116,13 @@ $onePx: 1PX;
   overflow: hidden;
 }
 
-@mixin disabled-mask($hasBorder: false, $roundSize: $border-radius-mid) {
+@mixin disabled-mask($showBorder: false, $roundSize: $border-radius-mid) {
   &:before {
     content: "";
-    background-color: $background-mask-light-important;
+    background-color: $background-ghost;
     position: absolute;
     z-index: 1;
-    @if ($hasBorder) {
+    @if ($showBorder) {
       top: 1px;
       left: 1px;
       width: calc(200% - 2px);

@@ -1,14 +1,14 @@
 @import "../_style/theme";
 
 .tm-tabs {
-  $this: &;
+  $self: &;
   overflow: hidden;
 
   // 竖直显示
   &-vertical {
     display: flex;
 
-    #{$this}__head {
+    #{$self}__head {
       flex-direction: column;
       flex-shrink: 0;
       height: 100%;
@@ -31,14 +31,14 @@
       }
     }
 
-    #{$this}__body {
+    #{$self}__body {
       flex-grow: 1;
     }
   }
 
   // 水平显示
   &-horizon {
-    #{$this}__head {
+    #{$self}__head {
       overflow-x: auto;
       width: 100%;
 
