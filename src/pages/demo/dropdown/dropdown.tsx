@@ -9,7 +9,7 @@ function DemoDropdown() {
   return (
     <View className={"demo"} style={{ paddingLeft: 0, paddingRight: 0 }}>
       <TmNavBar tmTitle={"下拉菜单"} />
-      <TmDropdown tmMaskClosable>
+      <TmDropdown tmMaskClosable tmFooter={<View>123</View>}>
         {Array(20)
           .fill("")
           .map((_item, index) => {

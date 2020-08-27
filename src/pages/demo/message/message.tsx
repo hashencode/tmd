@@ -1,23 +1,16 @@
 import "../demoStyle.scss";
 
-import React, { useState } from "react";
-import {
-  TmButton,
-  TmCard,
-  TmIcon,
-  TmMessage,
-  TmNavBar,
-  TmSpace
-} from "../../../components";
+import React, {useState} from "react";
+import {TmButton, TmCard, TmIcon, TmMessage, TmNavBar, TmSpace} from "../../../components";
 
-import { View } from "@tarojs/components";
+import {View} from "@tarojs/components";
 
 function DemoMessage() {
   const [currentKey, setCurrentKey] = useState(0);
 
   return (
     <View className={"demo"}>
-      <TmNavBar tmTitle={"消息"} />
+      <TmNavBar tmTitle={"消息"}/>
       <TmCard tmRound className={"demo__card"}>
         <TmSpace>
           <TmButton
@@ -40,7 +33,7 @@ function DemoMessage() {
         </TmMessage>
         <TmMessage
           tmShow={currentKey === 4}
-          tmIcon={<TmIcon tmValue={"microphone"} tmSize={36} />}
+          tmIcon={<TmIcon tmValue={"microphone"} tmSize={36}/>}
         >
           录音中
         </TmMessage>

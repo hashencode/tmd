@@ -1,16 +1,15 @@
 import "./button.scss";
 
-import React, { ReactNode, useMemo } from "react";
+import React, {MouseEventHandler, ReactNode, useMemo} from "react";
 
-import { navigateTo } from "@tarojs/taro";
-import { TmLoading } from "../index";
-import { View } from "@tarojs/components";
+import {navigateTo} from "@tarojs/taro";
+import {TmLoading} from "../index";
+import {View} from "@tarojs/components";
 import classNames from "classnames";
 import throttle from "lodash/throttle";
 
 interface PropsInterface {
   tmAutoSpace?: boolean; // 在两个汉字时自动添加空格
-  tmBig?: boolean; // 大按钮
   tmBlock?: boolean; // 宽度与父组件一致
   tmDanger?: boolean; // 危险按钮
   tmDisabled?: boolean; // 禁止点击状态
@@ -20,10 +19,11 @@ interface PropsInterface {
   tmLoading?: boolean; // 载入状态
   tmShadow?: boolean; // 显示阴影
   tmShape?: "circle" | "round" | "rect"; // 按钮外观
+  tmSize?: "sm" | "mid" | "lg"; // 按钮尺寸
   tmThrottle?: number; // 点击事件节流阀（毫秒）
   tmThrottleConfig?: {}; // 节流阀设置
   tmType?: "primary" | "default" | "dashed" | "link"; // 按钮类型
-  onClick?: (event?: any) => void; // 点击事件回调
+  onClick?: MouseEventHandler; // 点击事件回调
   children?: any; // 子组件内容
   className?: string; // 自定义类名
   style?: React.CSSProperties; // 自定义行内样式
@@ -32,7 +32,6 @@ interface PropsInterface {
 function TmButton(props: PropsInterface) {
   const {
     tmAutoSpace = true,
-    tmBig = false,
     tmBlock = false,
     tmDanger = false,
     tmDisabled = false,
@@ -42,10 +41,12 @@ function TmButton(props: PropsInterface) {
     tmLoading = false,
     tmShadow = false,
     tmShape = "rect",
+    tmSize = "mid",
     tmThrottle = 500,
     tmThrottleConfig = {},
     tmType = "default",
-    onClick = () => {},
+    onClick = () => {
+    },
     className = "",
     style = {}
   } = props;
@@ -57,7 +58,7 @@ function TmButton(props: PropsInterface) {
       if (tmDisabled || tmLoading) return false;
       // 如果设置了href则跳转到对应页面
       if (tmHref) {
-        navigateTo({ url: tmHref });
+        navigateTo({url: tmHref}).then();
       }
       onClick(event);
     },
@@ -91,9 +92,8 @@ function TmButton(props: PropsInterface) {
         "tm-button",
         `tm-button-${tmType}`,
         `tm-button-${tmShape}`,
-        tmBig ? "tm-button-lg" : "tm-button-mid",
+        `tm-button-${tmSize}`,
         {
-          "tm-button-big": tmBig,
           "tm-button-ghost": tmGhost,
           "tm-button-danger": tmDanger,
           "tm-button-loading": tmLoading,
@@ -107,7 +107,7 @@ function TmButton(props: PropsInterface) {
       style={style}
     >
       {/*icon显示部分*/}
-      {tmLoading ? <TmLoading /> : tmIcon}
+      {tmLoading ? <TmLoading/> : tmIcon}
       {/*自定义插槽*/}
       {props.children && (
         <View

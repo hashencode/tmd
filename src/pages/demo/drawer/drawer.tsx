@@ -1,15 +1,9 @@
 import "../demoStyle.scss";
 
-import React, { useState } from "react";
-import {
-  TmButton,
-  TmCard,
-  TmDrawer,
-  TmNavBar,
-  TmSpace
-} from "../../../components";
+import React, {useState} from "react";
+import {TmButton, TmCard, TmDrawer, TmNavBar, TmSpace} from "../../../components";
 
-import { View } from "@tarojs/components";
+import {View} from "@tarojs/components";
 
 function DemoDrawer() {
   const togglePopup = id => {
@@ -20,7 +14,7 @@ function DemoDrawer() {
 
   return (
     <View className={"demo"}>
-      <TmNavBar tmTitle={"抽屉"} />
+      <TmNavBar tmTitle={"抽屉"}/>
       <TmCard tmRound className={"demo__card"} tmTitle={"方向"}>
         <TmSpace>
           <TmButton
@@ -50,7 +44,7 @@ function DemoDrawer() {
         }}
         tmFooter={
           <View>
-            <TmButton tmType={"primary"} tmBlock tmBig>
+            <TmButton tmType={"primary"} tmBlock tmSize={"lg"}>
               立即支付
             </TmButton>
           </View>
@@ -62,19 +56,19 @@ function DemoDrawer() {
           setCurrentPopup(0);
         }}
       >
-        <View style={{ width: "300px", height: "300px" }} />
+        <View style={{width: "300px", height: "300px"}}/>
       </TmDrawer>
       <TmDrawer
         tmShow={currentPopup === 2}
         tmPosition={"left"}
         tmTitle={"高级搜索"}
         tmConfirm={
-          <TmButton tmType={"primary"} tmBlock tmBig>
+          <TmButton tmType={"primary"} tmBlock tmSize={"lg"}>
             确认
           </TmButton>
         }
         tmCancel={
-          <TmButton tmType={"default"} tmBlock tmBig>
+          <TmButton tmType={"default"} tmBlock tmSize={"lg"}>
             取消
           </TmButton>
         }

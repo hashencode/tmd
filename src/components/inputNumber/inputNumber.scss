@@ -2,9 +2,9 @@
 
 .tm-input-number {
   $self: &;
-  display: flex;
   align-items: center;
   border-radius: 999px;
+  display: flex;
   width: auto;
 
   input {
@@ -14,18 +14,21 @@
   // 尺寸
   &-sm {
     height: $height-sm;
+
     #{$self}__prefix,
     #{$self}__suffix {
-      width: $height-sm;
       height: $height-sm;
+      width: $height-sm;
     }
 
     #{$self}__content {
       width: $height-sm * 2;
     }
+
     input {
       height: $height-sm;
     }
+
     .tm-icon {
       font-size: $icon-size-xs;
       font-weight: bold;
@@ -33,14 +36,15 @@
   }
 
   &-mid {
-    height: $height-mid;
     font-size: $font-size-subtitle;
+    height: $height-mid;
     // 前后缀
     #{$self}__prefix,
     #{$self}__suffix {
-      width: $height-mid;
       height: $height-mid;
+      width: $height-mid;
     }
+
     // 输入框宽度
     #{$self}__content {
       width: $height-mid * 2;
@@ -48,8 +52,10 @@
 
     // 输入框高度
     input {
+      font-family: $font-family-number;
       height: $height-mid;
     }
+
     .tm-icon {
       font-size: $icon-size-sm;
       font-weight: bold;
@@ -70,21 +76,22 @@
   }
 
   &__content {
-    text-align: center;
     background-color: $background-action;
     border-radius: $border-radius-sm;
+    text-align: center;
   }
 
   // 前后缀
   &__prefix,
   &__suffix {
-    position: relative;
-    line-height: 0;
-    display: flex;
     align-items: center;
-    justify-content: center;
     background-color: $background-action;
     border-radius: $border-radius-sm;
+    display: flex;
+    justify-content: center;
+    line-height: 0;
+    position: relative;
+
     &-disabled {
       @include disabled-mask(false, $border-radius-sm);
     }

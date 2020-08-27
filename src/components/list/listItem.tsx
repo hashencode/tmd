@@ -1,11 +1,11 @@
 import "./listItem.scss";
 
-import React, { ReactNode, useContext } from "react";
+import React, {MouseEventHandler, ReactNode, useContext} from "react";
 
 import ListContext from "./_context";
-import { navigateTo } from "@tarojs/taro";
-import { TmIcon } from "../index";
-import { View } from "@tarojs/components";
+import {navigateTo} from "@tarojs/taro";
+import {TmIcon} from "../index";
+import {View} from "@tarojs/components";
 import classNames from "classnames";
 import throttle from "lodash/throttle";
 
@@ -20,7 +20,7 @@ interface PropsInterface {
   tmThrottleConfig?: {}; // 节流阀设置
   tmTitle?: string | ReactNode; // 标题
   TmTitleAlignTop?: boolean; // 标题顶端对齐
-  onClick?: (event?: any) => void; // 点击事件回调
+  onClick?: MouseEventHandler; // 点击事件回调
   children?: any; // 子组件内容
   className?: string; // 自定义类名
   style?: React.CSSProperties; // 自定义行内样式
@@ -38,7 +38,8 @@ function TmListItem(props: PropsInterface) {
     tmThrottleConfig = {},
     tmTitle = "",
     TmTitleAlignTop = false,
-    onClick = () => {},
+    onClick = () => {
+    },
     className = "",
     style = {}
   } = props;
@@ -49,7 +50,7 @@ function TmListItem(props: PropsInterface) {
       event.preventDefault();
       if (tmDisabled) return false;
       if (tmHref) {
-        navigateTo({ url: tmHref });
+        navigateTo({url: tmHref});
       }
       onClick();
     },

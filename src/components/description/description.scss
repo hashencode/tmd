@@ -1,4 +1,7 @@
 @import "../_style/theme";
 
 .tm-description {
+  .tm-description-item:not(:nth-last-child(1)) {
+    margin-bottom: $spacing-sm;
+  }
 }

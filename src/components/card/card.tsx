@@ -1,8 +1,8 @@
 import "./card.scss";
 
-import React, { ReactNode } from "react";
+import React, {ReactNode} from "react";
 
-import { View } from "@tarojs/components";
+import {View} from "@tarojs/components";
 import classNames from "classnames";
 
 interface PropsInterface {

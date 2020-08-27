@@ -2,7 +2,7 @@ import "./navGrid.scss";
 
 import NavGridContext from "./_context";
 import React from "react";
-import { View } from "@tarojs/components";
+import {View} from "@tarojs/components";
 import classNames from "classnames";
 
 interface PropsInterface {
@@ -25,7 +25,7 @@ function TmNavGrid(props: PropsInterface) {
 
   return (
     <View className={classNames("tm-nav-grid", className)} style={style}>
-      <NavGridContext.Provider value={{ tmHorizon, tmSpace, tmTextSpace }}>
+      <NavGridContext.Provider value={{tmHorizon, tmSpace, tmTextSpace}}>
         {props.children}
       </NavGridContext.Provider>
     </View>

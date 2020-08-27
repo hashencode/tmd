@@ -1,15 +1,9 @@
 import "../demoStyle.scss";
 
-import {
-  TmButton,
-  TmCard,
-  TmNavBar,
-  TmPicker,
-  TmPickerOption
-} from "../../../components";
+import {TmButton, TmCard, TmNavBar, TmPicker, TmPickerOption} from "../../../components";
 
-import React, { useState } from "react";
-import { View } from "@tarojs/components";
+import React, {useState} from "react";
+import {View} from "@tarojs/components";
 
 function DemoPicker() {
   const [currentValue, setCurrentValue] = useState([1, 2]);
@@ -21,7 +15,7 @@ function DemoPicker() {
 
   return (
     <View className={"demo"}>
-      <TmNavBar tmTitle={"选择列表"} />
+      <TmNavBar tmTitle={"选择列表"}/>
       <TmCard tmRound className={"demo__card"} tmTitle={"单选"}>
         <TmPicker onChange={event => console.log(event)}>
           {Array(3)
@@ -122,7 +116,7 @@ function DemoPicker() {
         className={"demo__card"}
         tmTitle={"手动指定选中条目"}
         tmAction={
-          <TmButton tmType={"primary"} onClick={handleSwitch}>
+          <TmButton tmSize={"sm"} tmType={"primary"} onClick={handleSwitch}>
             切换
           </TmButton>
         }

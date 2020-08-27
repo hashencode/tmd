@@ -6,7 +6,7 @@ import {
   colorDanger,
   colorPrimary,
   colorSuccess,
-  colorWarning
+  colorWarning,
 } from "../_style/theme";
 
 import { View } from "@tarojs/components";
@@ -65,7 +65,7 @@ function TmModal(props: PropsInterface) {
     onHide = () => {},
     onShow = () => {},
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   // 内置图标
@@ -80,7 +80,7 @@ function TmModal(props: PropsInterface) {
     warning: (
       <TmIcon tmValue={"warning_fill"} tmSize={100} tmColor={colorWarning} />
     ),
-    error: <TmIcon tmValue={"error_fill"} tmSize={100} tmColor={colorDanger} />
+    error: <TmIcon tmValue={"error_fill"} tmSize={100} tmColor={colorDanger} />,
   };
 
   return (

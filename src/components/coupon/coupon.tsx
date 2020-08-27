@@ -1,11 +1,11 @@
 import "./coupon.scss";
 
-import React, { ReactNode, useState } from "react";
+import React, {ReactNode, useState} from "react";
 
-import { TmIcon } from "../index";
-import { View } from "@tarojs/components";
+import {TmIcon} from "../index";
+import {View} from "@tarojs/components";
 import classNames from "classnames";
-import { colorPrimary } from "../_style/theme";
+import {colorPrimary} from "../_style/theme";
 
 interface PropsInterface {
   tmAmount?: number | string | ReactNode; // 金额
@@ -56,7 +56,7 @@ function TmCoupon(props: PropsInterface) {
             {/*优惠券金额*/}
             <View
               className="tm-coupon-vertical__amount"
-              style={{ color: tmColor }}
+              style={{color: tmColor}}
             >
               {/*金额前缀*/}
               <View className="tm-coupon-vertical__prefix">{tmPrefix}</View>
@@ -78,7 +78,7 @@ function TmCoupon(props: PropsInterface) {
               >
                 {isFold ? "详细规则" : "收起"}
                 <View className="tm-coupon-vertical__toggle-icon">
-                  <TmIcon tmValue={isFold ? "arrow_down" : "arrow_up"} />
+                  <TmIcon tmValue={isFold ? "arrow_down" : "arrow_up"}/>
                 </View>
               </View>
             )}
@@ -94,7 +94,7 @@ function TmCoupon(props: PropsInterface) {
           {/*优惠券金额与描述*/}
           <View
             className="tm-coupon-horizon__left"
-            style={{ backgroundColor: tmColor }}
+            style={{backgroundColor: tmColor}}
           >
             <View className="tm-coupon-horizon__amount">
               <View className="tm-coupon-horizon__prefix">{tmPrefix}</View>

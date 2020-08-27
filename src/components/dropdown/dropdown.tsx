@@ -1,17 +1,19 @@
 import "./dropdown.scss";
 
-import React, { useRef, useState } from "react";
+import React, { ReactNode, useRef, useState } from "react";
 import { TmIcon, TmPicker, TmPopup } from "../index";
 
 import { ScrollView, View } from "@tarojs/components";
 import classNames from "classnames";
 
 interface PropsInterface {
+  tmOpen?: boolean; //
   tmDefaultValue?: number | string | (number | string)[]; // 默认值
   tmDisabled?: boolean; // 禁用
+  tmFooter?: ReactNode; // 自定义底部
+  tmMaskClosable?: boolean; // 点击蒙层关闭
   tmMultiple?: boolean; // 多选模式
   tmValue?: number | string | (number | string)[]; // 当前选中的值
-  tmMaskClosable?: boolean; // 点击蒙层关闭
   children?: any; // 子组件内容
   className?: string; // 自定义类名
   style?: React.CSSProperties; // 自定义行内样式
@@ -21,11 +23,12 @@ function TmDropdown(props: PropsInterface) {
   const {
     tmDefaultValue = "",
     tmDisabled = false,
-    tmMultiple = false,
+    tmFooter = null,
     tmMaskClosable = false,
+    tmMultiple = false,
     tmValue = "",
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   const [maskVisible, setMaskVisible] = useState<boolean>(false);
@@ -81,6 +84,7 @@ function TmDropdown(props: PropsInterface) {
               {props.children}
             </TmPicker>
           </ScrollView>
+          <View className="tm-dropdown__footer">{tmFooter}</View>
         </TmPopup>
       </View>
     </View>

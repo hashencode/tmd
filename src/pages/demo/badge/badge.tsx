@@ -1,14 +1,14 @@
 import "../demoStyle.scss";
 
-import { TmAvatar, TmBadge, TmCard, TmNavBar } from "../../../components";
+import {TmAvatar, TmBadge, TmCard, TmNavBar} from "../../../components";
 
 import React from "react";
-import { View } from "@tarojs/components";
+import {View} from "@tarojs/components";
 
 function DemoBadge() {
   return (
     <View className={"demo "}>
-      <TmNavBar tmTitle={"徽标数"} />
+      <TmNavBar tmTitle={"徽标数"}/>
       <TmCard tmRound className={"demo__card"} tmTitle={"外观"}>
         <TmBadge tmValue={9} tmMax={24}>
           <TmAvatar
@@ -50,7 +50,7 @@ function DemoBadge() {
         </TmBadge>
       </TmCard>
       <TmCard tmRound className={"demo__card"} tmTitle={"设置偏移量"}>
-        <TmBadge tmValue={5} tmShowZero tmTranslate={{ x: -15, y: 10 }}>
+        <TmBadge tmValue={5} tmShowZero tmTranslate={{x: -15, y: 10}}>
           <TmAvatar
             tmSrc={
               " https://tva3.sinaimg.cn/large/007VJd8cly1ghmmxa9u9uj3069069q2t.jpg"

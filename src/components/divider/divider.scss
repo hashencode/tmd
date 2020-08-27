@@ -3,7 +3,9 @@
 .tm-divider {
   $self: &;
   align-items: center;
+  color: $font-color-secondary;
   display: flex;
+  font-size: $font-size-secondary;
   justify-content: center;
   position: relative;
   vertical-align: middle;

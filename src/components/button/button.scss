@@ -22,6 +22,15 @@
   }
 
   // 尺寸
+  &-sm {
+    height: $height-sm;
+    padding: 0 $spacing-sm;
+
+    .tm-icon {
+      font-size: $icon-size-sm;
+    }
+  }
+
   &-mid {
     font-size: $font-size-primary;
     height: $height-mid;
@@ -261,6 +270,10 @@
 
     &:after {
       border-radius: 50%;
+    }
+
+    &#{$self}-sm {
+      width: $height-sm;
     }
 
     &#{$self}-mid {

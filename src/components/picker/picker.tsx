@@ -13,7 +13,11 @@ interface PropsInterface {
   tmDisabled?: boolean; // 禁用
   tmMultiple?: boolean; // 多选模式
   tmValue?: number | string | (number | string)[]; // 当前选中的值
-  onChange?: (event: any) => void; // 选项变动回调
+  onChange?: (
+    value:
+      | { text: string; value: number | string }[]
+      | { text: string; value: number | string }
+  ) => void; // 选项变动回调
   children?: any; // 子组件内容
   className?: string; // 自定义类名
   style?: React.CSSProperties; // 自定义行内样式
@@ -27,7 +31,7 @@ function TmPicker(props: PropsInterface) {
     tmValue = "",
     onChange = () => {},
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   const [activeKeys, setActiveKeys] = useState<(number | string)[]>([]);
@@ -52,16 +56,16 @@ function TmPicker(props: PropsInterface) {
       }
       setActiveKeys(_newActiveKeys);
       onChange(
-        _newActiveKeys.map(value => {
+        _newActiveKeys.map((value) => {
           return {
             text: hashMap.current.get(value),
-            value
+            value,
           };
         })
       );
     } else {
       setActiveKeys([tmValue]);
-      onChange({ text: hashMap.current.get(tmValue), tmValue });
+      onChange({ text: hashMap.current.get(tmValue), value: tmValue });
     }
   };
 

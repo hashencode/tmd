@@ -1,11 +1,11 @@
 import "./navGridItem.scss";
 
-import React, { ReactNode, useContext } from "react";
+import React, {ReactNode, useContext} from "react";
 
 import NavGridContext from "./_context";
-import { View } from "@tarojs/components";
+import {View} from "@tarojs/components";
 import classNames from "classnames";
-import { sizeTransform } from "../_scripts";
+import {transformPx} from "../_scripts";
 
 interface PropsInterface {
   tmImage: ReactNode; // 图片
@@ -15,32 +15,32 @@ interface PropsInterface {
 }
 
 function TmNavGridItem(props: PropsInterface) {
-  const { tmImage = null, tmText = "", className = "", style = {} } = props;
+  const {tmImage = null, tmText = "", className = "", style = {}} = props;
 
   const parentContext = useContext(NavGridContext);
 
   const calcImageStyle = () => {
-    const { tmSpace } = parentContext;
+    const {tmSpace} = parentContext;
     if (tmSpace) {
       // 如果是横向显示
       return {
-        padding: sizeTransform(tmSpace)
+        padding: transformPx(tmSpace)
       };
     }
   };
 
   const calcStyle = () => {
-    const { tmTextSpace, tmHorizon } = parentContext;
+    const {tmTextSpace, tmHorizon} = parentContext;
     if (tmTextSpace) {
-      const spaceValue = sizeTransform(tmTextSpace);
+      const spaceValue = transformPx(tmTextSpace);
       // 如果是横向显示
       return tmHorizon
         ? {
-            marginLeft: spaceValue
-          }
+          marginLeft: spaceValue
+        }
         : {
-            marginTop: spaceValue
-          };
+          marginTop: spaceValue
+        };
     }
   };
 
@@ -51,7 +51,7 @@ function TmNavGridItem(props: PropsInterface) {
         `tm-nav-grid-item-${parentContext.tmHorizon ? "horizon" : "vertical"}`,
         className
       )}
-      style={{ ...calcImageStyle(), ...style }}
+      style={{...calcImageStyle(), ...style}}
     >
       {/*图片*/}
       {tmImage}

@@ -16,10 +16,10 @@
     width: 100vw;
 
     #{$self}__head {
-      line-height: 1;
       display: flex;
       font-size: $font-size-primary;
       justify-content: space-between;
+      line-height: 1;
 
       &-cancel {
         color: $font-color-secondary;

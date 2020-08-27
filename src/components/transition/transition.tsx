@@ -1,7 +1,7 @@
 import "./transition.scss";
 
 import { CSSTransition } from "react-transition-group";
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import { View } from "@tarojs/components";
 import classNames from "classnames";
 import { getDataOrAriaProps } from "../_scripts";
@@ -26,7 +26,7 @@ interface PropsInterface {
   tmShow?: boolean; // 是否显示
   onHide?: () => void; // 完成隐藏回调
   onShow?: () => void; // 完成显示回调
-  onClick?: (event?: any) => void; // 点击事件回调
+  onClick?: MouseEventHandler; // 点击事件回调
   children?: any; // 子组件内容
   className?: string; // 自定义类名
   style?: React.CSSProperties; // 自定义行内样式

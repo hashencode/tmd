@@ -2,10 +2,10 @@
 
 .tm-input {
   $self: &;
-  display: flex;
   align-items: center;
-  padding: 0 $spacing-mid;
   border-radius: $border-radius-sm;
+  display: flex;
+  padding: 0 $spacing-mid;
 
   // 输入框高度
   taro-input-core,

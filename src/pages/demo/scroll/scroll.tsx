@@ -1,12 +1,12 @@
 import "../demoStyle.scss";
 
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import {
   TmButton,
   TmCard,
   TmNavBar,
   TmScroll,
-  TmSpace
+  TmSpace,
 } from "../../../components";
 
 import { View } from "@tarojs/components";
@@ -14,7 +14,7 @@ import { View } from "@tarojs/components";
 function DemoScroll() {
   const scrollRef = useRef<any>(null);
 
-  const [refresher, setRefresher] = useState("pending");
+  // const [refresher, setRefresher] = useState("pending");
 
   return (
     <View className={"demo "}>
@@ -46,10 +46,10 @@ function DemoScroll() {
         <TmScroll
           ref={scrollRef}
           style={{
-            height: "30vh"
+            height: "30vh",
           }}
           tmRefresher={<View>刷新</View>}
-          onChange={event => {
+          onChange={(event) => {
             console.log(event);
           }}
         >

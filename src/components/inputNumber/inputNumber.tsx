@@ -5,13 +5,14 @@ import { Input, View } from "@tarojs/components";
 import classNames from "classnames";
 import { TmIcon } from "../index";
 import throttle from "lodash/throttle";
+import { CommonEventFunction } from "@tarojs/components/types/common";
 
 interface PropsInterface {
   tmBorder?: boolean; // 显示边框
   tmDigit?: boolean; // 带小数
   tmDisabled?: boolean; // 禁用
   tmFocus?: boolean; // 获取焦点
-  tmId?: any; // 唯一id，用于表单校验
+  tmId: string; // 唯一id，用于表单校验
   tmMax?: number; // 最大值
   tmMin?: number; // 最小值
   tmSmall?: boolean; // 大输入框
@@ -24,11 +25,11 @@ interface PropsInterface {
   children?: any; // 子组件内容
   className?: string; // 自定义类名
   style?: React.CSSProperties; // 自定义行内样式
-  onBlur?: (event?: any) => void; // 失焦事件回调
-  onChange?: (event?: any) => void; // 输入变化回调
-  onConfirm?: (event?: any) => void; // 确认回调
-  onFocus?: (event?: any) => void; // 聚焦回调
-  onKeyboardHeightChange?: (event?: any) => void; // 键盘高度发生变化回调
+  onBlur?: CommonEventFunction; // 失焦事件回调
+  onChange?: (value?: number) => void; // 输入变化回调
+  onConfirm?: CommonEventFunction; // 确认回调
+  onFocus?: CommonEventFunction; // 聚焦回调
+  onWxKeyboardHeightChange?: (event?: any) => void; // 键盘高度发生变化回调
 }
 
 function TmInputNumber(props: PropsInterface) {
@@ -51,9 +52,9 @@ function TmInputNumber(props: PropsInterface) {
     onChange = () => {},
     onConfirm = () => {},
     onFocus = () => {},
-    onKeyboardHeightChange = () => {},
+    onWxKeyboardHeightChange = () => {},
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   const [valueCache, setValueCache] = useState<any>(0);
@@ -62,10 +63,10 @@ function TmInputNumber(props: PropsInterface) {
 
   // 点击减少
   const handleReduce = throttle(
-    event => {
+    (event) => {
       event.stopPropagation();
       event.preventDefault();
-      setValueCache(prevState => {
+      setValueCache((prevState) => {
         const bigNum = 10e5;
         let value =
           prevState <= tmMin
@@ -81,10 +82,10 @@ function TmInputNumber(props: PropsInterface) {
 
   // 点击增加
   const handleAdd = throttle(
-    event => {
+    (event) => {
       event.stopPropagation();
       event.preventDefault();
-      setValueCache(prevState => {
+      setValueCache((prevState) => {
         const bigNum = 10e5;
         let value =
           prevState >= tmMax
@@ -99,7 +100,7 @@ function TmInputNumber(props: PropsInterface) {
   );
 
   // 输入时回调
-  const handleChange = event => {
+  const handleChange = (event) => {
     let value = event.detail.value;
     if (value > tmMax) {
       value = tmMax;
@@ -111,7 +112,7 @@ function TmInputNumber(props: PropsInterface) {
   };
 
   // 失焦回调
-  const handleBlur = event => {
+  const handleBlur = (event) => {
     let value = event.detail.value;
     // 判断是否允许存在小数点
     if (!tmDigit) {
@@ -142,7 +143,7 @@ function TmInputNumber(props: PropsInterface) {
         tmSmall ? "tm-input-number-sm" : "tm-input-number-mid",
         {
           "tm-input-number-disabled": tmDisabled,
-          "tm-input-number-bordered": tmBorder
+          "tm-input-number-bordered": tmBorder,
         },
         className
       )}
@@ -150,7 +151,7 @@ function TmInputNumber(props: PropsInterface) {
     >
       <View
         className={classNames("tm-input-number__prefix", {
-          "tm-input-number__prefix-disabled": !decreaseEnable
+          "tm-input-number__prefix-disabled": !decreaseEnable,
         })}
         onClick={handleReduce}
       >
@@ -164,7 +165,7 @@ function TmInputNumber(props: PropsInterface) {
           id={tmId}
           type={tmDigit ? "digit" : "number"}
           value={valueCache}
-          onKeyboardHeightChange={onKeyboardHeightChange}
+          onKeyboardHeightChange={onWxKeyboardHeightChange}
           onBlur={handleBlur}
           onInput={handleChange}
           onConfirm={onConfirm}
@@ -174,7 +175,7 @@ function TmInputNumber(props: PropsInterface) {
       </View>
       <View
         className={classNames("tm-input-number__suffix", {
-          "tm-input-number__suffix-disabled": !addEnable
+          "tm-input-number__suffix-disabled": !addEnable,
         })}
         onClick={handleAdd}
       >

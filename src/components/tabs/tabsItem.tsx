@@ -1,9 +1,9 @@
 import "./tabsItem.scss";
 
-import React, { ReactNode, useContext, useLayoutEffect, useState } from "react";
+import React, {ReactNode, useContext, useLayoutEffect, useState} from "react";
 
 import TabsContext from "./_context";
-import { View } from "@tarojs/components";
+import {View} from "@tarojs/components";
 import classNames from "classnames";
 
 interface PropsInterface {
@@ -15,7 +15,7 @@ interface PropsInterface {
 }
 
 function TmTabsItem(props: PropsInterface) {
-  const { tmKey = "", className = "", style = {} } = props;
+  const {tmKey = "", className = "", style = {}} = props;
 
   const parentContext = useContext(TabsContext);
 

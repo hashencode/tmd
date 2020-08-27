@@ -1,10 +1,4 @@
-import {
-  getEnv,
-  getStorageSync,
-  getSystemInfoSync,
-  getMenuButtonBoundingClientRect,
-  setStorageSync
-} from "@tarojs/taro";
+import {getEnv, getMenuButtonBoundingClientRect, getStorageSync, getSystemInfoSync, setStorageSync} from "@tarojs/taro";
 
 // 获取小程序胶囊位置信息，来源：https://github.com/lingxiaoyi/Taro-navigation-bar
 function getGlobalSystemInfo() {
@@ -34,8 +28,8 @@ function getGlobalSystemInfo() {
       if (!rect || !rect.width || !rect.top || !rect.left || !rect.height) {
         throw "getMenuButtonBoundingClientRect error";
       }
-      const { right } = rect;
-      const { windowWidth } = systemInfo;
+      const {right} = rect;
+      const {windowWidth} = systemInfo;
       // 计算出到胶囊右端到页面右端的距离
       rect["marginRight"] = windowWidth - right;
     } catch (error) {
@@ -76,14 +70,14 @@ function getGlobalSystemInfo() {
     if (!statusBarHeight) {
       // 开启wifi和打电话下
       statusBarHeight = systemInfo.screenHeight - systemInfo.windowHeight - 20;
-      navBarHeight = (function() {
+      navBarHeight = (function () {
         let gap = rect.top - statusBarHeight;
         return 2 * gap + rect.height;
       })();
       statusBarHeight = 0;
       navBarExtendHeight = 0; //下方扩展4像素高度 防止下方边距太小
     } else {
-      navBarHeight = (function() {
+      navBarHeight = (function () {
         let gap = rect.top - statusBarHeight;
         return statusBarHeight + 2 * gap + rect.height;
       })();

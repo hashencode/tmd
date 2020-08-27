@@ -1,27 +1,27 @@
 import "../demoStyle.scss";
 
-import { TmCard, TmLoading, TmNavBar } from "../../../components";
+import {TmCard, TmLoading, TmNavBar} from "../../../components";
 
 import React from "react";
-import { View } from "@tarojs/components";
+import {View} from "@tarojs/components";
 
 function DemoLoading() {
   return (
     <View className={"demo"}>
-      <TmNavBar tmTitle={"加载中"} />
+      <TmNavBar tmTitle={"加载中"}/>
       <TmCard tmRound className={"demo__card"} tmTitle={"文字"}>
         <View>
-          <TmLoading tmShow tmText={"加载中，请稍后"} />
+          <TmLoading tmShow tmText={"加载中，请稍后"}/>
         </View>
       </TmCard>
       <TmCard tmRound className={"demo__card"} tmTitle={"外观"}>
         <View>
-          <TmLoading tmShow tmText={"加载中，请稍后"} tmShape={"circle"} />
+          <TmLoading tmShow tmText={"加载中，请稍后"} tmShape={"circle"}/>
         </View>
       </TmCard>
       <TmCard tmRound className={"demo__card"} tmTitle={"方向"}>
         <View>
-          <TmLoading tmShow tmText={"加载中，请稍后"} tmVertical />
+          <TmLoading tmShow tmText={"加载中，请稍后"} tmVertical/>
         </View>
       </TmCard>
       <TmCard tmRound className={"demo__card"} tmTitle={"作为遮罩"}>

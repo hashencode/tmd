@@ -4,7 +4,7 @@ import React, { ReactNode } from "react";
 
 import { View } from "@tarojs/components";
 import classNames from "classnames";
-import { sizeTransform } from "../_scripts";
+import { transformPx } from "../_scripts";
 
 interface PropsInterface {
   tmOpacity?: number; // 透明度
@@ -32,16 +32,16 @@ function TmWaterMark(props: PropsInterface) {
           opacity: tmOpacity
         }}
       >
-        {Array(20)
+        {Array(10)
           .fill("")
           .map((_item, index) => {
             return (
               <View
                 className={"tm-water-mark__line"}
                 key={`tm-water-mark-line-index-${index}`}
-                style={{ marginBottom: sizeTransform(tmSpace) }}
+                style={{ marginBottom: transformPx(tmSpace) }}
               >
-                {Array(20)
+                {Array(10)
                   .fill("")
                   .map((_cItem, cIndex) => {
                     return (
@@ -52,7 +52,7 @@ function TmWaterMark(props: PropsInterface) {
                           marginLeft:
                             index % 2 === 0 && cIndex === 0
                               ? 0
-                              : sizeTransform(tmSpace)
+                              : transformPx(tmSpace)
                         }}
                       >
                         {tmText}

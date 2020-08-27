@@ -1,14 +1,14 @@
 import "../demoStyle.scss";
 
-import { TmCard, TmIcon, TmNavBar } from "../../../components";
+import {TmCard, TmIcon, TmNavBar} from "../../../components";
 
 import React from "react";
-import { View } from "@tarojs/components";
+import {View} from "@tarojs/components";
 
 function DemoCard() {
   return (
     <View className={"demo "}>
-      <TmNavBar tmTitle={"卡片"} />
+      <TmNavBar tmTitle={"卡片"}/>
       <TmCard
         className={"demo__card"}
         tmTitle={"圆角边框阴影"}
@@ -19,9 +19,9 @@ function DemoCard() {
         tmRound
         className={"demo__card"}
         tmTitle={"操作按钮"}
-        tmAction={<TmIcon tmValue={"edit"} />}
+        tmAction={<TmIcon tmValue={"edit"}/>}
       />
-      <TmCard className={"demo__card"} tmFooter={"卡片底部"} />
+      <TmCard className={"demo__card"} tmFooter={"卡片底部"}/>
     </View>
   );
 }

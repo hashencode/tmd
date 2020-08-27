@@ -1,9 +1,9 @@
 import "./collapse.scss";
 
-import React, { useState } from "react";
+import React, {useState} from "react";
 
 import CollapseContext from "./_context";
-import { View } from "@tarojs/components";
+import {View} from "@tarojs/components";
 import classNames from "classnames";
 
 interface PropsInterface {

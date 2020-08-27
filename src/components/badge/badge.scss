@@ -34,10 +34,20 @@
       border-radius: $numberHeight/2;
       color: $color-white;
       display: flex;
+      font-family: $font-family-number;
       font-size: $font-size-tag;
       height: $numberHeight;
       justify-content: center;
       min-width: $numberHeight;
+
+      &-plus {
+        transform: translateY(-0.15em);
+      }
+
+      &-has-plus {
+        align-items: center;
+        display: flex;
+      }
     }
   }
 }

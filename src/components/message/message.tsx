@@ -1,11 +1,11 @@
 import "./message.scss";
 
-import React, { ReactNode, useLayoutEffect, useState } from "react";
-import { TmIcon, TmPopup } from "../index";
+import React, {ReactNode, useLayoutEffect, useState} from "react";
+import {TmIcon, TmPopup} from "../index";
 
-import { View } from "@tarojs/components";
+import {View} from "@tarojs/components";
 import classNames from "classnames";
-import { getGlobalSystemInfo } from "../_scripts";
+import {getGlobalSystemInfo} from "../_scripts";
 
 interface PropsInterface {
   tmIcon?: ReactNode; // 自定义图标

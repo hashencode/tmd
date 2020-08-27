@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useLayoutEffect,
   useRef,
-  useState
+  useState,
 } from "react";
 
 import TabsContext from "./_context";
@@ -24,7 +24,7 @@ interface PropsInterface {
   tmLazyLoad?: boolean; // 懒加载
   tmUnderlineStyle?: {}; // 下划线样式
   tmVertical?: boolean; // 竖向显示
-  onChange?: (key: string) => void; // 切换回调
+  onChange?: (key?: string) => void; // 切换回调
   children?: any; // 子组件内容
   className?: string; // 自定义类名
   style?: React.CSSProperties; // 自定义行内样式
@@ -57,7 +57,7 @@ function TmTabs(props: PropsInterface) {
     tmVertical = false,
     onChange = () => {},
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   // 头部数据数组
@@ -72,11 +72,7 @@ function TmTabs(props: PropsInterface) {
   const headItemPosition = useRef<HeadItemPositionInterface[]>([]);
   // 生成唯一id，用于querySelect
   const uniqueId = useRef(
-    "ID" +
-      Math.random()
-        .toString()
-        .slice(5, 10) +
-      new Date().getTime()
+    "ID" + Math.random().toString().slice(5, 10) + new Date().getTime()
   );
 
   // 处理点击事件
@@ -91,12 +87,12 @@ function TmTabs(props: PropsInterface) {
           if (tmVertical) {
             setLineStyle({
               height: `${height}px`,
-              top: `${top}px`
+              top: `${top}px`,
             });
           } else {
             setLineStyle({
               width: `${width}px`,
-              left: `${left}px`
+              left: `${left}px`,
             });
           }
         }
@@ -111,7 +107,7 @@ function TmTabs(props: PropsInterface) {
   // 获取子组件的key和title信息
   useLayoutEffect(() => {
     const childData: any[] = [];
-    React.Children.map(props.children, item => {
+    React.Children.map(props.children, (item) => {
       if (React.isValidElement(item)) {
         const { tmTitle = "", tmKey } = item["props"] as HeadDataInterface;
         childData.push({ tmTitle, tmKey });
@@ -149,7 +145,7 @@ function TmTabs(props: PropsInterface) {
                     ...item,
                     tmKey: headData[index].tmKey,
                     left: item.left - headLeft,
-                    top: item.top - headTop
+                    top: item.top - headTop,
                   };
                 });
               }
@@ -157,7 +153,7 @@ function TmTabs(props: PropsInterface) {
             .exec(() => {
               if (headData.length > 0) {
                 handleHeadItemClick({
-                  key: tmActiveKey || tmDefaultKey || headData[0].tmKey
+                  key: tmActiveKey || tmDefaultKey || headData[0].tmKey,
                 });
               }
             });
@@ -165,7 +161,7 @@ function TmTabs(props: PropsInterface) {
     } else {
       if (headData.length > 0) {
         handleHeadItemClick({
-          key: tmActiveKey || tmDefaultKey || headData[0].tmKey
+          key: tmActiveKey || tmDefaultKey || headData[0].tmKey,
         });
       }
     }
@@ -187,13 +183,13 @@ function TmTabs(props: PropsInterface) {
     >
       {/*头部按钮*/}
       <View className="tm-tabs__head" style={tmHeadStyle}>
-        {headData.map(item => {
+        {headData.map((item) => {
           return (
             <View
               className={classNames("tm-tabs__head-item", {
                 "tm-tabs__head-item-active": activeKey === item.tmKey,
                 [tmDefaultClassname]: true,
-                [tmActiveClassname]: activeKey === item.tmKey
+                [tmActiveClassname]: activeKey === item.tmKey,
               })}
               key={item.tmKey}
               onClick={() => {
@@ -216,7 +212,7 @@ function TmTabs(props: PropsInterface) {
           value={{
             activeKey: activeKey,
             keyCache: keyCache,
-            tmLazyLoad
+            tmLazyLoad,
           }}
         >
           {props.children}

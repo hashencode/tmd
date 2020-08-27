@@ -1,11 +1,11 @@
 import "./pickerOption.scss";
 
-import React, { useContext, useLayoutEffect } from "react";
-import { TmIcon, TmListItem } from "../index";
+import React, {useContext, useLayoutEffect} from "react";
+import {TmIcon, TmListItem} from "../index";
 
 import PickerContext from "./_context";
 import classNames from "classnames";
-import { colorPrimary } from "../_style/theme";
+import {colorPrimary} from "../_style/theme";
 
 interface PropsInterface {
   tmDisabled?: boolean; // 禁用
@@ -28,7 +28,7 @@ function TmPickerOption(props: PropsInterface) {
   const parentContext = useContext(PickerContext);
 
   useLayoutEffect(() => {
-    parentContext.optionInit({ tmText, tmValue });
+    parentContext.optionInit({tmText, tmValue});
   }, []);
 
   return (
@@ -37,7 +37,7 @@ function TmPickerOption(props: PropsInterface) {
       className={classNames("tm-dropdown-option", className)}
       tmAction={
         parentContext.activeKeys.includes(tmValue) && (
-          <TmIcon tmValue={"check"} tmSize={32} tmColor={colorPrimary} />
+          <TmIcon tmValue={"check"} tmSize={32} tmColor={colorPrimary}/>
         )
       }
       onClick={() => {

@@ -2,22 +2,22 @@ import "./navBar.scss";
 
 import * as raf from "raf";
 
-import React, { ReactNode, useLayoutEffect, useState } from "react";
+import React, {ReactNode, useLayoutEffect, useState} from "react";
 import {
-  getEnv,
-  useDidHide,
-  useDidShow,
-  redirectTo,
-  navigateBack,
   createSelectorQuery,
+  getEnv,
   getStorageSync,
-  setStorageSync
+  navigateBack,
+  setStorageSync,
+  switchTab,
+  useDidHide,
+  useDidShow
 } from "@tarojs/taro";
-import { TmDivider, TmIcon } from "../index";
+import {TmDivider, TmIcon} from "../index";
 
-import { View } from "@tarojs/components";
+import {View} from "@tarojs/components";
 import classNames from "classnames";
-import { getGlobalSystemInfo } from "../_scripts";
+import {getGlobalSystemInfo} from "../_scripts";
 import throttle from "lodash/throttle";
 
 interface PropsInterface {
@@ -76,7 +76,7 @@ function TmNavBar(props: PropsInterface) {
   // 计算navBar样式
   const calcStyle = (systemInfo: SystemInfoInterface) => {
     const {
-      pageInfo: { windowWidth }, // 可视宽度
+      pageInfo: {windowWidth}, // 可视宽度
       navBarInfo: {
         statusBarHeight, // 状态栏高度
         navBarHeight, // 胶囊高度
@@ -95,7 +95,7 @@ function TmNavBar(props: PropsInterface) {
       height: `${navBarHeight + navBarExtendHeight}px`,
       // 内间距：状态栏高度、胶囊宽度+胶囊右外边距、拓展条高度、胶囊右外边距（为与右侧间隙保持一致）
       padding: `${statusBarHeight}px ${marginRight +
-        capsuleWidth}px ${navBarExtendHeight}px ${marginRight}px`
+      capsuleWidth}px ${navBarExtendHeight}px ${marginRight}px`
     };
 
     // 操作按钮样式
@@ -128,17 +128,18 @@ function TmNavBar(props: PropsInterface) {
   const handleBackBtnClick = throttle(
     () => {
       if (isFirstLoad) {
-        redirectTo({ url: "/pages/index/index" });
+        switchTab({url: "/pages/index/index"});
       } else {
-        navigateBack({ delta: 1 });
+        navigateBack({delta: 1});
       }
     },
     500,
-    { trailing: false }
+    {trailing: false}
   );
 
   // 点击菜单按钮
-  const handleMenuClick = throttle(() => {}, 500, { trailing: false });
+  const handleMenuClick = throttle(() => {
+  }, 500, {trailing: false});
 
   // 根据滚动距离设置背景透明度
   const updateOpacity = scrollTop => {
@@ -160,7 +161,7 @@ function TmNavBar(props: PropsInterface) {
     } else {
       createSelectorQuery()
         .selectViewport()
-        .scrollOffset(({ scrollTop }: any) => {
+        .scrollOffset(({scrollTop}: any) => {
           if (prevScrollTop !== scrollTop) {
             prevScrollTop = scrollTop;
             updateOpacity(scrollTop > 0 ? scrollTop : 0);
@@ -197,7 +198,7 @@ function TmNavBar(props: PropsInterface) {
   return (
     <View
       className={classNames("tm-nav-bar", className)}
-      style={{ ...navBarStyle.staticPartStyle, ...style }}
+      style={{...navBarStyle.staticPartStyle, ...style}}
     >
       <View className="tm-nav-bar__content" style={navBarStyle.fixedPartStyle}>
         {!tmHideBtn && (
@@ -215,9 +216,9 @@ function TmNavBar(props: PropsInterface) {
               onClick={handleBackBtnClick}
             />
             {/*分割线*/}
-            <TmDivider tmVertical tmSpace={12} />
+            <TmDivider tmVertical tmSpace={12}/>
             {/*菜单按钮*/}
-            <TmIcon tmValue={"list"} tmSize={40} onClick={handleMenuClick} />
+            <TmIcon tmValue={"list"} tmSize={40} onClick={handleMenuClick}/>
           </View>
         )}
         {/*显示插槽或者自定义标题*/}
@@ -226,7 +227,7 @@ function TmNavBar(props: PropsInterface) {
           {props.children}
         </View>
         {/*背景填充*/}
-        <View className="tm-nav-bar__background" style={background} />
+        <View className="tm-nav-bar__background" style={background}/>
       </View>
     </View>
   );

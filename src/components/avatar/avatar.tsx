@@ -1,10 +1,10 @@
 import "./avatar.scss";
 
 import React from "react";
-import { TmImage } from "../index";
-import { View } from "@tarojs/components";
+import {TmImage} from "../index";
+import {View} from "@tarojs/components";
 import classNames from "classnames";
-import { sizeTransform } from "../_scripts";
+import {transformPx} from "../_scripts";
 
 interface PropsInterface {
   tmShape?: "circle" | "rect"; // 头像形状
@@ -28,11 +28,11 @@ function TmAvatar(props: PropsInterface) {
     <View
       className={classNames("tm-avatar", `tm-avatar-${tmShape}`, className)}
       style={{
-        width: sizeTransform(tmSize),
+        width: transformPx(tmSize),
         ...style
       }}
     >
-      <TmImage tmSrc={tmSrc} tmRatio={1} />
+      <TmImage tmSrc={tmSrc} tmRatio={1}/>
       {props.children}
     </View>
   );

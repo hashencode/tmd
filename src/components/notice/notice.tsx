@@ -1,9 +1,9 @@
 import "./notice.scss";
 
-import React, { ReactNode, useEffect, useRef, useState } from "react";
+import React, {ReactNode, useEffect, useRef, useState} from "react";
 
-import { TmIcon } from "../index";
-import { View } from "@tarojs/components";
+import {TmIcon} from "../index";
+import {View} from "@tarojs/components";
 import classNames from "classnames";
 
 interface PropsInterface {
@@ -29,7 +29,8 @@ function TmTag(props: PropsInterface) {
     tmRound = false,
     tmSuffix = null,
     tmType = "default",
-    onClose = () => {},
+    onClose = () => {
+    },
     className = "",
     style = {}
   } = props;

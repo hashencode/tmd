@@ -1,10 +1,10 @@
 import "./collapseItem.scss";
 
-import React, { ReactNode, useContext, useEffect, useState } from "react";
+import React, {ReactNode, useContext, useEffect, useState} from "react";
 
 import CollapseItemContext from "./_context";
-import { TmIcon } from "../index";
-import { View } from "@tarojs/components";
+import {TmIcon} from "../index";
+import {View} from "@tarojs/components";
 import classNames from "classnames";
 
 interface PropsInterface {
@@ -16,7 +16,7 @@ interface PropsInterface {
 }
 
 function TmCollapseItem(props: PropsInterface) {
-  const { tmTitle = "", tmKey = "", className = "", style = {} } = props;
+  const {tmTitle = "", tmKey = "", className = "", style = {}} = props;
 
   const parentContext = useContext(CollapseItemContext);
 
@@ -46,7 +46,7 @@ function TmCollapseItem(props: PropsInterface) {
     <View
       className={classNames(
         "tm-collapse-item",
-        { "tm-collapse-item-bordered": parentContext.tmInnerBorder },
+        {"tm-collapse-item-bordered": parentContext.tmInnerBorder},
         className
       )}
       style={style}

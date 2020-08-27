@@ -1,15 +1,15 @@
 import "../demoStyle.scss";
 import "./tabs.scss";
 
-import { TmCard, TmNavBar, TmTabs, TmTabsItem } from "../../../components";
+import {TmCard, TmNavBar, TmTabs, TmTabsItem} from "../../../components";
 
 import React from "react";
-import { View } from "@tarojs/components";
+import {View} from "@tarojs/components";
 
 function DemoTabs() {
   return (
     <View className={"demo"}>
-      <TmNavBar tmTitle={"标签页"} />
+      <TmNavBar tmTitle={"标签页"}/>
       <TmCard tmRound className={"demo__card"} tmTitle={"水平显示"}>
         <TmTabs>
           <TmTabsItem tmKey={"1"} tmTitle={"页面1"}>

@@ -13,11 +13,11 @@
   &-sm {
     border-radius: 9999px;
     height: $height-sm;
-    width: calc(40px * 1.6);
+    width: calc(#{$height-sm} * 1.6);
 
     #{$self}__handle {
-      height: calc(40px - 4px);
-      width: calc(40px - 4px);
+      height: calc(#{$height-sm} - 4px);
+      width: calc(#{$height-sm} - 4px);
 
       .tm-icon {
         font-size: $icon-size-sm;
@@ -46,7 +46,7 @@
 
     &#{$self}-sm {
       #{$self}__handle {
-        transform: translateX(calc(40px * 0.6));
+        transform: translateX(calc(#{$height-sm} * 0.6));
       }
     }
 

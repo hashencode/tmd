@@ -1,14 +1,14 @@
 import "../demoStyle.scss";
 
-import { TmCard, TmIcon, TmNavBar, TmSteps } from "../../../components";
+import {TmCard, TmIcon, TmNavBar, TmSteps} from "../../../components";
 
 import React from "react";
-import { View } from "@tarojs/components";
+import {View} from "@tarojs/components";
 
 function DemoSteps() {
   return (
     <View className={"demo "}>
-      <TmNavBar tmTitle={"步骤条"} />
+      <TmNavBar tmTitle={"步骤条"}/>
       <TmCard tmRound className={"demo__card"} tmTitle={"横向"}>
         <TmSteps
           tmData={[
@@ -54,7 +54,7 @@ function DemoSteps() {
           tmData={[
             {
               activeIcon: (
-                <TmIcon tmValue={"position"} tmColor={"#1890ff"} tmSize={40} />
+                <TmIcon tmValue={"position"} tmColor={"#1890ff"} tmSize={40}/>
               ),
               text: "步骤1",
               percent: 0,
@@ -62,14 +62,14 @@ function DemoSteps() {
             },
             {
               activeIcon: (
-                <TmIcon tmValue={"success"} tmColor={"#1890ff"} tmSize={40} />
+                <TmIcon tmValue={"success"} tmColor={"#1890ff"} tmSize={40}/>
               ),
               text: "步骤2",
               percent: 50,
               iconSpace: 10
             },
             {
-              icon: <TmIcon tmValue={"check"} />,
+              icon: <TmIcon tmValue={"check"}/>,
               text: "步骤3",
               percent: 100
             }

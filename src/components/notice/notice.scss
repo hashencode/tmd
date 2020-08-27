@@ -4,6 +4,7 @@
 .tm-notice {
   $self: &;
   align-items: center;
+  border-radius: $border-radius-sm;
   display: none;
   padding: $spacing-xs 0;
   //是否可见

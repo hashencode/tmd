@@ -45,7 +45,7 @@ function TmDrawer(props: PropsInterface) {
     onMaskClick = () => {},
     onShow = () => {},
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   // 在侧边显示时，考虑到全面屏的情况
@@ -58,7 +58,7 @@ function TmDrawer(props: PropsInterface) {
       // 小程序模式下，设置到顶部的距离为状态栏的高度
       if (getEnv() !== "WEB") {
         setFixStyle({
-          paddingTop: getGlobalSystemInfo().navBarInfo.statusBarHeight + "px"
+          paddingTop: getGlobalSystemInfo().navBarInfo.statusBarHeight + "px",
         });
       }
     }
@@ -116,7 +116,7 @@ function TmDrawer(props: PropsInterface) {
                 >
                   {tmFooter}
                 </View>
-              )
+              ),
             ]
           : [
               // 自定义头部
@@ -152,7 +152,7 @@ function TmDrawer(props: PropsInterface) {
                     {tmConfirm}
                   </View>
                 </View>
-              )
+              ),
             ]}
       </View>
     </TmPopup>

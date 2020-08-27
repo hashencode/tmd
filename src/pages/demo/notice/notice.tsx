@@ -1,20 +1,14 @@
 import "../demoStyle.scss";
 
-import {
-  TmCard,
-  TmIcon,
-  TmNavBar,
-  TmNotice,
-  TmSpace
-} from "../../../components";
+import {TmCard, TmIcon, TmNavBar, TmNotice, TmSpace} from "../../../components";
 
 import React from "react";
-import { View } from "@tarojs/components";
+import {View} from "@tarojs/components";
 
 function DemoNotice() {
   return (
     <View className={"demo"}>
-      <TmNavBar tmTitle={"通知栏"} />
+      <TmNavBar tmTitle={"通知栏"}/>
       <TmCard tmRound className={"demo__card"} tmTitle={"内置类型"}>
         <TmSpace tmVertical>
           <TmNotice>默认</TmNotice>
@@ -26,8 +20,8 @@ function DemoNotice() {
       </TmCard>
       <TmCard tmRound className={"demo__card"} tmTitle={"首尾图标"}>
         <TmNotice
-          tmPrefix={<TmIcon tmValue={"sound_on"} />}
-          tmSuffix={<TmIcon tmValue={"arrow_right"} />}
+          tmPrefix={<TmIcon tmValue={"sound_on"}/>}
+          tmSuffix={<TmIcon tmValue={"arrow_right"}/>}
         >
           该银行3:00-12:00系统维护，请更换其他银行卡
         </TmNotice>

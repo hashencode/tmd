@@ -17,6 +17,7 @@ export { default as TmSteps } from "./steps/steps";
 export { default as TmInput } from "./input/input";
 export { default as TmInputNumber } from "./inputNumber/inputNumber";
 export { default as TmSwitch } from "./switch/switch";
+export { default as TmTextarea } from "./textarea/textarea";
 // 数据展示
 export { default as TmAvatar } from "./avatar/avatar";
 export { default as TmBadge } from "./badge/badge";

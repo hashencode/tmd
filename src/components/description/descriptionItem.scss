@@ -2,12 +2,11 @@
 
 .tm-description-item {
   display: flex;
-  padding: $spacing-mid;
 
   &__title {
     flex-shrink: 0;
     font-weight: 500;
-    padding-right: $spacing-mid;
+    padding-right: $spacing-sm;
   }
 
   &__desc {

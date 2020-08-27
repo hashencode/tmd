@@ -4,16 +4,15 @@ import React, { useState } from "react";
 import {
   TmButton,
   TmCard,
-  TmIcon,
   TmImage,
   TmModal,
-  TmNavBar
+  TmNavBar,
 } from "../../../components";
 
 import { View } from "@tarojs/components";
 
 function DemoModal() {
-  const togglePopup = id => {
+  const togglePopup = (id) => {
     setCurrentPopup(id);
   };
 
@@ -46,37 +45,7 @@ function DemoModal() {
           }}
         />
       </TmCard>
-      <TmCard tmRound className={"demo__card"} tmTitle={"自定义图标"}>
-        <TmButton
-          onClick={() => {
-            togglePopup(2);
-          }}
-        >
-          有取消按钮
-        </TmButton>
-        <TmModal
-          tmShow={currentPopup === 2}
-          tmIcon={
-            <TmIcon
-              tmValue={"chenggong_fill"}
-              tmSize={100}
-              tmColor={"#52c41a"}
-            />
-          }
-          tmTitle={"标题"}
-          tmDesc={"描述文字"}
-          onClose={() => {
-            setCurrentPopup(0);
-          }}
-          onCancel={() => {
-            setCurrentPopup(0);
-          }}
-          onConfirm={() => {
-            setCurrentPopup(0);
-          }}
-        />
-      </TmCard>
-      <TmCard tmRound className={"demo__card"} tmTitle={"自定义头部和底部"}>
+      <TmCard tmRound className={"demo__card"} tmTitle={"自定义头部和按钮文字"}>
         <TmButton
           onClick={() => {
             togglePopup(3);
@@ -88,6 +57,7 @@ function DemoModal() {
           tmShow={currentPopup === 3}
           tmTitle={"标题"}
           tmDesc={"描述文字"}
+          tmConfirmText={"再来一次"}
           tmHead={
             <TmImage
               tmRatio={0.4}

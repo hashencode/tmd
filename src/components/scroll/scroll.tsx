@@ -5,19 +5,21 @@ import React, {
   ReactNode,
   useImperativeHandle,
   useRef,
-  useState
+  useState,
 } from "react";
 import { ScrollView, View } from "@tarojs/components";
 
 import classNames from "classnames";
+import { BaseEventOrigFunction } from "@tarojs/components/types/common";
+import { ScrollViewProps } from "@tarojs/components/types/ScrollView";
 
 interface PropsInterface {
   tmLowerThreshold?: number; // 触发加载事件距离
   tmTriggerDistance?: number; // 下拉刷新激活高度
   tmRefresher?: string | ReactNode;
   onLoad?: () => void; // 触底回调
-  onChange?: (args?: any) => void; // 下拉刷新回调
-  onScroll?: (args?: any) => void; // 滚动事件监听
+  onChange?: ({}: { status: string }) => void; // 下拉刷新回调
+  onScroll?: BaseEventOrigFunction<ScrollViewProps.onScrollDetail>; // 滚动事件监听
   children?: any; // 子组件内容
   className?: string; // 自定义类名
   style?: React.CSSProperties; // 自定义行内样式
@@ -32,7 +34,7 @@ function TmScroll(props: PropsInterface, ref) {
     onChange = () => {},
     onScroll = () => {},
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   // 配置项
@@ -45,7 +47,7 @@ function TmScroll(props: PropsInterface, ref) {
     // doing：正在刷新；
     // done：已完成刷新；
     refreshStatus: "pending",
-    startY: 0 // 滑动开始时的位置
+    startY: 0, // 滑动开始时的位置
   });
   // 页面滚动数值
   const [scrollTopValue, setScrollTopValue] = useState(0);
@@ -54,7 +56,7 @@ function TmScroll(props: PropsInterface, ref) {
   // 偏移样式
   const [scrollViewStyle, setScrollViewStyle] = useState("");
 
-  const handleScroll = event => {
+  const handleScroll = (event) => {
     if (event.detail.scrollTop > 0) config.current.isUpper = false;
     onScroll(event);
   };
@@ -65,13 +67,13 @@ function TmScroll(props: PropsInterface, ref) {
   };
 
   // 触控开始
-  const handleTouchStart = event => {
+  const handleTouchStart = (event) => {
     // 记录初始Y值
     config.current.startY = event.touches[0].pageY;
   };
 
   // 触控中
-  const handleTouchMove = event => {
+  const handleTouchMove = (event) => {
     // 首先判断滚动方向
     const vector = event.touches[0].pageY - config.current.startY;
     // 判断是否为向下滑动
@@ -130,12 +132,13 @@ function TmScroll(props: PropsInterface, ref) {
   // 设置区域收缩动画
   const shrinkMotion = ({
     aimY, // 目标Y值
-    delay = 0 // 完成时，收起时间延迟
+    delay = 0, // 完成时，收起时间延迟
   }) => {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       setScrollViewStyle(
-        `transform:translateY(${aimY}px);transition:all .3s;transition-delay:${delay /
-          1000}s`
+        `transform:translateY(${aimY}px);transition:all .3s;transition-delay:${
+          delay / 1000
+        }s`
       );
       resolve();
     });
@@ -152,7 +155,7 @@ function TmScroll(props: PropsInterface, ref) {
       ...config.current,
       isPending: true,
       refreshStatus: "doing",
-      isUpper: true
+      isUpper: true,
     };
     setIsPending(true);
     onChange({ status: "doing" });
@@ -164,7 +167,7 @@ function TmScroll(props: PropsInterface, ref) {
     config.current = {
       ...config.current,
       isPending: false,
-      refreshStatus: "done"
+      refreshStatus: "done",
     };
     setIsPending(false);
     onChange({ status: "done" });
@@ -174,7 +177,7 @@ function TmScroll(props: PropsInterface, ref) {
   // 向父组件传递内部方法
   useImperativeHandle(ref, () => ({
     startRefreshing,
-    stopRefreshing
+    stopRefreshing,
   }));
 
   return (

@@ -5,6 +5,7 @@ import { Input, View } from "@tarojs/components";
 import classNames from "classnames";
 import { TmIcon } from "../index";
 import { fontColorDesc } from "../_style/theme";
+import { CommonEventFunction } from "@tarojs/components/types/common";
 
 interface PropsInterface {
   tmAllowClear?: boolean; // 显示清空按钮
@@ -12,14 +13,14 @@ interface PropsInterface {
   tmBorder?: boolean; // 显示边框
   tmDisabled?: boolean; // 禁用
   tmFocus?: boolean; // 获取焦点
-  tmId?: any; // 唯一id，用于表单校验
+  tmId: string; // 唯一id，用于表单校验
   tmMaxlength?: number; // 最大字符数
   tmPassword?: boolean; // 密码输入
   tmPlaceholder?: string; // placeholder 值
   tmPrefix?: string | ReactNode; // 前缀
   tmSuffix?: string | ReactNode; // 后缀
   tmType?: "number" | "text" | "idcard" | "digit"; // 输入项类型
-  tmValue?: any; // value 值
+  tmValue?: string; // value 值
   tmWxAdjustPosition?: boolean; // 键盘弹起时，是否自动上推页面
   tmWxConfirmHold?: boolean; // 点击键盘右下角按钮时是否保持键盘不收起
   tmWxConfirmType?: "send" | "search" | "next" | "go" | "done"; // 确认按钮样式
@@ -32,11 +33,11 @@ interface PropsInterface {
   tmWxSelectionStart?: number; // 光标起始位置，自动聚集时有效
   className?: string; // 自定义类名
   style?: React.CSSProperties; // 自定义行内样式
-  onBlur?: (event?: any) => void; // 失焦事件回调
-  onChange?: (event?: any) => void; // 输入变化回调
-  onConfirm?: (event?: any) => void; // 确认回调
-  onFocus?: (event?: any) => void; // 聚焦回调
-  onKeyboardHeightChange?: (event?: any) => void; // 键盘高度发生变化回调
+  onBlur?: CommonEventFunction; // 失焦事件回调
+  onChange?: (value?: string) => void; // 输入变化回调
+  onConfirm?: CommonEventFunction; // 确认回调
+  onFocus?: CommonEventFunction; // 聚焦回调
+  onWxKeyboardHeightChange?: (event?: any) => void; // 键盘高度发生变化回调
 }
 
 function TmInput(props: PropsInterface) {
@@ -68,27 +69,34 @@ function TmInput(props: PropsInterface) {
     onChange = () => {},
     onConfirm = () => {},
     onFocus = () => {},
-    onKeyboardHeightChange = () => {},
+    onWxKeyboardHeightChange = () => {},
     className = "",
-    style = {}
+    style = {},
   } = props;
+
+  const [valueCache, setValueCache] = useState("");
+  const [isFocus, setIsFocus] = useState(false);
 
   // 清空输入
   const handleClear = () => {
     setValueCache("");
+    setIsFocus(true);
+    onChange("");
   };
 
   // 输入时回调
-  const handleChange = event => {
+  const handleChange = (event) => {
     setValueCache(event.detail.value);
-    onChange(event);
+    onChange(event.detail.value);
   };
-
-  const [valueCache, setValueCache] = useState("");
 
   useLayoutEffect(() => {
     setValueCache(tmValue);
   }, [tmValue]);
+
+  useLayoutEffect(() => {
+    setIsFocus(tmFocus);
+  }, [tmFocus]);
 
   return (
     <View
@@ -97,7 +105,7 @@ function TmInput(props: PropsInterface) {
         tmBig ? "tm-input-lg" : "tm-input-mid",
         {
           "tm-input-bordered": tmBorder,
-          "tm-input-disabled": tmDisabled
+          "tm-input-disabled": tmDisabled,
         },
         className
       )}
@@ -115,7 +123,7 @@ function TmInput(props: PropsInterface) {
         cursor={tmWxCursor}
         cursorSpacing={tmWxCursorSpacing}
         disabled={tmDisabled}
-        focus={tmFocus}
+        focus={isFocus}
         holdKeyboard={tmWxHoldKeyboard}
         id={tmId}
         maxlength={tmMaxlength}
@@ -127,14 +135,14 @@ function TmInput(props: PropsInterface) {
         selectionStart={tmWxSelectionStart}
         type={tmType}
         value={valueCache}
-        onKeyboardHeightChange={onKeyboardHeightChange}
+        onKeyboardHeightChange={onWxKeyboardHeightChange}
         onBlur={onBlur}
         onInput={handleChange}
         onConfirm={onConfirm}
         onFocus={onFocus}
       />
       {/*清空按钮*/}
-      {tmAllowClear && (
+      {tmAllowClear && valueCache.length > 0 && (
         <TmIcon
           className="tm-input__clear-btn"
           tmValue={"error_fill"}

@@ -1,11 +1,11 @@
 import "./badge.scss";
 
-import React, { useLayoutEffect, useMemo, useState } from "react";
+import React, {useMemo} from "react";
 
-import { View } from "@tarojs/components";
+import {View} from "@tarojs/components";
 import classNames from "classnames";
-import { colorDanger } from "../_style/theme";
-import { sizeTransform } from "../_scripts";
+import {colorDanger} from "../_style/theme";
+import {transformPx} from "../_scripts";
 
 interface PropsInterface {
   tmColor?: string; // 背景色
@@ -25,13 +25,13 @@ function TmBadge(props: PropsInterface) {
     tmDot = false,
     tmMax = 999,
     tmShowZero = false,
-    tmTranslate = { x: 0, y: 0 },
+    tmTranslate = {x: 0, y: 0},
     tmValue = 0,
     className = "",
     style = {}
   } = props;
 
-  const [number, setNumber] = useState<number | string>(0);
+  // const [number, setNumber] = useState<number | string>(0);
 
   const renderBadge = useMemo(() => {
     // 是否显示零值
@@ -52,28 +52,35 @@ function TmBadge(props: PropsInterface) {
             className="tm-badge__slot tm-badge__slot-number"
             style={{
               backgroundColor: tmColor,
-              padding: number < 10 ? "0 2px" : "0 5px"
+              padding: tmValue < 10 ? "0 2px" : "0 5px"
             }}
           >
-            {number}
+            {tmValue < tmMax ? (
+              tmValue
+            ) : (
+              <View className="tm-badge__slot-number-has-plus">
+                {tmMax}
+                <View className="tm-badge__slot-number-plus">+</View>
+              </View>
+            )}
           </View>
         );
       }
     }
-  }, [tmShowZero, tmValue, tmDot, tmColor, number]);
+  }, [tmShowZero, tmValue, tmDot, tmColor]);
 
-  useLayoutEffect(() => {
-    setNumber(tmValue < tmMax ? tmValue : `${tmMax}+`);
-  }, [tmValue]);
+  // useLayoutEffect(() => {
+  //   setNumber(tmValue < tmMax ? tmValue : `${tmMax}`);
+  // }, [tmValue]);
 
   return (
     <View className={classNames("tm-badge", className)} style={style}>
       <View
         className="tm-badge__content"
         style={{
-          transform: `translate3d(${sizeTransform(
-            tmTranslate.x
-          )},${sizeTransform(tmTranslate.y)},0)`
+          transform: `translate3d(${transformPx(tmTranslate.x)},${transformPx(
+            tmTranslate.y
+          )},0)`
         }}
       >
         {renderBadge}

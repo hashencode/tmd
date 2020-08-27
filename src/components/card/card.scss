@@ -23,30 +23,32 @@
   }
 
   // 头部
-  &__head,
-  &__footer {
+  &__head {
     align-items: center;
     border-bottom: 1px solid $border-color-default;
     display: flex;
     justify-content: space-between;
-    padding: $spacing-sm $spacing-mid;
+    padding: $spacing-mid $spacing-mid $spacing-sm;
   }
 
   // 底部
   &__footer {
-    border-bottom: none;
+    align-items: center;
     border-top: 1px solid $border-color-default;
+    display: flex;
+    justify-content: space-between;
+    padding: $spacing-sm $spacing-mid $spacing-mid;
   }
 
   // 标题
   &__title {
-    font-size: $font-size-subtitle;
+    font-size: $font-size-primary;
     font-weight: 500;
   }
 
   // 主要内容
   &__body {
-    padding: $spacing-mid;
     overflow: hidden;
+    padding: $spacing-mid;
   }
 }
