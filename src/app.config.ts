@@ -40,11 +40,12 @@ export default {
     "pages/demo/textarea/textarea",
     "pages/demo/transition/transition",
     "pages/demo/waterMark/waterMark",
-    "pages/me/me"
+    "pages/demo/checkbox/checkbox",
+    "pages/me/me",
   ],
   window: {
     navigationStyle: "custom",
-    navigationBarTextStyle: "black"
+    navigationBarTextStyle: "black",
   },
   tabBar: {
     backgroundColor: "#FFFFFF",
@@ -54,14 +55,14 @@ export default {
         pagePath: "pages/index/index",
         text: "Home",
         iconPath: "/assets/image/tabbar-icon/shouye.png",
-        selectedIconPath: "/assets/image/tabbar-icon/shouye-active.png"
+        selectedIconPath: "/assets/image/tabbar-icon/shouye-active.png",
       },
       {
         pagePath: "pages/me/me",
         text: "Me",
         iconPath: "/assets/image/tabbar-icon/shouye.png",
-        selectedIconPath: "/assets/image/tabbar-icon/shouye-active.png"
-      }
-    ]
-  }
+        selectedIconPath: "/assets/image/tabbar-icon/shouye-active.png",
+      },
+    ],
+  },
 };

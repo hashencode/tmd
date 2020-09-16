@@ -1,10 +1,15 @@
 import "./result.scss";
 
-import React, {ReactNode, useLayoutEffect, useState} from "react";
-import {TmIcon, TmImage} from "../index";
-import {colorDanger, colorPrimary, colorSuccess, colorWarning} from "../_style/theme";
+import React, { ReactNode, useLayoutEffect, useState } from "react";
+import { TmIcon, TmImage } from "../index";
+import {
+  colorDanger,
+  colorPrimary,
+  colorSuccess,
+  colorWarning,
+} from "../_style/theme";
 
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
 
 interface PropsInterface {
@@ -37,59 +42,59 @@ function TmResult(props: PropsInterface) {
     tmTitle = "",
     tmType = "default",
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   const [config, setConfig] = useState<ConfigInterface>({
     icon: null,
     title: null,
-    subtitle: null
+    subtitle: null,
   });
 
   const renderIcon = () => {
     const defaultConfig = {
       default: {},
       success: {
-        icon: <TmIcon tmValue={"success_fill"} tmColor={colorSuccess}/>
+        icon: <TmIcon tmValue={"success_fill"} tmColor={colorSuccess} />,
       },
       error: {
-        icon: <TmIcon tmValue={"error_fill"} tmColor={colorDanger}/>
+        icon: <TmIcon tmValue={"error_fill"} tmColor={colorDanger} />,
       },
       warning: {
-        icon: <TmIcon tmValue={"warning_fill"} tmColor={colorWarning}/>
+        icon: <TmIcon tmValue={"warning_fill"} tmColor={colorWarning} />,
       },
       waiting: {
-        icon: <TmIcon tmValue={"clock_fill"} tmColor={colorPrimary}/>
+        icon: <TmIcon tmValue={"clock_fill"} tmColor={colorPrimary} />,
       },
       empty: {
         icon: (
           <TmImage
             tmSrc={"/assets/image/component-result/empty.png"}
-            style={{width: "150px", height: "150px"}}
+            style={{ width: "150px", height: "150px" }}
           />
         ),
-        subtitle: "暂无数据"
+        subtitle: "暂无数据",
       },
       network: {
         icon: (
           <TmImage
             tmSrc={"/assets/image/component-result/500.png"}
-            style={{width: "150px", height: "150px"}}
+            style={{ width: "150px", height: "150px" }}
           />
         ),
         title: "网络连接异常",
-        subtitle: "点击屏幕，重新加载"
+        subtitle: "点击屏幕，重新加载",
       },
       404: {
         icon: (
           <TmImage
             tmSrc={"/assets/image/component-result/404.png"}
-            style={{width: "150px", height: "150px"}}
+            style={{ width: "150px", height: "150px" }}
           />
         ),
         title: "404",
-        subtitle: "您要访问的页面不存在"
-      }
+        subtitle: "您要访问的页面不存在",
+      },
     };
     setConfig(defaultConfig[tmType]);
   };

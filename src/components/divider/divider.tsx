@@ -1,9 +1,9 @@
 import "./divider.scss";
 
 import React from "react";
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
-import {transformPx} from "../_scripts";
+import { transformPx } from "../_scripts";
 
 interface PropsInterface {
   tmSpace?: number; // 分割线外边距大小
@@ -21,14 +21,14 @@ function TmDivider(props: PropsInterface) {
     tmTextPosition = "left",
     tmVertical = false,
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   return (
     <View
       className={classNames(
         "tm-divider",
-        {"tm-divider-vertical": tmVertical},
+        { "tm-divider-vertical": tmVertical },
         `tm-divider-align-${tmTextPosition}`,
         className
       )}
@@ -36,7 +36,7 @@ function TmDivider(props: PropsInterface) {
         margin: tmVertical
           ? `0 ${transformPx(tmSpace)}`
           : `${transformPx(tmSpace)} 0`,
-        ...style
+        ...style,
       }}
     >
       {/*自定义插槽*/}

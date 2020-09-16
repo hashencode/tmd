@@ -1,8 +1,8 @@
 import "./tag.scss";
 
-import React, {ReactNode} from "react";
+import React, { ReactNode } from "react";
 
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
 
 interface PropsInterface {
@@ -24,7 +24,7 @@ function TmTag(props: PropsInterface) {
     tmRound = false,
     tmType = "default",
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   return (
@@ -34,7 +34,7 @@ function TmTag(props: PropsInterface) {
         {
           "tm-tag-bordered": tmBorder,
           "tm-tag-round": tmRound,
-          "tm-tag-ghost": tmGhost
+          "tm-tag-ghost": tmGhost,
         },
         `tm-tag-${tmType}`,
         className

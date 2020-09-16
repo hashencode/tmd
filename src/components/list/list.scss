@@ -3,6 +3,7 @@
 .tm-list {
   $self: &;
   position: relative;
+  touch-action: manipulation;
 
   &-disabled {
     @include disabled-mask(true, $border-radius-lg);
@@ -12,7 +13,7 @@
     border-radius: $border-radius-mid;
 
     &#{$self}-outer-border {
-      &:after {
+      &::after {
         border-radius: $border-radius-mid * 2;
       }
     }

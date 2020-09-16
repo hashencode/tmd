@@ -1,22 +1,28 @@
 import "../demoStyle.scss";
 
-import React, {useEffect} from "react";
-import {TmButton, TmCard, TmDivider, TmIcon, TmNavBar, TmSpace} from "../../../components";
+import React, { useEffect } from "react";
+import {
+  TmButton,
+  TmCard,
+  TmDivider,
+  TmIcon,
+  TmNavBar,
+  TmSpace,
+} from "../../../components";
 
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 
 function DemoButton() {
-  useEffect(() => {
-  }, []);
+  useEffect(() => {}, []);
 
   return (
-    <View className={"demo "}>
-      <TmNavBar tmTitle={"按钮"}/>
+    <View className={"demo"}>
+      <TmNavBar tmTitle={"按钮"} />
       <TmCard tmRound className={"demo__card"} tmTitle={"尺寸"}>
         <TmSpace>
           <TmButton
             tmSize={"lg"}
-            onClick={event => {
+            onClick={(event) => {
               console.log(event);
             }}
           >
@@ -25,7 +31,7 @@ function DemoButton() {
           <TmButton tmSize={"mid"}>中</TmButton>
           <TmButton tmSize={"sm"}>小</TmButton>
         </TmSpace>
-        <TmDivider/>
+        <TmDivider />
         <TmSpace>
           <TmButton tmSize={"lg"} tmShape={"circle"}>
             大
@@ -66,7 +72,7 @@ function DemoButton() {
         </TmSpace>
       </TmCard>
       <TmCard tmRound className={"demo__card"} tmTitle={"幽灵按钮"}>
-        <TmSpace style={{background: "#cdcdcd", padding: "12px"}}>
+        <TmSpace style={{ background: "#cdcdcd", padding: "12px" }}>
           <TmButton tmType={"primary"} tmGhost>
             幽灵
           </TmButton>
@@ -78,7 +84,7 @@ function DemoButton() {
             幽灵
           </TmButton>
         </TmSpace>
-        <TmSpace style={{background: "#cdcdcd", padding: "12px"}}>
+        <TmSpace style={{ background: "#cdcdcd", padding: "12px" }}>
           <TmButton tmType={"primary"} tmGhost tmDanger>
             幽灵
           </TmButton>
@@ -100,12 +106,12 @@ function DemoButton() {
         <TmSpace>
           <TmButton
             tmShape={"circle"}
-            tmIcon={<TmIcon tmValue={"microphone"}/>}
+            tmIcon={<TmIcon tmValue={"microphone"} />}
           />
-          <TmButton tmShape={"rect"} tmIcon={<TmIcon tmValue={"microphone"}/>}>
+          <TmButton tmShape={"rect"} tmIcon={<TmIcon tmValue={"microphone"} />}>
             图标
           </TmButton>
-          <TmButton tmType={"link"} tmIcon={<TmIcon tmValue={"microphone"}/>}>
+          <TmButton tmType={"link"} tmIcon={<TmIcon tmValue={"microphone"} />}>
             图标
           </TmButton>
         </TmSpace>

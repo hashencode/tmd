@@ -1,7 +1,7 @@
 import "./list.scss";
 
 import React from "react";
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
 import ListContext from "./_context";
 
@@ -26,7 +26,7 @@ function TmList(props: PropsInterface) {
     tmIndent = false,
     tmShadow = false,
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   return (
@@ -39,13 +39,13 @@ function TmList(props: PropsInterface) {
           "tm-list-inner-border": tmInnerBorder,
           "tm-list-indent": tmIndent,
           "tm-list-shadow": tmShadow,
-          "tm-list-disabled": tmDisabled
+          "tm-list-disabled": tmDisabled,
         },
         className
       )}
       style={style}
     >
-      <ListContext.Provider value={{tmInnerBorder, tmIndent}}>
+      <ListContext.Provider value={{ tmInnerBorder, tmIndent }}>
         {props.children}
       </ListContext.Provider>
     </View>

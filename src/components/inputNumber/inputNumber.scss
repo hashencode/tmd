@@ -6,36 +6,14 @@
   border-radius: 999px;
   display: flex;
   width: auto;
+  touch-action: manipulation;
 
   input {
     text-align: center;
   }
 
   // 尺寸
-  &-sm {
-    height: $height-sm;
-
-    #{$self}__prefix,
-    #{$self}__suffix {
-      height: $height-sm;
-      width: $height-sm;
-    }
-
-    #{$self}__content {
-      width: $height-sm * 2;
-    }
-
-    input {
-      height: $height-sm;
-    }
-
-    .tm-icon {
-      font-size: $icon-size-xs;
-      font-weight: bold;
-    }
-  }
-
-  &-mid {
+  &-lg {
     font-size: $font-size-subtitle;
     height: $height-mid;
     // 前后缀
@@ -58,6 +36,52 @@
 
     .tm-icon {
       font-size: $icon-size-sm;
+      font-weight: bold;
+    }
+  }
+
+  &-mid {
+    height: $height-sm;
+
+    #{$self}__prefix,
+    #{$self}__suffix {
+      height: $height-sm;
+      width: $height-sm;
+    }
+
+    #{$self}__content {
+      width: $height-sm * 2;
+    }
+
+    input {
+      height: $height-sm;
+    }
+
+    .tm-icon {
+      font-size: $icon-size-xs;
+      font-weight: bold;
+    }
+  }
+
+  &-sm {
+    height: $height-xs;
+
+    #{$self}__prefix,
+    #{$self}__suffix {
+      height: $height-xs;
+      width: $height-xs;
+    }
+
+    #{$self}__content {
+      width: $height-xs * 2;
+    }
+
+    input {
+      height: $height-xs;
+    }
+
+    .tm-icon {
+      font-size: $icon-size-xs;
       font-weight: bold;
     }
   }

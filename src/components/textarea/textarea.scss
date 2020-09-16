@@ -3,6 +3,7 @@
 .tm-textarea {
   padding: $spacing-mid;
   position: relative;
+  touch-action: manipulation;
 
   // 边框
   &-bordered {
@@ -26,6 +27,7 @@
   &__footer {
     display: flex;
     justify-content: space-between;
+
     &-content {
       flex-grow: 1;
     }

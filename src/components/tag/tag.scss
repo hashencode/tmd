@@ -87,7 +87,7 @@
     }
 
     &#{$self}-round {
-      &:after {
+      &::after {
         border-radius: 9999px;
       }
     }

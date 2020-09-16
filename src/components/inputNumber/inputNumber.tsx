@@ -15,7 +15,7 @@ interface PropsInterface {
   tmId: string; // 唯一id，用于表单校验
   tmMax?: number; // 最大值
   tmMin?: number; // 最小值
-  tmSmall?: boolean; // 大输入框
+  tmSize?: "lg" | "mid" | "sm"; // 大输入框
   tmStep?: number; // 步进值
   tmThrottle?: number; // 点击事件节流阀（毫秒）
   tmThrottleConfig?: {}; // 节流阀设置
@@ -42,7 +42,7 @@ function TmInputNumber(props: PropsInterface) {
     tmId = "",
     tmMax = 9999,
     tmMin = -9999,
-    tmSmall = false,
+    tmSize = "mid",
     tmStep = 1,
     tmThrottle = 500,
     tmThrottleConfig = {},
@@ -63,9 +63,7 @@ function TmInputNumber(props: PropsInterface) {
 
   // 点击减少
   const handleReduce = throttle(
-    (event) => {
-      event.stopPropagation();
-      event.preventDefault();
+    () => {
       setValueCache((prevState) => {
         const bigNum = 10e5;
         let value =
@@ -82,9 +80,7 @@ function TmInputNumber(props: PropsInterface) {
 
   // 点击增加
   const handleAdd = throttle(
-    (event) => {
-      event.stopPropagation();
-      event.preventDefault();
+    () => {
       setValueCache((prevState) => {
         const bigNum = 10e5;
         let value =
@@ -140,7 +136,7 @@ function TmInputNumber(props: PropsInterface) {
     <View
       className={classNames(
         "tm-input-number",
-        tmSmall ? "tm-input-number-sm" : "tm-input-number-mid",
+        `tm-input-number-${tmSize}`,
         {
           "tm-input-number-disabled": tmDisabled,
           "tm-input-number-bordered": tmBorder,

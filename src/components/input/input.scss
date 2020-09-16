@@ -6,6 +6,7 @@
   border-radius: $border-radius-sm;
   display: flex;
   padding: 0 $spacing-mid;
+  touch-action: manipulation;
 
   // 输入框高度
   taro-input-core,

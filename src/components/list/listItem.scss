@@ -19,7 +19,7 @@
 
   &-bordered {
     #{$self}__content {
-      @include one-px-border("bottom", 0);
+      @include one-px-border("bottom");
     }
   }
 

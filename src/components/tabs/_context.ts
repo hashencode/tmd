@@ -1,12 +1,12 @@
 import React from "react";
 
 const TabsContext = React.createContext<{
-  activeKey: string;
-  keyCache: string[];
+  activeIndex: string;
+  indexCache: string[];
   tmLazyLoad: boolean;
 }>({
-  activeKey: "",
-  keyCache: [],
+  activeIndex: "-1",
+  indexCache: ["-1"],
   tmLazyLoad: true,
 });
 

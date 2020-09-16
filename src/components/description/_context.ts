@@ -5,7 +5,7 @@ const DescriptionContext = React.createContext<{
   tmDescStyle?: object;
 }>({
   tmTitleStyle: { width: "20%" },
-  tmDescStyle: {}
+  tmDescStyle: {},
 });
 
 export default DescriptionContext;

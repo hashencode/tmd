@@ -2,8 +2,9 @@ import "./navGrid.scss";
 
 import NavGridContext from "./_context";
 import React from "react";
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
+import { spaceXs } from "../_style/theme";
 
 interface PropsInterface {
   tmHorizon?: boolean; // 横向显示
@@ -18,14 +19,14 @@ function TmNavGrid(props: PropsInterface) {
   const {
     tmHorizon = false,
     tmSpace = 0,
-    tmTextSpace = 0,
+    tmTextSpace = spaceXs,
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   return (
     <View className={classNames("tm-nav-grid", className)} style={style}>
-      <NavGridContext.Provider value={{tmHorizon, tmSpace, tmTextSpace}}>
+      <NavGridContext.Provider value={{ tmHorizon, tmSpace, tmTextSpace }}>
         {props.children}
       </NavGridContext.Provider>
     </View>

@@ -1,9 +1,9 @@
 import "./row.scss";
 
 import React from "react";
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
-import {transformPx} from "../_scripts";
+import { transformPx } from "../_scripts";
 
 interface PropsInterface {
   tmAlign?: "flex-start" | "center" | "flex-end" | "baseline"; // 垂直对齐方式
@@ -25,7 +25,7 @@ function TmRow(props: PropsInterface) {
     tmGutter = 0,
     tmJustify = "start",
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   return (
@@ -36,18 +36,18 @@ function TmRow(props: PropsInterface) {
         marginRight: transformPx(-tmGutter),
         justifyContent: tmJustify,
         alignItems: tmAlign,
-        ...style
+        ...style,
       }}
     >
       {props.children &&
-      React.Children.map(props.children, child =>
-        React.isValidElement(child)
-          ? React.cloneElement(child, {
-            // @ts-ignore
-            tmGutter
-          })
-          : props.children
-      )}
+        React.Children.map(props.children, (child) =>
+          React.isValidElement(child)
+            ? React.cloneElement(child, {
+                // @ts-ignore
+                tmGutter,
+              })
+            : props.children
+        )}
     </View>
   );
 }

@@ -21,7 +21,7 @@ function TmStatistic(props: PropsInterface) {
     tmThousandth = false,
     tmValue = 0,
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   const [formatValue, setFormatValue] = useState<number | string>(0);

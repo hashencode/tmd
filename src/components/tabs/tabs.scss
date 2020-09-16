@@ -3,10 +3,16 @@
 .tm-tabs {
   $self: &;
   overflow: hidden;
+  touch-action: manipulation;
+
+  taro-swiper-core {
+    height: auto;
+  }
 
   // 竖直显示
   &-vertical {
     display: flex;
+    width: 100%;
 
     #{$self}__head {
       flex-direction: column;
@@ -15,24 +21,38 @@
       overflow-y: auto;
 
       &-item {
-        font-size: $font-size-primary;
-        margin: $spacing-mid 0;
-        padding: $spacing-xs $spacing-sm;
-        transition: color 0.2s;
-      }
-
-      &-underline {
-        background-color: $color-primary;
-        border-radius: $border-radius-sm;
-        position: absolute;
-        right: 0;
-        transition: top 0.2s ease-out;
-        width: 4px;
+        padding: $spacing-sm $spacing-mid;
+        &:not(:nth-last-of-type(1)) {
+          margin-bottom: $spacing-sm;
+        }
+        &::before {
+          content: "";
+          display: block;
+          background-color: transparent;
+          border-radius: $border-radius-sm;
+          position: absolute;
+          top: 10%;
+          right: 0;
+          width: 4px;
+          height: 80%;
+        }
+        &-active {
+          &#{$self}__head-item-has-underline {
+            &::before {
+              background-color: $color-primary;
+            }
+          }
+        }
       }
     }
 
     #{$self}__body {
+      width: 100%;
       flex-grow: 1;
+    }
+
+    taro-swiper-item-core {
+      width: 100% !important;
     }
   }
 
@@ -43,20 +63,29 @@
       width: 100%;
 
       &-item {
-        font-size: $font-size-primary;
-        margin: 0 $spacing-mid;
-        padding: $spacing-sm $spacing-xs;
-        transition: color 0.2s;
+        padding: $spacing-sm $spacing-mid;
         white-space: nowrap;
-      }
-
-      &-underline {
-        background-color: $color-primary;
-        border-radius: $border-radius-sm;
-        bottom: 0;
-        height: 4px;
-        position: absolute;
-        transition: left 0.2s ease-out;
+        &:not(:nth-last-of-type(1)) {
+          margin-right: $spacing-sm;
+        }
+        &::before {
+          content: "";
+          display: block;
+          background-color: transparent;
+          border-radius: $border-radius-sm;
+          position: absolute;
+          left: 10%;
+          bottom: 0;
+          height: 4px;
+          width: 80%;
+        }
+        &-active {
+          &#{$self}__head-item-has-underline {
+            &::before {
+              background-color: $color-primary;
+            }
+          }
+        }
       }
     }
   }
@@ -68,6 +97,8 @@
     position: relative;
 
     &-item {
+      position: relative;
+      font-size: $font-size-primary;
       &-active {
         color: $color-primary;
       }

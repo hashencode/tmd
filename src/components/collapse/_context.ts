@@ -12,8 +12,7 @@ const CollapseContext = React.createContext<{
   isAccordion: false,
   tmHideArrow: false,
   // @ts-ignore
-  onIndexChange: (key) => {
-  },
+  onIndexChange: (key) => {},
 });
 
 export default CollapseContext;

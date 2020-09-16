@@ -1,18 +1,17 @@
-import "./picker.scss";
+import "./checkbox.scss";
 
 import React, { useLayoutEffect, useRef, useState } from "react";
-
-import PickerContext from "./_context";
-import { TmList } from "../index";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
-
+import CheckboxContext from "./_context";
 import { isEmpty } from "../_scripts";
 
 interface PropsInterface {
   tmDefaultValue?: number | string | (number | string)[]; // 默认值
   tmDisabled?: boolean; // 禁用
   tmMax?: number; // 最大可选中数量
-  tmMultiple?: boolean; // 多选模式
+  tmRadio?: boolean; // 单选模式
+  tmSize?: "sm" | "mid" | "lg"; // 尺寸
   tmValue?: number | string | (number | string)[]; // 当前选中的值
   onChange?: (
     value:
@@ -24,12 +23,13 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmPicker(props: PropsInterface) {
+function TmCheckbox(props: PropsInterface) {
   const {
     tmDefaultValue = "",
     tmDisabled = false,
     tmMax = -1,
-    tmMultiple = "",
+    tmRadio = false,
+    tmSize = "mid",
     tmValue = "",
     onChange = () => {},
     className = "",
@@ -49,7 +49,14 @@ function TmPicker(props: PropsInterface) {
     let _newActiveKeys;
     // 判断是否已经有选中
     // 判断单选和多选
-    if (tmMultiple) {
+    if (tmRadio) {
+      setActiveKeys([currentValue]);
+      updateIsPeak([currentValue]);
+      onChange({
+        text: hashMap.current.get(currentValue),
+        value: currentValue,
+      });
+    } else {
       if (activeKeys.includes(currentValue)) {
         const _activeKeys = [...activeKeys];
         _activeKeys.splice(_activeKeys.indexOf(currentValue), 1);
@@ -67,18 +74,11 @@ function TmPicker(props: PropsInterface) {
           };
         })
       );
-    } else {
-      setActiveKeys([currentValue]);
-      updateIsPeak([currentValue]);
-      onChange({
-        text: hashMap.current.get(currentValue),
-        value: currentValue,
-      });
     }
   };
 
   const updateIsPeak = (currentActiveKeys) => {
-    if (tmMax > 0 && tmMultiple) {
+    if (tmMax > 0) {
       setIsPeak(currentActiveKeys.length >= tmMax);
     }
   };
@@ -95,23 +95,28 @@ function TmPicker(props: PropsInterface) {
   }, [tmDefaultValue, tmValue]);
 
   return (
-    <TmList
-      tmInnerBorder
-      tmIndent
+    <View
       className={classNames(
-        "tm-picker",
-        { "tm-picker-disabled": tmDisabled },
+        "tm-checkbox",
+        { "tm-checkbox-disabled": tmDisabled },
         className
       )}
       style={style}
     >
-      <PickerContext.Provider
-        value={{ isPeak, activeKeys, updateActiveKeys, optionInit }}
+      <CheckboxContext.Provider
+        value={{
+          isRadio: tmRadio,
+          isPeak,
+          tmSize,
+          activeKeys,
+          updateActiveKeys,
+          optionInit,
+        }}
       >
         {props.children}
-      </PickerContext.Provider>
-    </TmList>
+      </CheckboxContext.Provider>
+    </View>
   );
 }
 
-export default TmPicker;
+export default TmCheckbox;

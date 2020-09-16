@@ -1,8 +1,8 @@
 import "./billItem.scss";
 
-import React, {ReactNode} from "react";
+import React, { ReactNode } from "react";
 
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
 
 interface PropsInterface {
@@ -20,7 +20,7 @@ function TmBillItem(props: PropsInterface) {
     tmValue = "",
     tmName = "",
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   return (
@@ -28,7 +28,7 @@ function TmBillItem(props: PropsInterface) {
       className={classNames(
         "tm-bill-item",
         {
-          "tm-bill-item-bold": tmBold
+          "tm-bill-item-bold": tmBold,
         },
         className
       )}

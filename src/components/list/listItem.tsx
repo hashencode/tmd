@@ -1,11 +1,11 @@
 import "./listItem.scss";
 
-import React, {MouseEventHandler, ReactNode, useContext} from "react";
+import React, { MouseEventHandler, ReactNode, useContext } from "react";
 
 import ListContext from "./_context";
-import {navigateTo} from "@tarojs/taro";
-import {TmIcon} from "../index";
-import {View} from "@tarojs/components";
+import { navigateTo } from "@tarojs/taro";
+import { TmIcon } from "../index";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
 import throttle from "lodash/throttle";
 
@@ -38,27 +38,24 @@ function TmListItem(props: PropsInterface) {
     tmThrottleConfig = {},
     tmTitle = "",
     TmTitleAlignTop = false,
-    onClick = () => {
-    },
+    onClick = () => {},
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   const handleClick = throttle(
-    event => {
-      event.stopPropagation();
-      event.preventDefault();
+    (event) => {
       if (tmDisabled) return false;
       if (tmHref) {
-        navigateTo({url: tmHref});
+        navigateTo({ url: tmHref });
       }
-      onClick();
+      onClick(event);
     },
     tmThrottle,
     tmThrottleConfig
   );
 
-  const parentContext = useContext(ListContext);
+  const { tmIndent, tmInnerBorder } = useContext(ListContext);
 
   return (
     <View
@@ -68,8 +65,8 @@ function TmListItem(props: PropsInterface) {
           "tm-list-item-disabled": tmDisabled,
           "tm-list-item-link": tmHref,
           "tm-list-item-has-image": tmImage,
-          "tm-list-item-indent": parentContext.tmIndent,
-          "tm-list-item-bordered": parentContext.tmInnerBorder
+          "tm-list-item-indent": tmIndent,
+          "tm-list-item-bordered": tmInnerBorder,
         },
         className
       )}
@@ -81,7 +78,7 @@ function TmListItem(props: PropsInterface) {
         {(tmTitle || tmSubtitle) && (
           <View
             className={classNames("tm-list-item__head", {
-              "tm-list-item__head-top": TmTitleAlignTop
+              "tm-list-item__head-top": TmTitleAlignTop,
             })}
           >
             <View className="tm-list-item__title">{tmTitle}</View>

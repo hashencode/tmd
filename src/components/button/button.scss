@@ -58,7 +58,7 @@
     &:active {
       color: $color-primary-active;
       // 边框
-      &:after {
+      &::after {
         border-color: $color-primary-active;
       }
     }
@@ -68,7 +68,7 @@
       background-color: transparent;
       color: $color-white;
       // 默认边框
-      &:after {
+      &::after {
         border-color: $color-white;
       }
 
@@ -76,7 +76,7 @@
       &:active {
         color: $color-primary-active;
         // 激活状态边框
-        &:after {
+        &::after {
           border-color: $color-primary-active;
         }
       }
@@ -87,7 +87,7 @@
       color: $color-danger;
 
       // 默认边框
-      &:after {
+      &::after {
         border-color: $color-danger;
       }
 
@@ -95,7 +95,7 @@
       &:active {
         color: $color-danger-active;
         // 激活状态边框
-        &:after {
+        &::after {
           border-color: $color-danger-active;
         }
       }
@@ -113,14 +113,14 @@
     background-color: $color-primary;
     color: $color-white;
 
-    &:after {
+    &::after {
       border-color: $color-primary;
     }
 
     &:active {
       background-color: $color-primary-active;
 
-      &:after {
+      &::after {
         border-color: $color-primary-active;
       }
     }
@@ -139,7 +139,7 @@
       background-color: $color-danger;
       color: $color-white;
 
-      &:after {
+      &::after {
         border-color: $color-danger;
       }
 
@@ -147,7 +147,7 @@
         background-color: $color-danger-active;
         color: $color-white;
 
-        &:after {
+        &::after {
           border-color: $color-danger-active;
         }
       }
@@ -157,7 +157,7 @@
       background-color: $background-disabled;
       color: $font-color-disabled;
 
-      &:after {
+      &::after {
         border-color: $border-color-default;
       }
     }
@@ -165,14 +165,14 @@
 
   // 虚线按钮
   &-dashed {
-    &:after {
+    &::after {
       border-style: dashed;
     }
 
     &:active {
       color: $color-primary-active;
 
-      &:after {
+      &::after {
         border-color: $color-primary-active;
       }
     }
@@ -181,14 +181,14 @@
       background-color: transparent;
       color: $color-white;
 
-      &:after {
+      &::after {
         border-color: $color-white;
       }
 
       &:active {
         color: $color-primary-active;
 
-        &:after {
+        &::after {
           border-color: $color-primary-active;
         }
       }
@@ -197,14 +197,14 @@
     &#{$self}-danger {
       color: $color-danger;
 
-      &:after {
+      &::after {
         border-color: $color-danger;
       }
 
       &:active {
         color: $color-danger-active;
 
-        &:after {
+        &::after {
           border-color: $color-danger-active;
         }
       }
@@ -220,7 +220,7 @@
   &-link {
     color: $color-primary;
 
-    &:after {
+    &::after {
       border-color: transparent;
     }
 
@@ -268,7 +268,7 @@
     border-radius: 50%;
     padding: 0;
 
-    &:after {
+    &::after {
       border-radius: 50%;
     }
 
@@ -288,7 +288,7 @@
   &-round {
     border-radius: 9999px;
 
-    &:after {
+    &::after {
       border-radius: 9999px;
     }
   }

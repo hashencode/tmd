@@ -1,11 +1,11 @@
 import "./message.scss";
 
-import React, {ReactNode, useLayoutEffect, useState} from "react";
-import {TmIcon, TmPopup} from "../index";
+import React, { ReactNode, useLayoutEffect, useState } from "react";
+import { TmIcon, TmPopup } from "../index";
 
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
-import {getGlobalSystemInfo} from "../_scripts";
+import { getGlobalSystemInfo } from "../_scripts";
 
 interface PropsInterface {
   tmIcon?: ReactNode; // 自定义图标
@@ -24,14 +24,14 @@ function TmMessage(props: PropsInterface) {
     tmShow = false,
     tmType = "default",
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   const buildInIconObj = {
     success: "success_fill",
     warning: "warning_fill",
     loading: "loading",
-    error: "error_fill"
+    error: "error_fill",
   };
 
   const [fixStyle, setFixStyle] = useState({});
@@ -39,7 +39,7 @@ function TmMessage(props: PropsInterface) {
   useLayoutEffect(() => {
     if (tmPosition === "top") {
       setFixStyle({
-        paddingTop: getGlobalSystemInfo().navBarInfo.navBarHeight + 20 + "px"
+        paddingTop: getGlobalSystemInfo().navBarInfo.navBarHeight + 20 + "px",
       });
     }
   }, []);

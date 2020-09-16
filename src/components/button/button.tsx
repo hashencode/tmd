@@ -1,10 +1,10 @@
 import "./button.scss";
 
-import React, {MouseEventHandler, ReactNode, useMemo} from "react";
+import React, { MouseEventHandler, ReactNode, useMemo } from "react";
 
-import {navigateTo} from "@tarojs/taro";
-import {TmLoading} from "../index";
-import {View} from "@tarojs/components";
+import { navigateTo } from "@tarojs/taro";
+import { TmLoading } from "../index";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
 import throttle from "lodash/throttle";
 
@@ -45,20 +45,19 @@ function TmButton(props: PropsInterface) {
     tmThrottle = 500,
     tmThrottleConfig = {},
     tmType = "default",
-    onClick = () => {
-    },
+    onClick = () => {},
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   // 按钮点击事件
   const handleButtonClick = throttle(
-    event => {
+    (event) => {
       // 禁止和加载状态下不产生回调
       if (tmDisabled || tmLoading) return false;
       // 如果设置了href则跳转到对应页面
       if (tmHref) {
-        navigateTo({url: tmHref}).then();
+        navigateTo({ url: tmHref }).then();
       }
       onClick(event);
     },
@@ -99,7 +98,7 @@ function TmButton(props: PropsInterface) {
           "tm-button-loading": tmLoading,
           "tm-button-disabled": tmDisabled,
           "tm-button-block": tmBlock,
-          "tm-button-shadow": tmShadow
+          "tm-button-shadow": tmShadow,
         },
         className
       )}
@@ -107,12 +106,12 @@ function TmButton(props: PropsInterface) {
       style={style}
     >
       {/*icon显示部分*/}
-      {tmLoading ? <TmLoading/> : tmIcon}
+      {tmLoading ? <TmLoading /> : tmIcon}
       {/*自定义插槽*/}
       {props.children && (
         <View
           className={classNames("tm-button__slot", {
-            "tm-button__slot-margin": tmLoading || tmIcon
+            "tm-button__slot-margin": tmLoading || tmIcon,
           })}
         >
           {textFormat}

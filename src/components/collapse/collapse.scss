@@ -3,6 +3,7 @@
 .tm-collapse {
   $self: &;
   padding: $spacing-mid 0;
+  touch-action: manipulation;
 
   // 子项
   .tm-collapse-item {
@@ -29,7 +30,7 @@
         }
       }
 
-      &:after {
+      &::after {
         display: none;
       }
     }

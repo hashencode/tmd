@@ -20,7 +20,7 @@ function TmDropdownOption(props: PropsInterface) {
     tmText = "",
     tmValue = "",
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   return (

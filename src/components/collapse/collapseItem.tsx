@@ -1,10 +1,10 @@
 import "./collapseItem.scss";
 
-import React, {ReactNode, useContext, useEffect, useState} from "react";
+import React, { ReactNode, useContext, useEffect, useState } from "react";
 
 import CollapseItemContext from "./_context";
-import {TmIcon} from "../index";
-import {View} from "@tarojs/components";
+import { TmIcon } from "../index";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
 
 interface PropsInterface {
@@ -16,37 +16,43 @@ interface PropsInterface {
 }
 
 function TmCollapseItem(props: PropsInterface) {
-  const {tmTitle = "", tmKey = "", className = "", style = {}} = props;
+  const { tmTitle = "", tmKey = "", className = "", style = {} } = props;
 
-  const parentContext = useContext(CollapseItemContext);
+  const {
+    onIndexChange,
+    activeKey,
+    isAccordion,
+    tmInnerBorder,
+    tmHideArrow,
+  } = useContext(CollapseItemContext);
 
   const [isActive, setIsActive] = useState(false);
 
-  const handleClick = event => {
+  const handleClick = (event) => {
     event.preventDefault();
     if (isActive) {
       setIsActive(false);
-      parentContext.onIndexChange(-1);
+      onIndexChange(-1);
     } else {
-      parentContext.onIndexChange(tmKey);
+      onIndexChange(tmKey);
     }
   };
 
   useEffect(() => {
-    if (tmKey === parentContext.activeKey) {
+    if (tmKey === activeKey) {
       setIsActive(true);
     } else {
-      if (parentContext.isAccordion) {
+      if (isAccordion) {
         setIsActive(false);
       }
     }
-  }, [parentContext]);
+  }, [tmKey, activeKey, isAccordion]);
 
   return (
     <View
       className={classNames(
         "tm-collapse-item",
-        {"tm-collapse-item-bordered": parentContext.tmInnerBorder},
+        { "tm-collapse-item-bordered": tmInnerBorder },
         className
       )}
       style={style}
@@ -56,7 +62,7 @@ function TmCollapseItem(props: PropsInterface) {
         {/*标题*/}
         <View className="tm-collapse-item__title">{tmTitle}</View>
         {/*箭头图标*/}
-        {!parentContext.tmHideArrow && (
+        {!tmHideArrow && (
           <TmIcon
             className="tm-collapse-item__arrow"
             tmValue={isActive ? "arrow_up" : "arrow_down"}

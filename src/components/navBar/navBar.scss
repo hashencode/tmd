@@ -2,6 +2,7 @@
 
 .tm-nav-bar {
   $self: &;
+  touch-action: manipulation;
 
   // 主要内容
   &__content {
@@ -25,7 +26,6 @@
     // 黑暗模式
     &#{$self}__dark {
       background-color: $background-mask;
-      @include one-px-border("round", 9999px, $color-white);
       color: $color-white;
     }
 

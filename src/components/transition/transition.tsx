@@ -43,10 +43,14 @@ function TmTransition(props: PropsInterface) {
     onShow = () => {},
     onClick = () => {},
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   const dataOrAriaProps = getDataOrAriaProps(props);
+
+  const handleClick = (event) => {
+    onClick(event);
+  };
 
   return (
     <CSSTransition
@@ -65,7 +69,7 @@ function TmTransition(props: PropsInterface) {
       style={style}
       {...dataOrAriaProps}
     >
-      <View onClick={onClick}>{props.children}</View>
+      <View onClick={handleClick}>{props.children}</View>
     </CSSTransition>
   );
 }

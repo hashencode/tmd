@@ -21,7 +21,7 @@ function TmWaterMark(props: PropsInterface) {
     tmSpace = 100,
     tmText = "",
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   return (
@@ -29,7 +29,7 @@ function TmWaterMark(props: PropsInterface) {
       <View
         className="tm-water-mark__content"
         style={{
-          opacity: tmOpacity
+          opacity: tmOpacity,
         }}
       >
         {Array(10)
@@ -52,7 +52,7 @@ function TmWaterMark(props: PropsInterface) {
                           marginLeft:
                             index % 2 === 0 && cIndex === 0
                               ? 0
-                              : transformPx(tmSpace)
+                              : transformPx(tmSpace),
                         }}
                       >
                         {tmText}

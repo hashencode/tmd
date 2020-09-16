@@ -58,7 +58,7 @@ function TmTextarea(props: PropsInterface) {
     tmWxAutoHeight = false,
     tmWxCursor = 0,
     tmWxCursorSpacing = 0,
-    tmWxDisableDefaultPadding = false,
+    tmWxDisableDefaultPadding = true,
     tmWxFixed = false,
     tmWxFocus = false,
     tmWxHoldKeyboard = true,

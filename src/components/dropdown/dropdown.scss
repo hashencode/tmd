@@ -2,6 +2,7 @@
 
 .tm-dropdown {
   position: relative;
+  touch-action: manipulation;
 
   &-disabled {
     @include disabled-mask;

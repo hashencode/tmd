@@ -1,9 +1,9 @@
 import "./col.scss";
 
 import React from "react";
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
-import {transformPx} from "../_scripts";
+import { transformPx } from "../_scripts";
 
 interface PropsInterface {
   tmFlex?: number | string;
@@ -27,24 +27,24 @@ function TmCol(props: PropsInterface) {
     tmPush = 0,
     tmSpan = 0,
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   return (
     <View
       className={classNames(
         "tm-col",
-        {[`tm-col-offset-${tmOffset}`]: tmOffset},
-        {[`tm-col-pull-${tmPull}`]: tmPull},
-        {[`tm-col-push-${tmPush}`]: tmPush},
-        {[`tm-col-order-${tmOrder}`]: tmOrder},
+        { [`tm-col-offset-${tmOffset}`]: tmOffset },
+        { [`tm-col-pull-${tmPull}`]: tmPull },
+        { [`tm-col-push-${tmPush}`]: tmPush },
+        { [`tm-col-order-${tmOrder}`]: tmOrder },
         `tm-col-span-${tmSpan}`,
         className
       )}
       style={{
         paddingLeft: transformPx(tmGutter),
         paddingRight: transformPx(tmGutter),
-        ...style
+        ...style,
       }}
     >
       {props.children}

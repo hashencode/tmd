@@ -15,23 +15,17 @@ interface PropsInterface {
 function TmDescriptionItem(props: PropsInterface) {
   const { tmTitle = "", className = "", style = {} } = props;
 
-  const parentContext = useContext(DescriptionContext);
+  const { tmTitleStyle, tmDescStyle } = useContext(DescriptionContext);
 
   return (
     <View
       className={classNames("tm-description-item", className)}
       style={style}
     >
-      <View
-        className="tm-description-item__title"
-        style={parentContext.tmTitleStyle}
-      >
+      <View className="tm-description-item__title" style={tmTitleStyle}>
         {tmTitle}
       </View>
-      <View
-        className="m-description-item__desc"
-        style={parentContext.tmDescStyle}
-      >
+      <View className="m-description-item__desc" style={tmDescStyle}>
         {props.children}
       </View>
     </View>

@@ -16,7 +16,7 @@
     &#{$self}-round {
       border-radius: $border-radius-mid;
 
-      &:after {
+      &::after {
         border-radius: $border-radius-mid * 2;
       }
     }

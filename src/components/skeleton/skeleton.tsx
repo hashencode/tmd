@@ -17,7 +17,7 @@ function TmSkeleton(props: PropsInterface) {
     tmAmount = 1,
     tmShowImage = false,
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   return (

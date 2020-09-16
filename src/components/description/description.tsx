@@ -18,7 +18,7 @@ function TmDescription(props: PropsInterface) {
     tmDescStyle = {},
     tmTitleStyle = { width: "20%" },
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   return (

@@ -8,9 +8,25 @@
   position: relative;
   transition: background-color 0.3s $cubic-bezier-motion;
   vertical-align: middle;
+  touch-action: manipulation;
 
   // 尺寸
-  &-sm {
+  &-lg {
+    border-radius: 9999px;
+    height: $height-mid;
+    width: calc(#{$height-mid} * 1.6);
+
+    #{$self}__handle {
+      height: calc(#{$height-mid} - 4px);
+      width: calc(#{$height-mid} - 4px);
+
+      .tm-icon {
+        font-size: $icon-size-lg;
+      }
+    }
+  }
+
+  &-mid {
     border-radius: 9999px;
     height: $height-sm;
     width: calc(#{$height-sm} * 1.6);
@@ -25,17 +41,17 @@
     }
   }
 
-  &-mid {
+  &-sm {
     border-radius: 9999px;
-    height: $height-mid;
-    width: calc(60px * 1.6);
+    height: $height-xs;
+    width: calc(#{$height-xs} * 1.6);
 
     #{$self}__handle {
-      height: calc(60px - 4px);
-      width: calc(60px - 4px);
+      height: calc(#{$height-xs} - 4px);
+      width: calc(#{$height-xs} - 4px);
 
       .tm-icon {
-        font-size: $icon-size-lg;
+        font-size: $icon-size-sm;
       }
     }
   }
@@ -44,15 +60,21 @@
   &-checked {
     background-color: $color-primary;
 
-    &#{$self}-sm {
+    &#{$self}-lg {
       #{$self}__handle {
-        transform: translateX(calc(#{$height-sm} * 0.6));
+        transform: translateX(calc(#{$height-mid} * 0.6));
       }
     }
 
     &#{$self}-mid {
       #{$self}__handle {
-        transform: translateX(calc(60px * 0.6));
+        transform: translateX(calc(#{$height-sm} * 0.6));
+      }
+    }
+
+    &#{$self}-sm {
+      #{$self}__handle {
+        transform: translateX(calc(#{$height-xs} * 0.6));
       }
     }
 

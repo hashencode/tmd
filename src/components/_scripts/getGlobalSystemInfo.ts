@@ -1,4 +1,10 @@
-import {getEnv, getMenuButtonBoundingClientRect, getStorageSync, getSystemInfoSync, setStorageSync} from "@tarojs/taro";
+import {
+  getEnv,
+  getMenuButtonBoundingClientRect,
+  getStorageSync,
+  getSystemInfoSync,
+  setStorageSync,
+} from "@tarojs/taro";
 
 // 获取小程序胶囊位置信息，来源：https://github.com/lingxiaoyi/Taro-navigation-bar
 function getGlobalSystemInfo() {
@@ -18,7 +24,7 @@ function getGlobalSystemInfo() {
       screenHeight,
       windowHeight,
       windowWidth,
-      statusBarHeight = 0
+      statusBarHeight = 0,
     } = systemInfo;
 
     // 尝试获取胶囊信息
@@ -28,8 +34,8 @@ function getGlobalSystemInfo() {
       if (!rect || !rect.width || !rect.top || !rect.left || !rect.height) {
         throw "getMenuButtonBoundingClientRect error";
       }
-      const {right} = rect;
-      const {windowWidth} = systemInfo;
+      const { right } = rect;
+      const { windowWidth } = systemInfo;
       // 计算出到胶囊右端到页面右端的距离
       rect["marginRight"] = windowWidth - right;
     } catch (error) {
@@ -61,7 +67,7 @@ function getGlobalSystemInfo() {
         right: windowWidth - 10,
         top: statusBarHeight + gap,
         width,
-        marginRight: 10
+        marginRight: 10,
       };
     }
 
@@ -93,12 +99,12 @@ function getGlobalSystemInfo() {
       screenHeight,
       windowHeight,
       windowWidth,
-      ios
+      ios,
     };
     globalSystemInfo["navBarInfo"] = {
       navBarHeight,
       navBarExtendHeight,
-      statusBarHeight
+      statusBarHeight,
     };
     globalSystemInfo["capsuleInfo"] = rect;
     // 将信息保存到本地缓存中,后边再用就不用重新异步获取了

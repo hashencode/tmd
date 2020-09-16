@@ -1,11 +1,11 @@
 import "./badge.scss";
 
-import React, {useMemo} from "react";
+import React, { useMemo } from "react";
 
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
-import {colorDanger} from "../_style/theme";
-import {transformPx} from "../_scripts";
+import { colorDanger } from "../_style/theme";
+import { transformPx } from "../_scripts";
 
 interface PropsInterface {
   tmColor?: string; // 背景色
@@ -25,10 +25,10 @@ function TmBadge(props: PropsInterface) {
     tmDot = false,
     tmMax = 999,
     tmShowZero = false,
-    tmTranslate = {x: 0, y: 0},
+    tmTranslate = { x: 0, y: 0 },
     tmValue = 0,
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   // const [number, setNumber] = useState<number | string>(0);
@@ -42,7 +42,7 @@ function TmBadge(props: PropsInterface) {
           <View
             className={"tm-badge__slot tm-badge__slot-dot"}
             style={{
-              backgroundColor: tmColor
+              backgroundColor: tmColor,
             }}
           />
         );
@@ -52,7 +52,7 @@ function TmBadge(props: PropsInterface) {
             className="tm-badge__slot tm-badge__slot-number"
             style={{
               backgroundColor: tmColor,
-              padding: tmValue < 10 ? "0 2px" : "0 5px"
+              padding: tmValue < 10 ? "0 2px" : "0 5px",
             }}
           >
             {tmValue < tmMax ? (
@@ -80,7 +80,7 @@ function TmBadge(props: PropsInterface) {
         style={{
           transform: `translate3d(${transformPx(tmTranslate.x)},${transformPx(
             tmTranslate.y
-          )},0)`
+          )},0)`,
         }}
       >
         {renderBadge}

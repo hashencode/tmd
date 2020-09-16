@@ -1,8 +1,8 @@
 import "./card.scss";
 
-import React, {ReactNode} from "react";
+import React, { ReactNode } from "react";
 
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 import classNames from "classnames";
 
 interface PropsInterface {
@@ -34,7 +34,7 @@ function TmCard(props: PropsInterface) {
     tmShadow = false,
     tmTitle = null,
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   return (
@@ -44,7 +44,7 @@ function TmCard(props: PropsInterface) {
         {
           "tm-card-shadow": tmShadow,
           "tm-card-round": tmRound,
-          "tm-card-bordered": tmBorder
+          "tm-card-bordered": tmBorder,
         },
         className
       )}

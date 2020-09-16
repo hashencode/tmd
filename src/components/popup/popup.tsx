@@ -1,10 +1,10 @@
 import "./popup.scss";
 
-import {CSSTransition} from "react-transition-group";
+import { CSSTransition } from "react-transition-group";
 import React from "react";
-import {TmTransition} from "../index";
-import {View} from "@tarojs/components";
-import {backgroundMask} from "../_style/theme";
+import { TmTransition } from "../index";
+import { View } from "@tarojs/components";
+import { backgroundMask } from "../_style/theme";
 import classNames from "classnames";
 
 interface PropsInterface {
@@ -48,14 +48,11 @@ function TmPopup(props: PropsInterface) {
     tmMotion = "fade",
     tmPosition = "center",
     tmShow = false,
-    onHide = () => {
-    },
-    onMaskClick = () => {
-    },
-    onShow = () => {
-    },
+    onHide = () => {},
+    onMaskClick = () => {},
+    onShow = () => {},
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   // 点击遮罩
@@ -73,7 +70,7 @@ function TmPopup(props: PropsInterface) {
         "tm-popup",
         tmFullScreen ? "tm-popup-full-screen" : "tm-popup-flow",
         `tm-popup-align-${tmPosition}`,
-        {"tm-popup-no-mask": !tmMask},
+        { "tm-popup-no-mask": !tmMask },
         className
       )}
       style={style}
@@ -90,7 +87,7 @@ function TmPopup(props: PropsInterface) {
             className="tm-popup__mask"
             onClick={handleMaskClick}
             style={{
-              backgroundColor: tmMaskColor
+              backgroundColor: tmMaskColor,
             }}
           />
         )}
@@ -101,7 +98,7 @@ function TmPopup(props: PropsInterface) {
           tmDestroyAfterHide={tmDestroyAfterHide}
           tmMotion={tmMotion}
           tmShow={tmShow}
-          onClick={event => {
+          onClick={(event) => {
             event.stopPropagation();
           }}
         >

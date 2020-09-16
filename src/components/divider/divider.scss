@@ -10,7 +10,7 @@
   position: relative;
   vertical-align: middle;
   // 左侧
-  &:before {
+  &::before {
     background-color: $border-color-default;
     content: "";
     height: 2px;
@@ -19,7 +19,7 @@
   }
 
   // 右侧
-  &:after {
+  &::after {
     background-color: $border-color-default;
     content: "";
     height: 2px;
@@ -29,22 +29,22 @@
 
   // 左侧显示文字
   &-align-left {
-    &:before {
+    &::before {
       width: 5%;
     }
 
-    &:after {
+    &::after {
       width: 95%;
     }
   }
 
   // 右侧显示文字
   &-align-right {
-    &:before {
+    &::before {
       width: 95%;
     }
 
-    &:after {
+    &::after {
       width: 5%;
     }
   }

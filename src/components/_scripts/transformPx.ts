@@ -1,6 +1,6 @@
-import {pxTransform} from "@tarojs/taro";
+import { pxTransform } from "@tarojs/taro";
 
-const transformPx = value => {
+const transformPx = (value) => {
   // @ts-ignore
   return typeof value === "string" ? value : pxTransform(value, 750);
 };

@@ -43,6 +43,7 @@ $cubic-bezier-motion: cubic-bezier(0.215, 0.61, 0.355, 1);
 $cubic-bezier-fade: cubic-bezier(0.165, 0.84, 0.44, 1);
 
 // 全局高度 height
+$height-xs: 40px;
 $height-sm: 50px;
 $height-mid: 60px;
 $height-lg: 80px;
@@ -66,10 +67,10 @@ $font-size-title: 36px; // 一级标题
 $font-size-title-lg: 40px; // 结果页标题
 
 $font-family-cn: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-"Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 $font-family-number: DINPro-Medium, DIN Alternate, Helvetica Neue, Helvetica,
-PingFang SC, Hiragino Sans GB, Microsoft YaHei, 微软雅黑, Arial, sans-serif;
+  PingFang SC, Hiragino Sans GB, Microsoft YaHei, 微软雅黑, Arial, sans-serif;
 
 // 图标尺寸 icon size
 $icon-size-xs: 26px;
@@ -79,15 +80,15 @@ $icon-size-lg: 50px;
 
 // 阴影 shadow
 $shadow-around: 0 1.5px 3px -2px rgba(0, 0, 0, 0.06),
-0 3px 8px 0 rgba(0, 0, 0, 0.04), 0 4.5px 14px 4px rgba(0, 0, 0, 0.025);
+  0 3px 8px 0 rgba(0, 0, 0, 0.04), 0 4.5px 14px 4px rgba(0, 0, 0, 0.025);
 $shadow-top: 0 -3px 8px -4px rgba(0, 0, 0, 0.04),
-0 -4.5px 14px 0 rgba(0, 0, 0, 0.025), 0 -6px 24px 8px rgba(0, 0, 0, 0.015);
+  0 -4.5px 14px 0 rgba(0, 0, 0, 0.025), 0 -6px 24px 8px rgba(0, 0, 0, 0.015);
 $shadow-bottom: 0 3px 8px -4px rgba(0, 0, 0, 0.04),
-0 4.5px 14px 0 rgba(0, 0, 0, 0.025), 0 6px 24px 8px rgba(0, 0, 0, 0.015);
+  0 4.5px 14px 0 rgba(0, 0, 0, 0.025), 0 6px 24px 8px rgba(0, 0, 0, 0.015);
 $shadow-left: -3px 0 8px -4px rgba(0, 0, 0, 0.04),
--4.5px 0 14px 0 rgba(0, 0, 0, 0.025), -6px 0 24px 8px rgba(0, 0, 0, 0.015);
+  -4.5px 0 14px 0 rgba(0, 0, 0, 0.025), -6px 0 24px 8px rgba(0, 0, 0, 0.015);
 $shadow-right: 3px 0 8px -4px rgba(0, 0, 0, 0.04),
-4.5px 0 14px 0 rgba(0, 0, 0, 0.025), 6px 0 24px 8px rgba(0, 0, 0, 0.015);
+  4.5px 0 14px 0 rgba(0, 0, 0, 0.025), 6px 0 24px 8px rgba(0, 0, 0, 0.015);
 
 // 间距 spacing size
 $spacing-xxs: 4px;
@@ -123,7 +124,7 @@ $onePx: 1PX;
 }
 
 @mixin disabled-mask($showBorder: false, $roundSize: $border-radius-mid) {
-  &:before {
+  &::before {
     content: "";
     background-color: $background-ghost;
     position: absolute;
@@ -155,7 +156,7 @@ $onePx: 1PX;
   $type: solid
 ) {
   position: relative;
-  &:after {
+  &::after {
     pointer-events: none;
     content: " ";
     position: absolute;

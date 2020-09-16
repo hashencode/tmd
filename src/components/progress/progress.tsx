@@ -23,7 +23,7 @@ function TmProgress(props: PropsInterface) {
     tmBarColor = colorPrimary,
     tmBackgroundColor = backgroundDefault,
     className = "",
-    style = {}
+    style = {},
   } = props;
 
   const [barStyle, setBarStyle] = useState(`background:${tmBackgroundColor}`);
@@ -60,15 +60,15 @@ function TmProgress(props: PropsInterface) {
         );
       } else if (tmValue <= 50) {
         setBarStyle(
-          `background:linear-gradient(${(tmValue / 25 - 1) *
-            90}deg, ${tmBackgroundColor} 50%, transparent 50%), linear-gradient(-90deg, ${tmBarColor} 50%, ${tmBackgroundColor} 50%);`
+          `background:linear-gradient(${
+            (tmValue / 25 - 1) * 90
+          }deg, ${tmBackgroundColor} 50%, transparent 50%), linear-gradient(-90deg, ${tmBarColor} 50%, ${tmBackgroundColor} 50%);`
         );
       } else {
         setBarStyle(
-          `background:linear-gradient(-90deg, ${tmBarColor} 50%, transparent 50%), linear-gradient(${(tmValue /
-            25 -
-            3) *
-            90}deg, ${tmBarColor} 50%, ${tmBackgroundColor} 50%)`
+          `background:linear-gradient(-90deg, ${tmBarColor} 50%, transparent 50%), linear-gradient(${
+            (tmValue / 25 - 3) * 90
+          }deg, ${tmBarColor} 50%, ${tmBackgroundColor} 50%)`
         );
       }
     }
