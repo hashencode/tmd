@@ -1,0 +1,24 @@
+@import "../_style/theme";
+
+.tm-rate {
+  &__item-star {
+    font-size: $icon-size-lg;
+    color: $font-color-placeholder;
+    &:not(:nth-last-of-type(1)) {
+      margin-right: $spacing-sm;
+    }
+  }
+  &__item-face {
+    width: 1.5rem;
+    filter: grayscale(1);
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    &:not(:nth-last-of-type(1)) {
+      margin-right: $spacing-mid;
+    }
+    &-active {
+      filter: grayscale(0);
+      opacity: 1;
+    }
+  }
+}

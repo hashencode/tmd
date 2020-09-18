@@ -19,6 +19,9 @@
 
   &__arrow {
     margin-left: $spacing-sm;
+    .tm-icon {
+      font-size: $icon-size-sm;
+    }
   }
 
   &__body {

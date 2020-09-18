@@ -41,7 +41,8 @@ function TmCheckboxOption(props: PropsInterface) {
   } = useContext(CheckboxContext);
 
   const handleClick = (event) => {
-    if (tmDisabled) return;
+    // 禁用或者达到最大可选个数时无反馈
+    if (tmDisabled || isPeak) return;
     updateActiveKeys({
       currentValue: tmValue,
     });

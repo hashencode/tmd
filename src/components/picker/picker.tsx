@@ -9,15 +9,20 @@ import classNames from "classnames";
 import { isEmpty } from "../_scripts";
 
 interface PropsInterface {
+  tmAllowClear?: boolean; // 单选模式下是否允许双击取消
   tmDefaultValue?: number | string | (number | string)[]; // 默认值
   tmDisabled?: boolean; // 禁用
   tmMax?: number; // 最大可选中数量
   tmMultiple?: boolean; // 多选模式
+  tmOutputWithText?: boolean; // 值的输出附带描述文字
   tmValue?: number | string | (number | string)[]; // 当前选中的值
   onChange?: (
     value:
+      | string
+      | number
       | { text: string; value: number | string }[]
       | { text: string; value: number | string }
+      | undefined
   ) => void; // 选项变动回调
   children?: any; // 子组件内容
   className?: string; // 自定义类名
@@ -26,10 +31,12 @@ interface PropsInterface {
 
 function TmPicker(props: PropsInterface) {
   const {
+    tmAllowClear = false,
     tmDefaultValue = "",
     tmDisabled = false,
     tmMax = -1,
     tmMultiple = "",
+    tmOutputWithText = false,
     tmValue = "",
     onChange = () => {},
     className = "",
@@ -46,6 +53,8 @@ function TmPicker(props: PropsInterface) {
   };
 
   const updateActiveKeys = ({ currentValue }) => {
+    // 当设置有 tmValue 值时，视作完全控制，用户行为不会触发更新操作
+    if (!isEmpty(tmValue)) return;
     let _newActiveKeys;
     // 判断是否已经有选中
     // 判断单选和多选
@@ -57,23 +66,43 @@ function TmPicker(props: PropsInterface) {
       } else {
         _newActiveKeys = [...activeKeys, currentValue];
       }
+      // 更新激活项和可选最大值
       setActiveKeys(_newActiveKeys);
       updateIsPeak(_newActiveKeys);
-      onChange(
-        _newActiveKeys.map((value) => {
-          return {
-            text: hashMap.current.get(value),
-            value,
-          };
-        })
-      );
+      // 在无任何选中的情况下，返回 undefined
+      if (_newActiveKeys.length > 0) {
+        onChange(
+          _newActiveKeys.map((value) => {
+            return tmOutputWithText
+              ? {
+                  text: hashMap.current.get(value),
+                  value,
+                }
+              : value;
+          })
+        );
+      } else {
+        onChange(undefined);
+      }
     } else {
-      setActiveKeys([currentValue]);
-      updateIsPeak([currentValue]);
-      onChange({
-        text: hashMap.current.get(currentValue),
-        value: currentValue,
-      });
+      if (activeKeys.indexOf(currentValue) > -1) {
+        if (tmAllowClear) {
+          setActiveKeys([]);
+          updateIsPeak([]);
+          onChange(undefined);
+        }
+      } else {
+        setActiveKeys([currentValue]);
+        updateIsPeak([currentValue]);
+        onChange(
+          tmOutputWithText
+            ? {
+                text: hashMap.current.get(currentValue),
+                value: currentValue,
+              }
+            : currentValue
+        );
+      }
     }
   };
 
@@ -83,16 +112,25 @@ function TmPicker(props: PropsInterface) {
     }
   };
 
+  const valueFormat = (value) => {
+    const _value = Array.isArray(value) ? value : [value];
+    // 判断传入的值是否为数组，如果不是，则转换成数组
+    setActiveKeys(_value);
+    updateIsPeak(_value);
+  };
+
   useLayoutEffect(() => {
-    const value = tmValue || tmDefaultValue;
     // 判断是否存在
-    if (!isEmpty(value)) {
-      const _value = Array.isArray(value) ? value : [value];
-      // 判断传入的值是否为数组，如果不是，则转换成数组
-      setActiveKeys(_value);
-      updateIsPeak(_value);
+    if (!isEmpty(tmValue)) {
+      valueFormat(tmValue);
     }
-  }, [tmDefaultValue, tmValue]);
+  }, [tmValue]);
+
+  useLayoutEffect(() => {
+    if (isEmpty(tmValue) && !isEmpty(tmDefaultValue)) {
+      valueFormat(tmDefaultValue);
+    }
+  }, []);
 
   return (
     <TmList

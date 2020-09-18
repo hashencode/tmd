@@ -89,11 +89,7 @@ function TmListItem(props: PropsInterface) {
         <View className="tm-list-item__slot">{props.children}</View>
         <View className="tm-list-item__action">{tmAction}</View>
         {tmShowArrow && (
-          <TmIcon
-            className="tm-list-item__arrow"
-            tmValue={"arrow_right"}
-            tmSize={32}
-          />
+          <TmIcon className="tm-list-item__arrow" tmValue={"arrow_right"} />
         )}
       </View>
     </View>

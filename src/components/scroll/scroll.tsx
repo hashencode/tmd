@@ -11,15 +11,14 @@ import { ScrollView, View } from "@tarojs/components";
 
 import classNames from "classnames";
 import { BaseEventOrigFunction } from "@tarojs/components/types/common";
-import { ScrollViewProps } from "@tarojs/components/types/ScrollView";
 
 interface PropsInterface {
   tmLowerThreshold?: number; // 触发加载事件距离
   tmTriggerDistance?: number; // 下拉刷新激活高度
   tmRefresher?: string | ReactNode;
-  onLoad?: () => void; // 触底回调
-  onChange?: ({}: { status: string }) => void; // 下拉刷新回调
-  onScroll?: BaseEventOrigFunction<ScrollViewProps.onScrollDetail>; // 滚动事件监听
+  onScrollToLower?: BaseEventOrigFunction<any>; // 触底回调
+  onRefresh?: ({}: { status: string }) => void; // 下拉刷新回调
+  onScroll?: BaseEventOrigFunction<any>; // 滚动事件监听
   children?: any; // 子组件内容
   className?: string; // 自定义类名
   style?: React.CSSProperties; // 自定义行内样式
@@ -30,8 +29,8 @@ function TmScroll(props: PropsInterface, ref) {
     tmLowerThreshold = 100,
     tmTriggerDistance = 50,
     tmRefresher = "",
-    onLoad = () => {},
-    onChange = () => {},
+    onScrollToLower = () => {},
+    onRefresh = () => {},
     onScroll = () => {},
     className = "",
     style = {},
@@ -106,7 +105,7 @@ function TmScroll(props: PropsInterface, ref) {
         // 设置是否准备刷新
         const status = translateY >= tmTriggerDistance ? "ready" : "pending";
         config.current.refreshStatus = status;
-        onChange({ status });
+        onRefresh({ status });
       }
     }
   };
@@ -124,7 +123,7 @@ function TmScroll(props: PropsInterface, ref) {
     } else if (config.current.refreshStatus === "ready") {
       config.current.refreshStatus = "doing";
       shrinkMotion({ aimY: tmTriggerDistance }).then(() => {
-        onChange({ status: "doing" });
+        onRefresh({ status: "doing" });
       });
     }
   };
@@ -158,7 +157,7 @@ function TmScroll(props: PropsInterface, ref) {
       isUpper: true,
     };
     setIsPending(true);
-    onChange({ status: "doing" });
+    onRefresh({ status: "doing" });
     shrinkMotion({ aimY: tmTriggerDistance }).then();
   };
 
@@ -170,7 +169,7 @@ function TmScroll(props: PropsInterface, ref) {
       refreshStatus: "done",
     };
     setIsPending(false);
-    onChange({ status: "done" });
+    onRefresh({ status: "done" });
     shrinkMotion({ aimY: 0 }).then();
   };
 
@@ -190,7 +189,7 @@ function TmScroll(props: PropsInterface, ref) {
       <ScrollView
         lowerThreshold={tmLowerThreshold}
         onScroll={handleScroll}
-        onScrollToLower={onLoad}
+        onScrollToLower={onScrollToLower}
         onScrollToUpper={handleScrollToUpper}
         onTouchCancel={handleTouchEnd}
         onTouchEnd={handleTouchEnd}

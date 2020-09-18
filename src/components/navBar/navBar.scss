@@ -3,6 +3,11 @@
 .tm-nav-bar {
   $self: &;
   touch-action: manipulation;
+  &-shadow {
+    #{$self}__content {
+      box-shadow: $shadow-bottom;
+    }
+  }
 
   // 主要内容
   &__content {

@@ -36,7 +36,7 @@
       width: calc(#{$height-sm} - 4px);
 
       .tm-icon {
-        font-size: $icon-size-sm;
+        font-size: $icon-size-mid;
       }
     }
   }
@@ -79,7 +79,7 @@
     }
 
     &#{$self}-loading {
-      #{$self}__handle-icon {
+      #{$self}__loading {
         color: $color-primary;
       }
     }

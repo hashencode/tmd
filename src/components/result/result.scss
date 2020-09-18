@@ -9,22 +9,17 @@
   position: relative;
 
   // 图标
-  &__icon {
-    font-size: 140px;
+  &__image {
     line-height: 1;
     margin-bottom: $spacing-mid;
-  }
-
-  // 标题
-  &__title {
-    color: $font-color-title;
-    font-size: $font-size-title-lg;
-    margin-bottom: $spacing-xs;
+    &-default {
+      width: 200px;
+    }
   }
 
   // 二级标题
-  &__subtitle {
-    color: $font-color-desc;
+  &__text {
+    color: $font-color-secondary;
     font-size: $font-size-primary;
   }
 }

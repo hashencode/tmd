@@ -12,28 +12,19 @@ import {
 import { View } from "@tarojs/components";
 
 function DemoSwitch() {
-  const [switchStatus, setSwitchStatus] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
   const handleSwitch = () => {
-    setSwitchStatus(!switchStatus);
+    setIsChecked(!isChecked);
   };
 
   return (
     <View className={"demo "}>
       <TmNavBar tmTitle={"开关"} />
-      <TmCard
-        tmRound
-        className={"demo__card"}
-        tmTitle={"尺寸"}
-        tmAction={
-          <TmButton onClick={handleSwitch} tmType={"primary"} tmSize={"sm"}>
-            切换
-          </TmButton>
-        }
-      >
+      <TmCard tmRound className={"demo__card"} tmTitle={"尺寸"}>
         <TmSpace>
-          <TmSwitch tmSize={"lg"} tmChecked={switchStatus} />
-          <TmSwitch tmChecked={switchStatus} />
-          <TmSwitch tmSize={"sm"} tmChecked={switchStatus} />
+          <TmSwitch tmSize={"lg"} />
+          <TmSwitch />
+          <TmSwitch tmSize={"sm"} />
         </TmSpace>
       </TmCard>
       <TmCard tmRound className={"demo__card"} tmTitle={"加载状态"}>
@@ -46,6 +37,20 @@ function DemoSwitch() {
         <TmSpace>
           <TmSwitch tmDisabled />
           <TmSwitch tmDefaultChecked={true} tmDisabled />
+        </TmSpace>
+      </TmCard>
+      <TmCard
+        tmRound
+        className={"demo__card"}
+        tmTitle={"完全控制"}
+        tmAction={
+          <TmButton onClick={handleSwitch} tmType={"primary"} tmSize={"sm"}>
+            切换
+          </TmButton>
+        }
+      >
+        <TmSpace>
+          <TmSwitch tmChecked={isChecked} />
         </TmSpace>
       </TmCard>
     </View>

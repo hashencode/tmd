@@ -41,6 +41,7 @@ export default {
     "pages/demo/transition/transition",
     "pages/demo/waterMark/waterMark",
     "pages/demo/checkbox/checkbox",
+    "pages/demo/rate/rate",
     "pages/me/me",
   ],
   window: {

@@ -15,3 +15,8 @@ export const spaceXs = 8;
 export const spaceSm = 16;
 export const spaceMid = 24;
 export const spaceLg = 32;
+// 图标尺寸
+export const iconSizeXs = 26;
+export const iconSizeSm = 30;
+export const iconSizeMid = 40;
+export const iconSizeLg = 50;

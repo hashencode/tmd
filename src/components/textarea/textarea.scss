@@ -39,4 +39,9 @@
     font-size: $font-size-regular;
     width: 100%;
   }
+
+  &__clear-btn {
+    font-size: 1.3em;
+    color: $font-color-desc;
+  }
 }

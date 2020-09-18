@@ -1,4 +1,8 @@
 @import "../_style/theme";
 
 .tm-picker-option {
+  &__selected-icon {
+    font-size: $icon-size-sm;
+    color: $color-primary;
+  }
 }

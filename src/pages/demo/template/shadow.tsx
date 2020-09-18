@@ -1,17 +1,17 @@
 import "../demoStyle.scss";
 
-import {TmCard, TmNavBar} from "../../../components";
+import { TmCard, TmNavBar } from "../../../components";
 
 import React from "react";
-import {View} from "@tarojs/components";
+import { View } from "@tarojs/components";
 
-function DemoGrid() {
+function DemoRate() {
   return (
     <View className={"demo"}>
-      <TmNavBar tmTitle={"间距"}/>
+      <TmNavBar tmTitle={""} />
       <TmCard tmRound className={"demo__card"} tmTitle={""}></TmCard>
     </View>
   );
 }
 
-export default DemoGrid;
+export default DemoRate;

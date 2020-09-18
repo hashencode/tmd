@@ -11,7 +11,7 @@ import {
   setStorageSync,
   switchTab,
   useDidHide,
-  useDidShow,
+  useDidShow
 } from "@tarojs/taro";
 import { TmDivider, TmIcon } from "../index";
 
@@ -27,6 +27,7 @@ interface PropsInterface {
   tmHideBtn?: boolean; // 隐藏返回按钮
   tmTheme?: "light" | "dark"; // 按钮风格
   tmTitle?: ReactNode; // 页面标题
+  tmShadow?: boolean; // 显示阴影
   children?: any; // 客制slot，若已设置title，slot无效
   className?: string; // 自定义类名
   style?: React.CSSProperties; // 自定义行内样式
@@ -53,8 +54,9 @@ function TmNavBar(props: PropsInterface) {
     tmHideBtn = false,
     tmTheme = "light",
     tmTitle = "",
+    tmShadow = false,
     className = "",
-    style = {},
+    style = {}
   } = props;
 
   let prevScrollTop: number = 0; // 前一次滚动距离
@@ -64,7 +66,7 @@ function TmNavBar(props: PropsInterface) {
     fixedPartStyle: {},
     navBtnStyle: {},
     contentStyle: {},
-    staticPartStyle: {},
+    staticPartStyle: {}
   });
   const [background, setBackground] = useState(
     `background:${tmBackground ? tmBackground : "transparent"};opacity:${
@@ -80,13 +82,13 @@ function TmNavBar(props: PropsInterface) {
       navBarInfo: {
         statusBarHeight, // 状态栏高度
         navBarHeight, // 胶囊高度
-        navBarExtendHeight, // 导航底部到胶囊的内间距
+        navBarExtendHeight // 导航底部到胶囊的内间距
       },
       capsuleInfo: {
         marginRight, // 胶囊右外边距
         width: capsuleWidth, // 胶囊宽度
-        height: capsuleHeight, // 胶囊高度
-      },
+        height: capsuleHeight // 胶囊高度
+      }
     } = systemInfo;
 
     // 主体样式
@@ -94,34 +96,33 @@ function TmNavBar(props: PropsInterface) {
       // 高度=基础高度+拓展条高度
       height: `${navBarHeight + navBarExtendHeight}px`,
       // 内间距：状态栏高度、胶囊宽度+胶囊右外边距、拓展条高度、胶囊右外边距（为与右侧间隙保持一致）
-      padding: `${statusBarHeight}px ${
-        marginRight + capsuleWidth
-      }px ${navBarExtendHeight}px ${marginRight}px`,
+      padding: `${statusBarHeight}px ${marginRight +
+        capsuleWidth}px ${navBarExtendHeight}px ${marginRight}px`
     };
 
     // 操作按钮样式
     const navBtnStyle = {
       height: `${capsuleHeight}px`,
-      width: `${capsuleWidth}px`,
+      width: `${capsuleWidth}px`
     };
 
     // 内容区域样式
     const contentStyle = {
       height: `${navBarHeight - statusBarHeight}px`,
       width: `${windowWidth - (marginRight * 4 + capsuleWidth) * 2}px`,
-      top: `${statusBarHeight}px`,
+      top: `${statusBarHeight}px`
     };
 
     // 高度填充物样式
     const staticPartStyle = {
-      height: `${tmFilling ? navBarHeight + navBarExtendHeight : 0}px`,
+      height: `${tmFilling ? navBarHeight + navBarExtendHeight : 0}px`
     };
 
     return {
       fixedPartStyle,
       navBtnStyle,
       contentStyle,
-      staticPartStyle,
+      staticPartStyle
     };
   };
 
@@ -142,7 +143,7 @@ function TmNavBar(props: PropsInterface) {
   const handleMenuClick = throttle(() => {}, 500, { trailing: false });
 
   // 根据滚动距离设置背景透明度
-  const updateOpacity = (scrollTop) => {
+  const updateOpacity = scrollTop => {
     const percent = tmDynamicOpacity ? Number((scrollTop / 140).toFixed(2)) : 1;
     setBackground(
       `background:${tmBackground};opacity:${percent >= 1 ? 1 : percent}`
@@ -197,7 +198,13 @@ function TmNavBar(props: PropsInterface) {
 
   return (
     <View
-      className={classNames("tm-nav-bar", className)}
+      className={classNames(
+        "tm-nav-bar",
+        {
+          "tm-nav-bar-shadow": tmShadow
+        },
+        className
+      )}
       style={{ ...navBarStyle.staticPartStyle, ...style }}
     >
       <View className="tm-nav-bar__content" style={navBarStyle.fixedPartStyle}>
@@ -212,13 +219,12 @@ function TmNavBar(props: PropsInterface) {
             {/*返回按钮*/}
             <TmIcon
               tmValue={isFirstLoad ? "home" : "arrow_left"}
-              tmSize={40}
               onClick={handleBackBtnClick}
             />
             {/*分割线*/}
             <TmDivider tmVertical tmSpace={12} />
             {/*菜单按钮*/}
-            <TmIcon tmValue={"list"} tmSize={40} onClick={handleMenuClick} />
+            <TmIcon tmValue={"list"} onClick={handleMenuClick} />
           </View>
         )}
         {/*显示插槽或者自定义标题*/}

@@ -1,6 +1,6 @@
 import "../demoStyle.scss";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import {
   TmButton,
   TmCard,
@@ -13,6 +13,35 @@ import { View } from "@tarojs/components";
 
 function DemoScroll() {
   const scrollRef = useRef<any>(null);
+
+  const defaultText = `Authoritatively streamline error-free mindshare whereas exceptional
+            paradigms. Rapidiously reconceptualize worldwide networks via
+            wireless alignments. Interactively cultivate focused collaboration
+            and idea-sharing via parallel total linkage. Continually evolve
+            distributed infomediaries and integrated infrastructures.
+            Continually facilitate 2.0 infomediaries vis-a-vis B2C human
+            capital. Interactively target out-of-the-box niches and empowered
+            users. Dynamically strategize unique ROI and value-added leadership
+            skills. Continually transition cost effective benefits without
+            backend channels. Conveniently provide access to cross functional
+            manufactured products with revolutionary portals. Collaboratively
+            facilitate user-centric methods of empowerment through
+            functionalized niche markets. Seamlessly target orthogonal
+            Authoritatively streamline error-free mindshare whereas exceptional
+            paradigms. Rapidiously reconceptualize worldwide networks via
+            wireless alignments. Interactively cultivate focused collaboration
+            and idea-sharing via parallel total linkage. Continually evolve
+            distributed infomediaries and integrated infrastructures.
+            Continually facilitate 2.0 infomediaries vis-a-vis B2C human
+            capital. Interactively target out-of-the-box niches and empowered
+            users. Dynamically strategize unique ROI and value-added leadership
+            skills. Continually transition cost effective benefits without
+            backend channels. Conveniently provide access to cross functional
+            manufactured products with revolutionary portals. Collaboratively
+            facilitate user-centric methods of empowerment through
+            functionalized niche markets. Seamlessly target orthogonal`;
+
+  const [text, setText] = useState(defaultText);
 
   // const [refresher, setRefresher] = useState("pending");
 
@@ -46,41 +75,18 @@ function DemoScroll() {
         <TmScroll
           ref={scrollRef}
           style={{
-            height: "30vh",
+            height: "50vh",
           }}
           tmRefresher={<View>刷新</View>}
-          onChange={(event) => {
+          onRefresh={(event) => {
             console.log(event);
           }}
+          tmLowerThreshold={300}
+          onScrollToLower={() => {
+            setText(text + text);
+          }}
         >
-          <View>
-            Authoritatively streamline error-free mindshare whereas exceptional
-            paradigms. Rapidiously reconceptualize worldwide networks via
-            wireless alignments. Interactively cultivate focused collaboration
-            and idea-sharing via parallel total linkage. Continually evolve
-            distributed infomediaries and integrated infrastructures.
-            Continually facilitate 2.0 infomediaries vis-a-vis B2C human
-            capital. Interactively target out-of-the-box niches and empowered
-            users. Dynamically strategize unique ROI and value-added leadership
-            skills. Continually transition cost effective benefits without
-            backend channels. Conveniently provide access to cross functional
-            manufactured products with revolutionary portals. Collaboratively
-            facilitate user-centric methods of empowerment through
-            functionalized niche markets. Seamlessly target orthogonal
-            Authoritatively streamline error-free mindshare whereas exceptional
-            paradigms. Rapidiously reconceptualize worldwide networks via
-            wireless alignments. Interactively cultivate focused collaboration
-            and idea-sharing via parallel total linkage. Continually evolve
-            distributed infomediaries and integrated infrastructures.
-            Continually facilitate 2.0 infomediaries vis-a-vis B2C human
-            capital. Interactively target out-of-the-box niches and empowered
-            users. Dynamically strategize unique ROI and value-added leadership
-            skills. Continually transition cost effective benefits without
-            backend channels. Conveniently provide access to cross functional
-            manufactured products with revolutionary portals. Collaboratively
-            facilitate user-centric methods of empowerment through
-            functionalized niche markets. Seamlessly target orthogonal
-          </View>
+          <View>{text}</View>
         </TmScroll>
       </TmCard>
     </View>

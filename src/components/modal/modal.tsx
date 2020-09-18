@@ -2,12 +2,6 @@ import "./modal.scss";
 
 import React, { ReactNode } from "react";
 import { TmIcon, TmPopup } from "../index";
-import {
-  colorDanger,
-  colorPrimary,
-  colorSuccess,
-  colorWarning,
-} from "../_style/theme";
 
 import { View } from "@tarojs/components";
 import classNames from "classnames";
@@ -68,21 +62,6 @@ function TmModal(props: PropsInterface) {
     style = {},
   } = props;
 
-  // 内置图标
-  const buildInIconObj = {
-    default: "",
-    info: (
-      <TmIcon tmValue={"warning_fill"} tmSize={100} tmColor={colorPrimary} />
-    ),
-    success: (
-      <TmIcon tmValue={"success_fill"} tmSize={100} tmColor={colorSuccess} />
-    ),
-    warning: (
-      <TmIcon tmValue={"warning_fill"} tmSize={100} tmColor={colorWarning} />
-    ),
-    error: <TmIcon tmValue={"error_fill"} tmSize={100} tmColor={colorDanger} />,
-  };
-
   return (
     <TmPopup
       tmAppear
@@ -109,7 +88,17 @@ function TmModal(props: PropsInterface) {
         {/*主要内容*/}
         <View className="tm-modal__body">
           <View className="tm-modal__icon">
-            {tmIcon || buildInIconObj[tmType]}
+            {
+              // 自定义图标
+              tmIcon ||
+                // 内置图标
+                (tmType !== "default" && (
+                  <TmIcon
+                    tmValue={`${tmType}_fill`}
+                    className={`tm-modal__icon-${tmType}`}
+                  />
+                ))
+            }
           </View>
           <View className="tm-modal__title">{tmTitle}</View>
           <View className="tm-modal__desc">{tmDesc}</View>

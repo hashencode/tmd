@@ -5,7 +5,6 @@ import { Textarea, View } from "@tarojs/components";
 import classNames from "classnames";
 import { CommonEventFunction } from "@tarojs/components/types/common";
 import { TmIcon } from "../index";
-import { fontColorDesc } from "../_style/theme";
 
 interface PropsInterface {
   tmAllowClear?: boolean; // 允许清空
@@ -151,8 +150,6 @@ function TmTextarea(props: PropsInterface) {
           <TmIcon
             className="tm-textarea__clear-btn"
             tmValue={"error_fill"}
-            tmSize={"1.3em"}
-            tmColor={fontColorDesc}
             onClick={handleClear}
           />
         )}

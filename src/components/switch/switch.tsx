@@ -8,8 +8,8 @@ import classNames from "classnames";
 import throttle from "lodash/throttle";
 
 interface PropsInterface {
-  tmChecked?: any; // 是否选中
-  tmDefaultChecked?: boolean; // 默认选中状态
+  tmChecked?: boolean | null; // 是否选中
+  tmDefaultChecked?: boolean | null; // 默认选中状态
   tmDisabled?: boolean; // 禁用
   tmLoading?: boolean; // 加载中
   tmSize?: "lg" | "mid" | "sm"; // 尺寸
@@ -24,8 +24,8 @@ interface PropsInterface {
 
 function TmSwitch(props: PropsInterface) {
   const {
-    tmChecked = false,
-    tmDefaultChecked = false,
+    tmChecked = null,
+    tmDefaultChecked = null,
     tmDisabled = false,
     tmLoading = false,
     tmSize = "mid",
@@ -39,16 +39,14 @@ function TmSwitch(props: PropsInterface) {
 
   const [isChecked, setIsChecked] = useState(tmDefaultChecked);
 
-  useLayoutEffect(() => {
-    // tmDefaultChecked 与 tmChecked 不可混用
-    if (!tmDefaultChecked) {
-      setIsChecked(tmChecked);
-    }
-  }, [tmChecked]);
+  // 判断属性是否设置
+  const isAlreadySet = (data) => {
+    return typeof data === "boolean";
+  };
 
   const handleClick = throttle(
     (event) => {
-      if (tmLoading || tmDisabled) return;
+      if (tmLoading || tmDisabled || isAlreadySet(tmChecked)) return;
       const _isChecked = !isChecked;
       setIsChecked(_isChecked);
       onChange(_isChecked);
@@ -58,6 +56,18 @@ function TmSwitch(props: PropsInterface) {
     tmThrottleConfig
   );
 
+  useLayoutEffect(() => {
+    if (isAlreadySet(tmChecked)) {
+      setIsChecked(tmChecked);
+    }
+  }, [tmChecked]);
+
+  useLayoutEffect(() => {
+    if (isAlreadySet(tmDefaultChecked) && !isAlreadySet(tmChecked)) {
+      setIsChecked(tmDefaultChecked);
+    }
+  }, []);
+
   return (
     <View
       className={classNames(
@@ -66,7 +76,7 @@ function TmSwitch(props: PropsInterface) {
         {
           "tm-switch-checked": isChecked,
           "tm-switch-loading": tmLoading,
-          "tm-switch-disabled": tmDisabled,
+          "tm-switch-disabled": tmDisabled || tmLoading,
         },
         className
       )}

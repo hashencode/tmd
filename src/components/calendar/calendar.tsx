@@ -242,7 +242,6 @@ function TmCalendar(props: PropsInterface) {
             {!tmHideYearBtn && (
               <TmIcon
                 tmValue={"double_arrow_left"}
-                tmSize={30}
                 onClick={() => {
                   handleYearChange("decrease");
                 }}
@@ -252,7 +251,6 @@ function TmCalendar(props: PropsInterface) {
             {!tmHideMonthBtn && (
               <TmIcon
                 tmValue={"arrow_left"}
-                tmSize={30}
                 onClick={() => {
                   handleMonthChange("decrease");
                 }}
@@ -267,7 +265,6 @@ function TmCalendar(props: PropsInterface) {
             {!tmHideMonthBtn && (
               <TmIcon
                 tmValue={"arrow_right"}
-                tmSize={30}
                 onClick={() => {
                   handleMonthChange("increase");
                 }}
@@ -277,7 +274,6 @@ function TmCalendar(props: PropsInterface) {
             {!tmHideYearBtn && (
               <TmIcon
                 tmValue={"double_arrow_right"}
-                tmSize={30}
                 onClick={() => {
                   handleYearChange("increase");
                 }}

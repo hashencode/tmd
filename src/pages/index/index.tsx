@@ -15,24 +15,24 @@ function Index() {
         { title: "Icon 图标", link: "icon" },
         { title: "Image 图片", link: "image" },
         { title: "Picker 选择列表", link: "picker" },
-        { title: "Transition 动画", link: "transition" },
-      ],
+        { title: "Transition 动画", link: "transition" }
+      ]
     },
     {
       title: "布局组件",
       children: [
         { title: "Divider 分割线", link: "divider" },
         { title: "Flex 栅格", link: "flex" },
-        { title: "Space 间距", link: "space" },
-      ],
+        { title: "Space 间距", link: "space" }
+      ]
     },
     {
       title: "导航组件",
       children: [
         { title: "NavBar 导航", link: "navBar" },
         { title: "NavGrid 导航宫格", link: "navGrid" },
-        { title: "Step 步骤条", link: "steps" },
-      ],
+        { title: "Step 步骤条", link: "steps" }
+      ]
     },
     {
       title: "数据录入",
@@ -48,8 +48,8 @@ function Index() {
         { title: "Switch 开关", link: "switch" },
         { title: "Slider 滑动输入条 🔴", link: "slider" },
         { title: "Select 选择器 🔴", link: "select" },
-        { title: "Upload 上传 🔴", link: "upload" },
-      ],
+        { title: "Upload 上传 🔴", link: "upload" }
+      ]
     },
     {
       title: "数据展示",
@@ -68,8 +68,8 @@ function Index() {
         { title: "Statistic 统计数值", link: "statistic" },
         { title: "Tabs 标签页", link: "tabs" },
         { title: "Tag 标签", link: "tag" },
-        { title: "WaterMark 水印", link: "waterMark" },
-      ],
+        { title: "WaterMark 水印", link: "waterMark" }
+      ]
     },
     {
       title: "反馈",
@@ -81,14 +81,14 @@ function Index() {
         { title: "Notice 通知栏", link: "notice" },
         { title: "Progress 进度条", link: "progress" },
         { title: "Result 结果页", link: "result" },
-        { title: "Skeleton 骨架屏", link: "skeleton" },
-      ],
-    },
+        { title: "Skeleton 骨架屏", link: "skeleton" }
+      ]
+    }
   ];
 
   return (
     <View className={"demo demo-index"}>
-      <TmNavBar tmTitle={"组件"} tmHideBtn />
+      <TmNavBar tmTitle={"组件"} tmHideBtn tmShadow />
       {list.map(({ title, children }, index) => {
         return (
           <TmCard
@@ -99,7 +99,7 @@ function Index() {
             tmBodyStyle={{ padding: 0 }}
             key={`${title}_${index}`}
           >
-            <TmList tmInnerBorder>
+            <TmList tmInnerBorder tmIndent>
               {children.map(({ title, link }) => {
                 return (
                   <TmListItem

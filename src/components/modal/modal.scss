@@ -17,6 +17,7 @@
     position: absolute;
     right: 0;
     top: 0;
+    font-size: $icon-size-sm;
   }
 
   // 主要内容
@@ -30,6 +31,22 @@
   // 自定义图标
   &__icon {
     margin-bottom: $spacing-sm;
+    .tm-icon {
+      font-size: 100px;
+    }
+
+    &-info {
+      color: $color-primary;
+    }
+    &-warning {
+      color: $color-warning;
+    }
+    &-success {
+      color: $color-success;
+    }
+    &-error {
+      color: $color-danger;
+    }
   }
 
   // 标题

@@ -4,7 +4,6 @@ import React, { ReactNode, useLayoutEffect, useState } from "react";
 import { Input, View } from "@tarojs/components";
 import classNames from "classnames";
 import { TmIcon } from "../index";
-import { fontColorDesc } from "../_style/theme";
 import { CommonEventFunction } from "@tarojs/components/types/common";
 
 interface PropsInterface {
@@ -146,8 +145,6 @@ function TmInput(props: PropsInterface) {
         <TmIcon
           className="tm-input__clear-btn"
           tmValue={"error_fill"}
-          tmSize={"1.3em"}
-          tmColor={fontColorDesc}
           onClick={handleClear}
         />
       )}

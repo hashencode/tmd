@@ -20,6 +20,7 @@ export { default as TmSwitch } from "./switch/switch";
 export { default as TmTextarea } from "./textarea/textarea";
 export { default as TmCheckbox } from "./checkbox/checkbox";
 export { default as TmCheckboxOption } from "./checkbox/checkboxOption";
+export { default as TmRate } from "./rate/rate";
 // 数据展示
 export { default as TmAvatar } from "./avatar/avatar";
 export { default as TmBadge } from "./badge/badge";
