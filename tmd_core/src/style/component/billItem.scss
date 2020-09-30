@@ -1,0 +1,21 @@
+@import "../common/theme";
+
+.tm-bill-item {
+  $self: &;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $spacing-mid;
+
+  &-bold {
+    color: $font-color-title;
+    font-weight: 600;
+
+    #{$self}__title {
+      color: $font-color-title;
+    }
+  }
+
+  &__title {
+    color: $font-color-regular;
+  }
+}

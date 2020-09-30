@@ -1,0 +1,15 @@
+@import "../common/theme";
+
+.tm-description-item {
+  display: flex;
+
+  &__title {
+    flex-shrink: 0;
+    padding-right: $spacing-sm;
+    color: $font-color-secondary;
+  }
+
+  &__desc {
+    flex-grow: 1;
+  }
+}

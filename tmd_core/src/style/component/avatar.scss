@@ -1,0 +1,13 @@
+@import "../common/theme";
+
+.tm-avatar {
+  border-radius: $border-radius-sm;
+  line-height: 0;
+  overflow: hidden;
+  position: relative;
+
+  // 圆形显示
+  &-circle {
+    border-radius: 50%;
+  }
+}

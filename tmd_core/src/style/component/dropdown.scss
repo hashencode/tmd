@@ -1,0 +1,49 @@
+@import "../common/theme";
+
+.tm-dropdown {
+  position: relative;
+  touch-action: manipulation;
+
+  &-disabled {
+    @include disabled-mask;
+  }
+
+  &__head {
+    align-items: center;
+    background-color: $color-white;
+    display: flex;
+    justify-content: center;
+    padding: $spacing-sm $spacing-mid;
+  }
+
+  &__arrow {
+    margin-left: $spacing-xs;
+    .tm-icon {
+      font-size: $icon-size-xs;
+    }
+  }
+
+  &__body {
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    width: 100vw;
+  }
+
+  &__options {
+    background-color: $color-white;
+    height: 30vh;
+    overflow-scrolling: touch;
+    overflow-y: scroll;
+    width: 100%;
+  }
+
+  &__content {
+    background-color: $color-white;
+    overflow: scroll;
+  }
+
+  .tm-transition {
+    width: inherit;
+  }
+}

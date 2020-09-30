@@ -1,0 +1,25 @@
+@import "../common/theme";
+
+.tm-result {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+
+  // 图标
+  &__image {
+    line-height: 1;
+    margin-bottom: $spacing-mid;
+    &-default {
+      width: 200px;
+    }
+  }
+
+  // 二级标题
+  &__text {
+    color: $font-color-secondary;
+    font-size: $font-size-primary;
+  }
+}

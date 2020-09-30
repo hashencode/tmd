@@ -1,0 +1,87 @@
+@import "../common/theme";
+
+.tm-modal {
+  background-color: $color-white;
+  border-radius: $border-radius-mid;
+  display: flex;
+  flex-direction: column;
+  min-height: 80px;
+  overflow: hidden;
+  position: relative;
+  width: 75vw;
+
+  // 关闭按钮
+  &__close {
+    color: $font-color-secondary;
+    padding: $spacing-sm $spacing-sm 0 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: $icon-size-sm;
+  }
+
+  // 主要内容
+  &__body {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: $spacing-lg;
+  }
+
+  // 自定义图标
+  &__icon {
+    margin-bottom: $spacing-sm;
+    .tm-icon {
+      font-size: 100px;
+    }
+
+    &-info {
+      color: $color-primary;
+    }
+    &-warning {
+      color: $color-warning;
+    }
+    &-success {
+      color: $color-success;
+    }
+    &-error {
+      color: $color-danger;
+    }
+  }
+
+  // 标题
+  &__title {
+    font-size: $font-size-alert;
+  }
+
+  // 描述
+  &__desc {
+    color: $font-color-desc;
+    margin-top: $spacing-xs;
+  }
+
+  // 按钮
+  &__btn {
+    border-top: 1px solid $border-color-default;
+    display: flex;
+    font-size: $font-size-title;
+
+    &-cancel,
+    &-confirm {
+      align-items: center;
+      display: flex;
+      flex-grow: 1;
+      height: 100px;
+      justify-content: center;
+    }
+
+    &-cancel {
+      color: $font-color-secondary;
+    }
+
+    &-confirm {
+      border-left: 1px solid $border-color-default;
+      color: $color-primary;
+    }
+  }
+}

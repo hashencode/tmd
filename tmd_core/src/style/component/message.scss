@@ -1,0 +1,23 @@
+@import "../common/theme";
+
+.tm-message {
+  align-items: center;
+  background-color: $background-mask;
+  border-radius: $border-radius-sm;
+  box-shadow: $shadow-bottom;
+  color: $color-white;
+  display: flex;
+  font-size: $font-size-subtitle;
+  justify-content: center;
+  padding: $spacing-sm $spacing-lg;
+
+  // 弹出层
+  &__popup {
+    padding: 40px;
+  }
+
+  .tm-icon {
+    font-size: $icon-size-mid;
+    margin-right: $spacing-sm;
+  }
+}

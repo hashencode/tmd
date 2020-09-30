@@ -1,0 +1,112 @@
+@import "../common/theme";
+
+.tm-switch {
+  $self: &;
+  background-color: $background-unchecked;
+  display: inline-block;
+  height: $height-mid;
+  position: relative;
+  transition: background-color 0.3s $cubic-bezier-motion;
+  vertical-align: middle;
+  touch-action: manipulation;
+
+  // 尺寸
+  &-lg {
+    border-radius: 9999px;
+    height: $height-mid;
+    width: calc(#{$height-mid} * 1.6);
+
+    #{$self}__handle {
+      height: calc(#{$height-mid} - 4px);
+      width: calc(#{$height-mid} - 4px);
+
+      .tm-icon {
+        font-size: $icon-size-lg;
+      }
+    }
+  }
+
+  &-mid {
+    border-radius: 9999px;
+    height: $height-sm;
+    width: calc(#{$height-sm} * 1.6);
+
+    #{$self}__handle {
+      height: calc(#{$height-sm} - 4px);
+      width: calc(#{$height-sm} - 4px);
+
+      .tm-icon {
+        font-size: $icon-size-mid;
+      }
+    }
+  }
+
+  &-sm {
+    border-radius: 9999px;
+    height: $height-xs;
+    width: calc(#{$height-xs} * 1.6);
+
+    #{$self}__handle {
+      height: calc(#{$height-xs} - 4px);
+      width: calc(#{$height-xs} - 4px);
+
+      .tm-icon {
+        font-size: $icon-size-sm;
+      }
+    }
+  }
+
+  // 选中状态
+  &-checked {
+    background-color: $color-primary;
+
+    &#{$self}-lg {
+      #{$self}__handle {
+        transform: translateX(calc(#{$height-mid} * 0.6));
+      }
+    }
+
+    &#{$self}-mid {
+      #{$self}__handle {
+        transform: translateX(calc(#{$height-sm} * 0.6));
+      }
+    }
+
+    &#{$self}-sm {
+      #{$self}__handle {
+        transform: translateX(calc(#{$height-xs} * 0.6));
+      }
+    }
+
+    &#{$self}-loading {
+      #{$self}__loading {
+        color: $color-primary;
+      }
+    }
+  }
+
+  // 禁用状态
+  &-disabled {
+    @include disabled-mask(false, 9999px);
+  }
+
+  // 圆形操作部分
+  &__handle {
+    align-items: center;
+    background-color: $color-white;
+    border-radius: 50%;
+    box-shadow: $shadow-around;
+    display: flex;
+    justify-content: center;
+    left: 2px;
+    position: absolute;
+    top: 2px;
+    transform: translateX(0);
+    transition: all 0.3s $cubic-bezier-motion;
+  }
+
+  // 加载图标
+  &-loading {
+    color: $background-unchecked;
+  }
+}

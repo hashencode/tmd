@@ -1,0 +1,18 @@
+@import "../common/theme";
+
+.tm-bill {
+  &__head {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: $font-size-subtitle;
+  }
+
+  &__no {
+    color: $font-color-desc;
+    font-size: $font-size-secondary;
+  }
+}

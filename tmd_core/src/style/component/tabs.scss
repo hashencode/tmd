@@ -1,0 +1,111 @@
+@import "../common/theme";
+
+.tm-tabs {
+  $self: &;
+  overflow: hidden;
+  touch-action: manipulation;
+
+  taro-swiper-core {
+    height: auto;
+  }
+
+  // 竖直显示
+  &-vertical {
+    display: flex;
+    width: 100%;
+
+    #{$self}__head {
+      flex-direction: column;
+      flex-shrink: 0;
+      height: 100%;
+      overflow-y: auto;
+
+      &-item {
+        padding: $spacing-sm $spacing-mid;
+        &:not(:nth-last-of-type(1)) {
+          margin-bottom: $spacing-sm;
+        }
+        &::before {
+          content: "";
+          display: block;
+          background-color: transparent;
+          border-radius: $border-radius-sm;
+          position: absolute;
+          top: 10%;
+          right: 0;
+          width: 4px;
+          height: 80%;
+        }
+        &-active {
+          &#{$self}__head-item-has-underline {
+            &::before {
+              background-color: $color-primary;
+            }
+          }
+        }
+      }
+    }
+
+    #{$self}__body {
+      width: 100%;
+      flex-grow: 1;
+    }
+
+    taro-swiper-item-core {
+      width: 100% !important;
+    }
+  }
+
+  // 水平显示
+  &-horizon {
+    #{$self}__head {
+      overflow-x: auto;
+      width: 100%;
+
+      &-item {
+        padding: $spacing-sm $spacing-mid;
+        white-space: nowrap;
+        &:not(:nth-last-of-type(1)) {
+          margin-right: $spacing-sm;
+        }
+        &::before {
+          content: "";
+          display: block;
+          background-color: transparent;
+          border-radius: $border-radius-sm;
+          position: absolute;
+          left: 10%;
+          bottom: 0;
+          height: 4px;
+          width: 80%;
+        }
+        &-active {
+          &#{$self}__head-item-has-underline {
+            &::before {
+              background-color: $color-primary;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 头部公共样式
+  &__head {
+    align-items: center;
+    display: flex;
+    position: relative;
+
+    &-item {
+      position: relative;
+      font-size: $font-size-primary;
+      &-active {
+        color: $color-primary;
+      }
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

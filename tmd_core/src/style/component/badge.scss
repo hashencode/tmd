@@ -1,0 +1,53 @@
+@import "../common/theme";
+
+.tm-badge {
+  display: inline-block;
+  position: relative;
+
+  &__content {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+  // 自定义插槽
+  &__slot {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate3d(50%, -50%, 0);
+
+    // 点标
+    &-dot {
+      border-radius: 50%;
+      height: 12px;
+      width: 12px;
+    }
+
+    $numberHeight: 32px;
+
+    // 数字
+    &-number {
+      align-items: center;
+      border-radius: $numberHeight/2;
+      color: $color-white;
+      display: flex;
+      font-family: $font-family-number;
+      font-size: $font-size-tag;
+      height: $numberHeight;
+      justify-content: center;
+      min-width: $numberHeight;
+
+      &-plus {
+        transform: translateY(-0.15em);
+      }
+
+      &-has-plus {
+        align-items: center;
+        display: flex;
+      }
+    }
+  }
+}

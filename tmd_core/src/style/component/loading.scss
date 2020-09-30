@@ -1,0 +1,41 @@
+@import "../common/theme";
+
+.tm-loading {
+  $self: &;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  // 内容
+  &__content {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+
+    &-vertical {
+      flex-direction: column;
+
+      #{$self}__text {
+        margin-left: 0;
+        margin-top: $spacing-xs;
+      }
+    }
+  }
+
+  // 图标
+  &__icon {
+    align-items: center;
+    display: flex;
+    font-size: $icon-size-sm;
+    justify-content: center;
+
+    .tm-image {
+      width: 30px;
+    }
+  }
+
+  // 文字
+  &__text {
+    margin-left: $spacing-sm;
+  }
+}

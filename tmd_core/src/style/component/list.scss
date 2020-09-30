@@ -1,0 +1,38 @@
+@import "../common/theme";
+
+.tm-list {
+  $self: &;
+  position: relative;
+  touch-action: manipulation;
+  background-color: $color-white;
+
+  &-disabled {
+    @include disabled-mask(true, $border-radius-lg);
+  }
+
+  &-round {
+    border-radius: $border-radius-mid;
+
+    &#{$self}-outer-border {
+      &::after {
+        border-radius: $border-radius-mid * 2;
+      }
+    }
+  }
+
+  &-outer-border {
+    @include one-px-border("round");
+  }
+
+  &-shadow {
+    box-shadow: $shadow-around;
+  }
+
+  .tm-list-item {
+    &:nth-last-child(1) {
+      .tm-list-item__content:after {
+        display: none;
+      }
+    }
+  }
+}

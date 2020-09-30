@@ -1,10 +1,1 @@
 .idea/
-.docz/
-dist/
-deploy_versions/
-.temp/
-.rn_temp/
-node_modules/
-lib/
-.DS_Store
-package-lock.json

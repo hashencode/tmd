@@ -1,0 +1,10 @@
+@import "../common/theme";
+
+.tm-checkbox {
+  touch-action: manipulation;
+  .tm-checkboxOption {
+    &:not(:nth-last-child(1)) {
+      margin-bottom: $spacing-mid;
+    }
+  }
+}

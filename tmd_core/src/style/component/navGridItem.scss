@@ -1,0 +1,17 @@
+@import "../common/theme";
+
+.tm-nav-grid-item {
+  $self: &;
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  // 竖向显示
+  &-vertical {
+    flex-direction: column;
+  }
+
+  // 文字
+  &__text {
+    font-size: $font-size-secondary;
+  }
+}

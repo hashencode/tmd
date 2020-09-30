@@ -1,0 +1,47 @@
+@import "../common/theme";
+
+.tm-textarea {
+  padding: $spacing-mid;
+  position: relative;
+  touch-action: manipulation;
+
+  // 边框
+  &-bordered {
+    border-radius: $border-radius-sm;
+    @include one-px-border("round", $border-radius-sm);
+  }
+
+  // 禁用
+  &-disabled {
+    @include disabled-mask(false, $border-radius-sm);
+  }
+
+  // 计数
+  &__count {
+    color: $font-color-desc;
+    flex-shrink: 0;
+    font-size: $font-size-tag;
+  }
+
+  // 底部
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+
+    &-content {
+      flex-grow: 1;
+    }
+  }
+
+  taro-textarea-core,
+  textarea {
+    font-family: $font-family-cn;
+    font-size: $font-size-regular;
+    width: 100%;
+  }
+
+  &__clear-btn {
+    font-size: 1.3em;
+    color: $font-color-desc;
+  }
+}

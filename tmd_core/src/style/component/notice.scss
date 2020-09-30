@@ -1,0 +1,82 @@
+@import "../common/theme";
+@import "../common/animation";
+
+.tm-notice {
+  $self: &;
+  align-items: center;
+  border-radius: $border-radius-sm;
+  display: none;
+  padding: $spacing-xs 0;
+  //是否可见
+  &-visible {
+    display: flex;
+  }
+
+  //圆角
+  &-round {
+    border-radius: 9999px;
+  }
+
+  //状态
+  &-default {
+    background-color: $background-default;
+  }
+
+  &-info {
+    background-color: $background-primary;
+    color: $color-primary;
+  }
+
+  &-danger {
+    background-color: $background-danger;
+    color: $color-danger;
+  }
+
+  &-success {
+    background-color: $background-success;
+    color: $color-success;
+  }
+
+  &-warning {
+    background-color: $background-warning;
+    color: $color-warning;
+  }
+
+  //前缀
+  &__prefix {
+    flex-shrink: 0;
+    margin-left: $spacing-mid;
+    .tm-icon {
+      font-size: $icon-size-sm;
+    }
+  }
+
+  //内容
+  &__text {
+    flex-grow: 1;
+    margin: 0 $spacing-mid;
+    overflow: hidden;
+  }
+
+  // 自定义内容区域
+  &__slot {
+    white-space: nowrap;
+    //滚动播放
+    &-motion {
+      animation: notice-motion 16s linear infinite both;
+      display: inline-block;
+      padding-left: 100%;
+    }
+
+    @include noticeMotion;
+  }
+
+  //后缀
+  &__suffix {
+    flex-shrink: 0;
+    margin-right: $spacing-mid;
+    .tm-icon {
+      font-size: $icon-size-sm;
+    }
+  }
+}

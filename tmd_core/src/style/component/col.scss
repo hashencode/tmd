@@ -1,0 +1,23 @@
+@import "../common/theme";
+
+.tm-col {
+  position: relative;
+  @for $i from 0 through 24 {
+    &-offset-#{$i} {
+      margin-left: 100%/24 * $i;
+    }
+    &-span-#{$i} {
+      flex: 0 0 $i/24 * 100%;
+      max-width: $i/24 * 100%;
+    }
+    &-order-#{$i} {
+      order: $i;
+    }
+    &-push-#{$i} {
+      left: $i/24 * 100%;
+    }
+    &-pull-#{$i} {
+      right: $i/24 * 100%;
+    }
+  }
+}

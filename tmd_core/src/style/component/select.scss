@@ -1,0 +1,19 @@
+@import "../common/theme";
+
+.tm-select {
+  touch-action: manipulation;
+
+  &__trigger {
+    position: relative;
+    &-placeholder {
+      color: $font-color-placeholder;
+    }
+    &-disabled {
+      @include disabled-mask;
+    }
+  }
+
+  &__scroll-view {
+    height: 50vh;
+  }
+}

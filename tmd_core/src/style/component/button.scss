@@ -1,0 +1,315 @@
+@import "../common/theme";
+
+.tm-button {
+  $self: &;
+  align-items: center;
+  background-color: $color-white;
+  border-radius: $border-radius-sm;
+  display: inline-flex;
+  justify-content: center;
+  line-height: 1;
+  position: relative;
+  touch-action: manipulation;
+  transition: background-color 0.2s, border 0.2s, color 0.2s;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  @include one-px-border("round", $border-radius-sm);
+
+  // 带阴影
+  &-shadow {
+    box-shadow: $shadow-around;
+  }
+
+  // 尺寸
+  &-sm {
+    font-size: $font-size-regular;
+    height: $height-sm;
+    padding: 0 $spacing-sm;
+
+    .tm-icon {
+      font-size: $icon-size-sm;
+    }
+  }
+
+  &-mid {
+    font-size: $font-size-primary;
+    height: $height-mid;
+    padding: 0 $spacing-mid;
+
+    .tm-icon {
+      font-size: $icon-size-mid;
+    }
+  }
+
+  &-lg {
+    font-size: $font-size-subtitle;
+    height: $height-lg;
+    padding: 0 $spacing-lg;
+
+    .tm-icon {
+      font-size: $icon-size-lg;
+    }
+  }
+
+  // 按钮类型
+  // 默认按钮
+  &-default {
+    // 激活状态
+    &:active {
+      color: $color-primary-active;
+      // 边框
+      &::after {
+        border-color: $color-primary-active;
+      }
+    }
+
+    // 幽灵按钮
+    &#{$self}-ghost {
+      background-color: transparent;
+      color: $color-white;
+      // 默认边框
+      &::after {
+        border-color: $color-white;
+      }
+
+      // 激活状态
+      &:active {
+        color: $color-primary-active;
+        // 激活状态边框
+        &::after {
+          border-color: $color-primary-active;
+        }
+      }
+    }
+
+    // 危险按钮
+    &#{$self}-danger {
+      color: $color-danger;
+
+      // 默认边框
+      &::after {
+        border-color: $color-danger;
+      }
+
+      // 激活状态
+      &:active {
+        color: $color-danger-active;
+        // 激活状态边框
+        &::after {
+          border-color: $color-danger-active;
+        }
+      }
+    }
+
+    // 禁用状态
+    &#{$self}-disabled {
+      background-color: $background-disabled;
+      color: $font-color-disabled;
+    }
+  }
+
+  // 主要按钮
+  &-primary {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+      border-color: $color-primary;
+    }
+
+    &:active {
+      background-color: $color-primary-active;
+
+      &::after {
+        border-color: $color-primary-active;
+      }
+    }
+
+    &#{$self}-ghost {
+      background-color: transparent;
+      color: $color-primary;
+
+      &:active {
+        background-color: transparent;
+        color: $color-primary-active;
+      }
+    }
+
+    &#{$self}-danger {
+      background-color: $color-danger;
+      color: $color-white;
+
+      &::after {
+        border-color: $color-danger;
+      }
+
+      &:active {
+        background-color: $color-danger-active;
+        color: $color-white;
+
+        &::after {
+          border-color: $color-danger-active;
+        }
+      }
+    }
+
+    &#{$self}-disabled {
+      background-color: $background-disabled;
+      color: $font-color-disabled;
+
+      &::after {
+        border-color: $border-color-default;
+      }
+    }
+  }
+
+  // 虚线按钮
+  &-dashed {
+    &::after {
+      border-style: dashed;
+    }
+
+    &:active {
+      color: $color-primary-active;
+
+      &::after {
+        border-color: $color-primary-active;
+      }
+    }
+
+    &#{$self}-ghost {
+      background-color: transparent;
+      color: $color-white;
+
+      &::after {
+        border-color: $color-white;
+      }
+
+      &:active {
+        color: $color-primary-active;
+
+        &::after {
+          border-color: $color-primary-active;
+        }
+      }
+    }
+
+    &#{$self}-danger {
+      color: $color-danger;
+
+      &::after {
+        border-color: $color-danger;
+      }
+
+      &:active {
+        color: $color-danger-active;
+
+        &::after {
+          border-color: $color-danger-active;
+        }
+      }
+    }
+
+    &#{$self}-disabled {
+      background-color: $background-disabled;
+      color: $font-color-disabled;
+    }
+  }
+
+  // 链接按钮
+  &-link {
+    color: $color-primary;
+
+    &::after {
+      border-color: transparent;
+    }
+
+    &:active {
+      color: $color-primary-active;
+    }
+
+    &#{$self}-ghost {
+      background-color: transparent;
+      color: $color-white;
+
+      &:active {
+        color: $color-primary-active;
+      }
+    }
+
+    &#{$self}-danger {
+      color: $color-danger;
+
+      &:active {
+        color: $color-danger-active;
+      }
+    }
+
+    &#{$self}-disabled {
+      color: $font-color-disabled;
+    }
+  }
+
+  // 幽灵按钮
+  &-ghost {
+    &-danger {
+      background-color: transparent;
+      color: $color-danger;
+
+      &:active {
+        background-color: transparent;
+        color: $color-danger-active;
+      }
+    }
+  }
+
+  // 按钮外形
+  &-circle {
+    border-radius: 50%;
+    padding: 0;
+
+    &::after {
+      border-radius: 50%;
+    }
+
+    &#{$self}-sm {
+      width: $height-sm;
+    }
+
+    &#{$self}-mid {
+      width: $height-mid;
+    }
+
+    &#{$self}-lg {
+      width: $height-lg;
+    }
+  }
+
+  &-round {
+    border-radius: 9999px;
+
+    &::after {
+      border-radius: 9999px;
+    }
+  }
+
+  // 继承父级宽度
+  &-block {
+    width: 100%;
+  }
+
+  &__real-element {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+
+  // 插槽
+  &__slot-margin {
+    margin-left: $spacing-sm;
+  }
+}

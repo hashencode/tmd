@@ -1,0 +1,68 @@
+@import "../common/theme";
+
+.tm-input {
+  $self: &;
+  align-items: center;
+  border-radius: $border-radius-sm;
+  display: flex;
+  padding: 0 $spacing-mid;
+  touch-action: manipulation;
+
+  // 输入框高度
+  taro-input-core,
+  input {
+    height: 100%;
+  }
+
+  // 尺寸
+  &-mid {
+    height: $height-mid;
+
+    .tm-icon {
+      font-size: $icon-size-mid;
+    }
+  }
+
+  &-lg {
+    font-size: $font-size-primary;
+    height: $height-lg;
+
+    .tm-icon {
+      font-size: $icon-size-lg;
+    }
+  }
+
+  // 显示边框
+  &-bordered {
+    @include one-px-border("round", $border-radius-sm);
+  }
+
+  // 禁用
+  &-disabled {
+    @include disabled-mask(false, $border-radius-sm);
+  }
+
+  // 输入部分
+  &__content {
+    flex-grow: 1;
+  }
+
+  // 前缀
+  &__prefix {
+    line-height: 0;
+    margin-right: $spacing-sm;
+  }
+
+  // 后缀
+  &__suffix {
+    line-height: 0;
+    margin-left: $spacing-sm;
+  }
+
+  // 清空按钮
+  &__clear-btn {
+    margin-left: $spacing-sm;
+    font-size: 1.3em;
+    color: $font-color-desc;
+  }
+}

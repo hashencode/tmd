@@ -1,0 +1,15 @@
+@import "../common/theme";
+
+.tm-date-picker {
+  touch-action: manipulation;
+
+  &__trigger {
+    position: relative;
+    &-placeholder {
+      color: $font-color-placeholder;
+    }
+    &-disabled {
+      @include disabled-mask;
+    }
+  }
+}
