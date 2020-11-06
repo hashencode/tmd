@@ -5,7 +5,7 @@ import classNames from "classnames";
 import { colorDanger } from "../../functions/theme";
 import { transformPx } from "../../functions";
 
-interface PropsInterface {
+export interface badgeProps {
   tmColor?: string; // 背景色
   tmDot?: boolean; // 采用点标
   tmMax?: number; // 显示上限
@@ -17,7 +17,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmBadge(props: PropsInterface) {
+function TmBadge(props: badgeProps) {
   const {
     tmColor = colorDanger,
     tmDot = false,

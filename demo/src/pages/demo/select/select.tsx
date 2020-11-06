@@ -14,15 +14,24 @@ function DemoSelect() {
     setCurrentValue(currentValue === "选项1" ? "选项2" : "选项1");
   };
 
+  const handleConfirm = (e) => {
+    console.log(`onConfirm:${e}`);
+  };
+
+  const handleChange = (e) => {
+    console.log(`onChange:${e}`);
+  };
+
   return (
     <View className={"demo"}>
       <TmNavBar tmTitle={"选择器"} />
       <TmCard tmRound className={"demo__card"} tmTitle={"单选"}>
         <TmSelect
           tmPlaceholder={"请选择"}
-          onChange={(e) => console.log(`onChange:${e}`)}
-          onConfirm={(e) => {
-            console.log(`onConfirm:${e}`);
+          onChange={handleChange}
+          onConfirm={handleConfirm}
+          onHide={() => {
+            console.log("onHide");
           }}
           onShow={() => {
             console.log("onShow");
@@ -48,10 +57,8 @@ function DemoSelect() {
         <TmSelect
           tmAllowClear
           tmPlaceholder={"请选择"}
-          onChange={(e) => console.log(`onChange:${e}`)}
-          onConfirm={(e) => {
-            console.log(`onConfirm:${e}`);
-          }}
+          onChange={handleChange}
+          onConfirm={handleConfirm}
         >
           {Array(10)
             .fill("")
@@ -70,10 +77,8 @@ function DemoSelect() {
         <TmSelect
           tmMultiple
           tmPlaceholder={"请选择"}
-          onChange={(e) => console.log(`onChange:${e}`)}
-          onConfirm={(e) => {
-            console.log(`onConfirm:${e}`);
-          }}
+          onChange={handleChange}
+          onConfirm={handleConfirm}
         >
           {Array(10)
             .fill("")
@@ -92,10 +97,8 @@ function DemoSelect() {
         <TmSelect
           tmDefaultValue={"选项1"}
           tmPlaceholder={"请选择"}
-          onChange={(e) => console.log(`onChange:${e}`)}
-          onConfirm={(e) => {
-            console.log(`onConfirm:${e}`);
-          }}
+          onChange={handleChange}
+          onConfirm={handleConfirm}
         >
           {Array(10)
             .fill("")
@@ -115,10 +118,8 @@ function DemoSelect() {
           tmMultiple
           tmDefaultValue={["选项1", "选项2"]}
           tmPlaceholder={"请选择"}
-          onChange={(e) => console.log(`onChange:${e}`)}
-          onConfirm={(e) => {
-            console.log(`onConfirm:${e}`);
-          }}
+          onChange={handleChange}
+          onConfirm={handleConfirm}
         >
           {Array(10)
             .fill("")
@@ -138,10 +139,8 @@ function DemoSelect() {
           tmMultiple
           tmDisabled
           tmPlaceholder={"请选择"}
-          onChange={(e) => console.log(`onChange:${e}`)}
-          onConfirm={(e) => {
-            console.log(`onConfirm:${e}`);
-          }}
+          onChange={handleChange}
+          onConfirm={handleConfirm}
         >
           {Array(10)
             .fill("")
@@ -169,10 +168,8 @@ function DemoSelect() {
         <TmSelect
           tmValue={currentValue}
           tmPlaceholder={"请选择"}
-          onChange={(e) => console.log(`onChange:${e}`)}
-          onConfirm={(e) => {
-            console.log(`onConfirm:${e}`);
-          }}
+          onChange={handleChange}
+          onConfirm={handleConfirm}
         >
           {Array(10)
             .fill("")

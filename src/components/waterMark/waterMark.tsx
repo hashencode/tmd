@@ -4,7 +4,7 @@ import { View } from "@tarojs/components";
 import classNames from "classnames";
 import { transformPx } from "../../functions";
 
-interface PropsInterface {
+export interface waterMarkProps {
   tmOpacity?: number; // 透明度
   tmSpace?: number; // 间距
   tmText?: string | ReactNode; // 水印内容
@@ -13,7 +13,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmWaterMark(props: PropsInterface) {
+function TmWaterMark(props: waterMarkProps) {
   const {
     tmOpacity = 0.1,
     tmSpace = 100,

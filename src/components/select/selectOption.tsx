@@ -9,7 +9,7 @@ import { TmIcon, TmListItem } from "../../index";
 
 import SelectContext from "./_context";
 
-interface PropsInterface {
+export interface selectOptionProps {
   tmDisabled?: boolean; // 禁用
   tmText: number | string; // 当前项对应显示的文字
   tmValue: number | string; // 当前项的值
@@ -19,7 +19,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmSelectOption(props: PropsInterface) {
+function TmSelectOption(props: selectOptionProps) {
   const {
     tmDisabled = false,
     tmText = "",

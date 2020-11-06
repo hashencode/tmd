@@ -6,7 +6,7 @@ import classNames from "classnames";
 import throttle from "lodash/throttle";
 import { TmLoading } from "../../index";
 
-interface PropsInterface {
+export interface buttonProps {
   tmAutoSpace?: boolean; // 在两个汉字时自动添加空格
   tmBlock?: boolean; // 宽度与父组件一致
   tmDanger?: boolean; // 危险按钮
@@ -30,7 +30,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmButton(props: PropsInterface) {
+function TmButton(props: buttonProps) {
   const {
     tmAutoSpace = true,
     tmBlock = false,

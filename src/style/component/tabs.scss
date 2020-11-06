@@ -22,20 +22,23 @@
 
       &-item {
         padding: $spacing-sm $spacing-mid;
+
         &:not(:nth-last-of-type(1)) {
           margin-bottom: $spacing-sm;
         }
+
         &::before {
-          content: "";
-          display: block;
           background-color: transparent;
           border-radius: $border-radius-sm;
-          position: absolute;
-          top: 10%;
-          right: 0;
-          width: 4px;
+          content: "";
+          display: block;
           height: 80%;
+          position: absolute;
+          right: 0;
+          top: 10%;
+          width: 4px;
         }
+
         &-active {
           &#{$self}__head-item-has-underline {
             &::before {
@@ -47,8 +50,8 @@
     }
 
     #{$self}__body {
-      width: 100%;
       flex-grow: 1;
+      width: 100%;
     }
 
     taro-swiper-item-core {
@@ -65,20 +68,23 @@
       &-item {
         padding: $spacing-sm $spacing-mid;
         white-space: nowrap;
+
         &:not(:nth-last-of-type(1)) {
           margin-right: $spacing-sm;
         }
+
         &::before {
-          content: "";
-          display: block;
           background-color: transparent;
           border-radius: $border-radius-sm;
-          position: absolute;
-          left: 10%;
           bottom: 0;
+          content: "";
+          display: block;
           height: 4px;
+          left: 10%;
+          position: absolute;
           width: 80%;
         }
+
         &-active {
           &#{$self}__head-item-has-underline {
             &::before {
@@ -97,8 +103,9 @@
     position: relative;
 
     &-item {
-      position: relative;
       font-size: $font-size-primary;
+      position: relative;
+
       &-active {
         color: $color-primary;
       }

@@ -2,11 +2,13 @@
 
 .tm-select-option {
   $self: &;
+
   &__selected-icon {
-    font-size: $icon-size-sm;
     color: $color-primary;
     display: none;
+    font-size: $icon-size-sm;
   }
+
   &-selected {
     #{$self}__selected-icon {
       display: block;

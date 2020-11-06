@@ -5,9 +5,11 @@
 
   &__trigger {
     position: relative;
+
     &-placeholder {
       color: $font-color-placeholder;
     }
+
     &-disabled {
       @include disabled-mask;
     }

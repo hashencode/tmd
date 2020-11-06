@@ -3,6 +3,7 @@
 .tm-card {
   $self: &;
   background-color: $color-white;
+  overflow: hidden;
 
   // 显示阴影
   &-shadow {

@@ -1,12 +1,6 @@
 import "../demoStyle.scss";
 
-import {
-  TmAvatar,
-  TmList,
-  TmListItem,
-  TmNavBar,
-  TmSwitch,
-} from "tmdesign";
+import { TmAvatar, TmList, TmListItem, TmNavBar, TmSwitch } from "tmdesign";
 
 import React from "react";
 import { View } from "@tarojs/components";

@@ -15,7 +15,7 @@ import throttle from "lodash/throttle";
 import { TmDivider, TmIcon, useStore } from "../../index";
 import { observer } from "mobx-react-lite";
 
-interface PropsInterface {
+export interface navBarProps {
   tmBackground?: string; // 背景色
   tmDynamicOpacity?: boolean; // 根据滚动距离设置透明度
   tmFilling?: boolean; // 是否填充高度
@@ -36,13 +36,13 @@ interface navBarStyleInterface {
   contentStyle: object;
 }
 
-interface SystemInfoInterface {
+interface systemInfoInterface {
   capsuleInfo: any;
   pageInfo: any;
   navBarInfo: any;
 }
 
-const TmNavBar = observer((props: PropsInterface) => {
+const TmNavBar = observer((props: navBarProps) => {
   const {
     tmBackground = "white",
     tmDynamicOpacity = false,
@@ -78,7 +78,7 @@ const TmNavBar = observer((props: PropsInterface) => {
   );
 
   // 计算navBar样式
-  const calcStyle = (systemInfo: SystemInfoInterface) => {
+  const calcStyle = (systemInfo: systemInfoInterface) => {
     const {
       pageInfo: { windowWidth }, // 可视宽度
       navBarInfo: {

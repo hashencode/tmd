@@ -2,7 +2,7 @@ import React from "react";
 import { View } from "@tarojs/components";
 import classNames from "classnames";
 
-interface PropsInterface {
+export interface skeletonProps {
   tmAmount?: number; // 显示数量
   tmShowImage?: boolean; // 是否显示图片
   children?: any; // 子组件内容
@@ -10,7 +10,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmSkeleton(props: PropsInterface) {
+function TmSkeleton(props: skeletonProps) {
   const {
     tmAmount = 1,
     tmShowImage = false,

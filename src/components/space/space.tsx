@@ -5,7 +5,7 @@ import classNames from "classnames";
 import { spaceLg, spaceMid, spaceSm, spaceXs } from "../../functions/theme";
 import { transformPx } from "../../functions";
 
-interface PropsInterface {
+export interface spaceProps {
   tmAlign?: "flex-start" | "center" | "flex-end" | "baseline"; // 垂直对齐方式
   tmSize?: "xs" | "sm" | "mid" | "lg" | number; // 间距大小
   tmVertical?: boolean; // 间距方向
@@ -14,7 +14,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmSpace(props: PropsInterface) {
+function TmSpace(props: spaceProps) {
   const {
     tmAlign = "center",
     tmSize = "mid",

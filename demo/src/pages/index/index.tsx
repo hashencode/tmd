@@ -55,7 +55,6 @@ function Index() {
         { title: "Avatar 头像", link: "avatar" },
         { title: "Badge 徽标数", link: "badge" },
         { title: "Bill 账单", link: "bill" },
-        { title: "Calendar 日历 🔴", link: "calendar" },
         { title: "Card 卡片", link: "card" },
         { title: "Collapse 折叠面板", link: "collapse" },
         { title: "Coupon 优惠券", link: "coupon" },

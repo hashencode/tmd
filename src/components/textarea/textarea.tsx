@@ -5,7 +5,7 @@ import { CommonEventFunction } from "@tarojs/components/types/common";
 import { TmIcon } from "../../index";
 import { createUniqueId } from "../../functions";
 
-interface PropsInterface {
+export interface textareaProps {
   tmAllowClear?: boolean; // 允许清空
   tmBorder?: boolean; // 显示边框
   tmDisabled?: boolean; // 禁用
@@ -40,7 +40,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmTextarea(props: PropsInterface) {
+function TmTextarea(props: textareaProps) {
   const {
     tmAllowClear = false,
     tmBorder = false,

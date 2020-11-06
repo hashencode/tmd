@@ -3,7 +3,7 @@ import { View } from "@tarojs/components";
 import classNames from "classnames";
 import { transformPx } from "../../functions";
 
-interface PropsInterface {
+export interface colProps {
   tmFlex?: number | string;
   tmGutter?: number; // Row传递过来的Gutter
   tmOffset?: number; // 栅格左侧的间隔格数
@@ -16,7 +16,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmCol(props: PropsInterface) {
+function TmCol(props: colProps) {
   const {
     tmGutter = 0,
     tmOffset = 0,

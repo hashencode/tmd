@@ -3,7 +3,7 @@ import { View } from "@tarojs/components";
 import classNames from "classnames";
 import { transformPx } from "../../functions";
 
-interface PropsInterface {
+export interface dividerProps {
   tmSpace?: number; // 分割线外边距大小
   tmText?: string; // 附加文字
   tmTextPosition?: "left" | "center" | "right"; // 附加文字位置
@@ -12,7 +12,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmDivider(props: PropsInterface) {
+function TmDivider(props: dividerProps) {
   const {
     tmSpace = 20,
     tmText = "",

@@ -5,7 +5,7 @@ import CheckboxContext from "./_context";
 import { isEmpty } from "../../functions";
 import { typeCheck } from "../../functions";
 
-interface PropsInterface {
+export interface checkboxProps {
   tmAllowClear?: boolean; // 单选模式下是否允许双击取消
   tmDefaultValue?: number | string | (number | string)[]; // 默认值
   tmDisabled?: boolean; // 禁用
@@ -26,7 +26,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmCheckbox(props: PropsInterface) {
+function TmCheckbox(props: checkboxProps) {
   const {
     tmAllowClear = false,
     tmDefaultValue = "",

@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 import { View } from "@tarojs/components";
 import classNames from "classnames";
 
-interface PropsInterface {
+export interface billItemProps {
   tmBold?: boolean; // 加粗
   tmValue?: string | ReactNode; // 描述
   tmName?: string | ReactNode; // 标题
@@ -12,7 +12,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmBillItem(props: PropsInterface) {
+function TmBillItem(props: billItemProps) {
   const {
     tmBold = false,
     tmValue = "",

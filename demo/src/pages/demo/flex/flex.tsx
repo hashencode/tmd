@@ -1,13 +1,6 @@
 import "../demoStyle.scss";
 
-import {
-  TmButton,
-  TmCard,
-  TmCol,
-  TmDivider,
-  TmNavBar,
-  TmRow,
-} from "tmdesign";
+import { TmButton, TmCard, TmCol, TmDivider, TmNavBar, TmRow } from "tmdesign";
 
 import React from "react";
 import { View } from "@tarojs/components";

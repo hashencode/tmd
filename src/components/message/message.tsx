@@ -5,7 +5,7 @@ import classNames from "classnames";
 import { TmIcon, TmPopup, useStore } from "../../index";
 import { observer } from "mobx-react-lite";
 
-interface PropsInterface {
+export interface messageProps {
   tmIcon?: ReactNode; // 自定义图标
   tmPosition?: "center" | "left" | "right" | "top" | "bottom"; // 显示位置
   tmShow?: boolean; // 是否显示
@@ -15,7 +15,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-const TmMessage = observer((props: PropsInterface) => {
+const TmMessage = observer((props: messageProps) => {
   const {
     tmIcon = null,
     tmPosition = "center",

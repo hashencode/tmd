@@ -2,9 +2,9 @@
 
 .tm-list {
   $self: &;
+  background-color: $color-white;
   position: relative;
   touch-action: manipulation;
-  background-color: $color-white;
 
   &-disabled {
     @include disabled-mask(true, $border-radius-lg);

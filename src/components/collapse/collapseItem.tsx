@@ -5,7 +5,7 @@ import classNames from "classnames";
 import CollapseItemContext from "./_context";
 import { TmIcon } from "../../index";
 
-interface PropsInterface {
+export interface collapseItemProps {
   tmTitle?: string | ReactNode; // 标题
   tmId: string; // 唯一值，用于控制展开
   children?: any; // 子组件内容
@@ -13,7 +13,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmCollapseItem(props: PropsInterface) {
+function TmCollapseItem(props: collapseItemProps) {
   const { tmTitle = "", tmId = "", className = "", style = {} } = props;
 
   const {

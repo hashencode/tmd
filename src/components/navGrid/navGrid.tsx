@@ -4,7 +4,7 @@ import classNames from "classnames";
 import NavGridContext from "./_context";
 import { spaceXs } from "../../functions/theme";
 
-interface PropsInterface {
+export interface navGridProps {
   tmHorizon?: boolean; // 横向显示
   tmSpace?: number | string; // 各子项间的间距
   tmTextSpace?: number | string; // 图片和文字的间距
@@ -13,7 +13,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmNavGrid(props: PropsInterface) {
+function TmNavGrid(props: navGridProps) {
   const {
     tmHorizon = false,
     tmSpace = 0,

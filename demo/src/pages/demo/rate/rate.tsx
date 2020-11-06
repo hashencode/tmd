@@ -19,7 +19,7 @@ function DemoGrid() {
         <TmRate tmIcon={"like"} tmActiveIcon={"like_fill"} />
       </TmCard>
       <TmCard tmRound className={"demo__card"} tmTitle={"自定义颜色"}>
-        <TmRate tmColor={'#ff4d4f'} />
+        <TmRate tmColor={"#ff4d4f"} />
       </TmCard>
     </View>
   );

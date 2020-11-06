@@ -4,7 +4,7 @@ import { View } from "@tarojs/components";
 import classNames from "classnames";
 import { backgroundDefault, colorPrimary } from "../../functions/theme";
 
-interface PropsInterface {
+export interface progressProps {
   tmShape?: "line" | "circle"; // 进度条外形
   tmValue?: number; // 进度值
   tmBarColor?: "string"; // 进度条颜色
@@ -14,7 +14,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmProgress(props: PropsInterface) {
+function TmProgress(props: progressProps) {
   const {
     tmShape = "line",
     tmValue = 0,

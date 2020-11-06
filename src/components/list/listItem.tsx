@@ -7,7 +7,7 @@ import throttle from "lodash/throttle";
 import { TmIcon } from "../../index";
 import ListContext from "./_context";
 
-interface PropsInterface {
+export interface listItemProps {
   tmAction?: string | ReactNode; // 右侧操作
   tmDisabled?: boolean; // 是否禁用
   tmHref?: string; // 跳转链接
@@ -24,7 +24,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmListItem(props: PropsInterface) {
+function TmListItem(props: listItemProps) {
   const {
     tmAction = null,
     tmHref = "",

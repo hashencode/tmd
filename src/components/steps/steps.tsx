@@ -5,7 +5,7 @@ import classNames from "classnames";
 import { colorPrimary, fontColorSecondary } from "../../functions/theme";
 import { transformPx } from "../../functions";
 
-interface PropsInterface {
+export interface stepsProps {
   tmActiveColor?: string; // 激活时字体、图标和连接线的颜色
   tmData: {
     activeIcon?: ReactNode;
@@ -22,7 +22,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmSteps(props: PropsInterface) {
+function TmSteps(props: stepsProps) {
   const {
     tmActiveColor = colorPrimary,
     tmData = [],

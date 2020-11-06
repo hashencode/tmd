@@ -6,7 +6,7 @@ import throttle from "lodash/throttle";
 import { TmLoading } from "../../index";
 import { typeCheck } from "../../functions";
 
-interface PropsInterface {
+export interface switchProps {
   tmChecked?: boolean; // 是否选中
   tmDefaultChecked?: boolean; // 默认选中状态
   tmDisabled?: boolean; // 禁用
@@ -21,7 +21,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmSwitch(props: PropsInterface) {
+function TmSwitch(props: switchProps) {
   const {
     tmChecked = false,
     tmDefaultChecked = false,

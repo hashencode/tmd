@@ -4,7 +4,7 @@ import { View } from "@tarojs/components";
 import classNames from "classnames";
 import { getDataOrAriaProps } from "../../functions";
 
-interface PropsInterface {
+export interface transitionProps {
   tmAppear?: boolean; // 初次加载时执行动画
   tmDelay?: number; // 延迟显示时间（毫秒）
   tmDestroyAfterHide?: boolean; // 退出后清除dom
@@ -30,7 +30,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmTransition(props: PropsInterface) {
+function TmTransition(props: transitionProps) {
   const {
     tmAppear = false,
     tmDelay = 0,

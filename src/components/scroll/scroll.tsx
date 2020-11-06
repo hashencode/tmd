@@ -10,7 +10,7 @@ import { ScrollView, View } from "@tarojs/components";
 import classNames from "classnames";
 import { BaseEventOrigFunction } from "@tarojs/components/types/common";
 
-interface PropsInterface {
+export interface scrollProps {
   tmLowerThreshold?: number; // 触发加载事件距离
   tmTriggerDistance?: number; // 下拉刷新激活高度
   tmRefresher?: string | ReactNode;
@@ -22,7 +22,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmScroll(props: PropsInterface, ref) {
+function TmScroll(props: scrollProps, ref) {
   const {
     tmLowerThreshold = 100,
     tmTriggerDistance = 50,

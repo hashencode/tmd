@@ -5,14 +5,14 @@ import classNames from "classnames";
 import NavGridContext from "./_context";
 import { transformPx } from "../../functions";
 
-interface PropsInterface {
+export interface navGridItemProps {
   tmImage: ReactNode; // 图片
   tmText?: string | ReactNode; // 文字
   className?: string; // 自定义类名
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmNavGridItem(props: PropsInterface) {
+function TmNavGridItem(props: navGridItemProps) {
   const { tmImage = null, tmText = "", className = "", style = {} } = props;
 
   const { tmSpace, tmTextSpace, tmHorizon } = useContext(NavGridContext);

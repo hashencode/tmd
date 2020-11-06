@@ -46,6 +46,7 @@
   &__prefix {
     flex-shrink: 0;
     margin-left: $spacing-mid;
+
     .tm-icon {
       font-size: $icon-size-sm;
     }
@@ -75,6 +76,7 @@
   &__suffix {
     flex-shrink: 0;
     margin-right: $spacing-mid;
+
     .tm-icon {
       font-size: $icon-size-sm;
     }

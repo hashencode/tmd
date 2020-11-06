@@ -4,7 +4,7 @@ import { Swiper, View } from "@tarojs/components";
 import classNames from "classnames";
 import TabsContext from "./_context";
 
-interface PropsInterface {
+export interface tabsProps {
   tmActiveKey?: string; // 当前索引
   tmBodyStyle?: object; // 底部样式
   tmDefaultKey?: string; // 默认激活子项key值
@@ -27,13 +27,13 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-interface HeadDataInterface {
+interface headDataInterface {
   tmTitle: string | ReactNode; // 标题
   tmId: string; // 唯一ID
   index: number; // 索引值
 }
 
-function TmTabs(props: PropsInterface) {
+function TmTabs(props: tabsProps) {
   const {
     tmActiveKey = "",
     tmBodyStyle = {},
@@ -52,7 +52,7 @@ function TmTabs(props: PropsInterface) {
   } = props;
 
   // 头部数据数组
-  const [headData, setHeadData] = useState<HeadDataInterface[]>([]);
+  const [headData, setHeadData] = useState<headDataInterface[]>([]);
   // 按顺序保存key值
   const [keysArray, setKeysArray] = useState<string[]>([]);
   // 当前激活的子项key值
@@ -89,7 +89,7 @@ function TmTabs(props: PropsInterface) {
     const keysData: string[] = [];
     React.Children.map(props.children, (item, index) => {
       if (React.isValidElement(item)) {
-        const { tmTitle, tmId } = item.props as HeadDataInterface;
+        const { tmTitle, tmId } = item.props as headDataInterface;
         childData.push({ tmTitle, tmId, index });
         keysData.push(tmId);
       }

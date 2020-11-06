@@ -4,7 +4,7 @@ import { View } from "@tarojs/components";
 import classNames from "classnames";
 import { TmImage } from "../../index";
 
-interface PropsInterface {
+export interface resultProps {
   tmImage?: ReactNode; // 自定义图标
   tmText?: ReactNode; // 自定义标题
   tmType?: "empty" | 500 | 404; // 处理状态
@@ -13,7 +13,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmResult(props: PropsInterface) {
+function TmResult(props: resultProps) {
   const {
     tmImage = "",
     tmText = "",

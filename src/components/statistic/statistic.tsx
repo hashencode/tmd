@@ -4,7 +4,7 @@ import { View } from "@tarojs/components";
 import classNames from "classnames";
 import nzhcn from "nzh/cn";
 
-interface PropsInterface {
+export interface statisticProps {
   tmChinese?: "lower" | "upper" | "money"; // 大写中文
   tmThousandth?: boolean; // 千分位
   tmValue?: number; // 数值
@@ -13,7 +13,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmStatistic(props: PropsInterface) {
+function TmStatistic(props: statisticProps) {
   const {
     tmChinese = null,
     tmThousandth = false,

@@ -4,7 +4,7 @@ import { View } from "@tarojs/components";
 import classNames from "classnames";
 import { TmIcon, TmPopup } from "../../index";
 
-interface PropsInterface {
+export interface dropdownProps {
   tmDisabled?: boolean; // 禁用
   tmMaskClosable?: boolean; // 点击蒙层关闭
   tmShow?: boolean; // 是否展开
@@ -16,7 +16,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmDropdown(props: PropsInterface) {
+function TmDropdown(props: dropdownProps) {
   const {
     tmDisabled = false,
     tmMaskClosable = false,

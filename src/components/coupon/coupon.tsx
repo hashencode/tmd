@@ -5,7 +5,7 @@ import classNames from "classnames";
 import { TmIcon } from "../../index";
 import { colorPrimary } from "../../functions/theme";
 
-interface PropsInterface {
+export interface couponProps {
   tmAmount?: number | string | ReactNode; // 金额
   tmButton?: ReactNode; // 操作按钮插槽
   tmColor?: string; // 主颜色
@@ -20,7 +20,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmCoupon(props: PropsInterface) {
+function TmCoupon(props: couponProps) {
   const {
     tmAmount = null,
     tmButton = null,

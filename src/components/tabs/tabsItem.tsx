@@ -4,7 +4,7 @@ import { SwiperItem } from "@tarojs/components";
 import classNames from "classnames";
 import TabsContext from "./_context";
 
-interface PropsInterface {
+export interface tabsItemProps {
   tmTitle: string | ReactNode; // tab页标题
   tmId: string; // 唯一id
   children?: any; // 子组件内容
@@ -12,7 +12,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmTabsItem(props: PropsInterface) {
+function TmTabsItem(props: tabsItemProps) {
   const { tmId = "", className = "", style = {} } = props;
 
   const { tmLazyLoad, keyCache } = useContext(TabsContext);

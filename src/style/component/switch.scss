@@ -6,9 +6,9 @@
   display: inline-block;
   height: $height-mid;
   position: relative;
+  touch-action: manipulation;
   transition: background-color 0.3s $cubic-bezier-motion;
   vertical-align: middle;
-  touch-action: manipulation;
 
   // 尺寸
   &-lg {

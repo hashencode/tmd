@@ -4,7 +4,7 @@ import { View } from "@tarojs/components";
 import classNames from "classnames";
 import { TmDivider } from "../../index";
 
-interface PropsInterface {
+export interface billProps {
   tmTitle?: string | ReactNode; // 标题
   tmNo?: string | ReactNode; // 编号
   children?: any; // 子组件内容
@@ -12,7 +12,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmBill(props: PropsInterface) {
+function TmBill(props: billProps) {
   const { tmTitle = "", tmNo = "", className = "", style = {} } = props;
 
   return (

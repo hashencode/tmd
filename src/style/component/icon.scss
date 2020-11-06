@@ -3,10 +3,10 @@
 
 .tm-icon {
   display: inline-block;
+  font-size: $icon-size-mid;
   line-height: 1;
   text-align: center;
   transform-origin: center;
-  font-size: $icon-size-mid;
   // 旋转状态
   &-spin {
     animation: spin 1s infinite linear;

@@ -3,7 +3,7 @@ import { View } from "@tarojs/components";
 import classNames from "classnames";
 import DescriptionContext from "./_context";
 
-interface PropsInterface {
+export interface descriptionProps {
   tmTitleStyle?: object;
   tmDescStyle?: object;
   tmSpace?: "xs" | "sm" | "mid" | "lg" | number; // 间距大小
@@ -12,7 +12,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmDescription(props: PropsInterface) {
+function TmDescription(props: descriptionProps) {
   const {
     tmDescStyle = {},
     tmTitleStyle = {},

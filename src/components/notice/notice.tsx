@@ -4,7 +4,7 @@ import { View } from "@tarojs/components";
 import classNames from "classnames";
 import { TmIcon } from "../../index";
 
-interface PropsInterface {
+export interface tagProps {
   tmAutoClose?: number; // 自动关闭毫秒数
   tmCloseable?: boolean; // 允许关闭
   tmMotion?: boolean; // 是否滚动播放
@@ -18,7 +18,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmTag(props: PropsInterface) {
+function TmTag(props: tagProps) {
   const {
     tmAutoClose = 0,
     tmCloseable = false,

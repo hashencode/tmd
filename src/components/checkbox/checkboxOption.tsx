@@ -9,7 +9,7 @@ import classNames from "classnames";
 import { TmIcon } from "../../index";
 import CheckboxContext from "./_context";
 
-interface PropsInterface {
+export interface checkboxOptionProps {
   tmDisabled?: boolean; // 禁用
   tmText?: string | ReactNode; // 标题
   tmValue?: string | number; // 值
@@ -19,7 +19,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmCheckboxOption(props: PropsInterface) {
+function TmCheckboxOption(props: checkboxOptionProps) {
   const {
     tmDisabled = false,
     tmText = "",

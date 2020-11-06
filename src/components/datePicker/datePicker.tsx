@@ -1,22 +1,23 @@
-import React, { ReactNode, useLayoutEffect, useRef, useState } from "react";
+import React, {
+  ReactNode,
+  useCallback,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { View } from "@tarojs/components";
 import classNames from "classnames";
 import { TmDrawer, TmIcon } from "../../index";
-import {
-  getDate,
-  getDaysInMonth,
-  getMonth,
-  getYear,
-  isDate,
-  startOfMonth,
-} from "date-fns";
 import throttle from "lodash/throttle";
 import { colorPrimary } from "../../functions/theme";
+import { isEmpty } from "../../functions";
+import * as dayjs from "dayjs";
 
-interface PropsInterface {
+export interface datePickerProps {
   tmAllowClear?: boolean; // 显示取消选择
   tmDefaultValue?: Date | string; // 默认值
   tmDisabled?: boolean; // 禁用
+  tmFormat?: string; // 触发器字符串格式化
   tmHideHead?: boolean; // 显示头部
   tmHideMonthBtn?: boolean; // 禁止更改月份
   tmHideYearBtn?: boolean; // 禁止更改年份
@@ -25,29 +26,33 @@ interface PropsInterface {
   tmTitle?: string | ReactNode; // 标题
   tmTriggerClassName?: string; // 触发器类名
   tmValue?: Date | string; // 当前选中的值
-  onChange?: (value: string) => void; // 选项变动回调
-  onConfirm?: (value: string) => void; // 选项变动回调
+  onCancel?: () => void; // 取消回调
+  onChange?: (value: dateValueInterface) => void; // 选项变动回调
+  onConfirm?: (value: dateValueInterface) => void; // 选项变动回调
+  onHide?: () => void; // 抽屉隐藏回调
+  onShow?: () => void; // 抽屉显示回调
   children?: any; // 子组件内容
   className?: string; // 自定义类名
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-export interface ConfigInterface {
+interface configInterface {
   currentMonthDays: number[];
   prevMonthDays: number[];
   nextMonthDays: number[];
 }
 
-interface CurrentDataInterface {
-  year: number;
-  month: number;
+interface dateValueInterface {
+  date: any;
+  dateString: string;
 }
 
-function TmDatePicker(props: PropsInterface) {
+function TmDatePicker(props: datePickerProps) {
   const {
     tmAllowClear = false,
     tmDefaultValue = null,
     tmDisabled = false,
+    tmFormat = "YYYY-MM-DD",
     tmHideHead = false,
     tmHideMonthBtn = false,
     tmHideYearBtn = false,
@@ -58,9 +63,12 @@ function TmDatePicker(props: PropsInterface) {
     tmPlaceholder = "",
     tmTitle = "",
     tmTriggerClassName = "",
-    // tmValue = "",
+    tmValue = "",
+    onCancel = () => {},
     onChange = () => {},
     onConfirm = () => {},
+    onHide = () => {},
+    onShow = () => {},
     className = "",
     style = {},
   } = props;
@@ -71,34 +79,21 @@ function TmDatePicker(props: PropsInterface) {
   // 触发器显示文字
   const [triggerText, setTriggerText] = useState("");
 
-  // 当前日期，此处的年月没有0值
-  const panelDate = useRef<CurrentDataInterface>({
-    year: new Date().getFullYear(),
-    month: new Date().getMonth() + 1,
-  });
-
-  // 当前被选中的日期的数据
-  const [pickedDate, setPickedDate] = useState({
-    year: -1,
-    month: -1,
-    day: -1,
-  });
-
   // 用于显示日历的数据
-  const [calenderDisplayData, setCalenderConfig] = useState<ConfigInterface>({
+  const [calenderDisplayData, setCalenderConfig] = useState<configInterface>({
     currentMonthDays: [],
     prevMonthDays: [],
     nextMonthDays: [],
   });
 
-  // 重置选中日期数据
-  const pickedDateReset = () => {
-    setPickedDate({
-      year: -1,
-      month: -1,
-      day: -1,
-    });
-  };
+  // 当前面板显示年月
+  const panelDate = useRef<any>(dayjs());
+
+  // 已确定激活的选项
+  const [pickedDate, setPickedDate] = useState<any>(null);
+
+  // 当前操作的未确定的激活选项
+  const [tempPickedDate, setTempPickedDate] = useState<any>(null);
 
   // 打开抽屉
   const openDrawer = () => {
@@ -107,180 +102,159 @@ function TmDatePicker(props: PropsInterface) {
   };
 
   // 关闭抽屉
-  const closeDrawer = () => {
+  const handleCancel = () => {
+    // 取消回调
+    onCancel();
+    // 关闭抽屉
     setIsDrawerShow(false);
+    // 重置临时选中的值为确认选中的值
+    setTempPickedDate(pickedDate);
   };
 
-  // 点击遮罩关闭或点击取消
-  const handleCancel = () => {
-    // if(pickedDate.day>-1 && ){
-    //
-    // }
+  const outputValueFormat = (date) => {
+    return {
+      date: date,
+      dateString: date ? date.format(tmFormat) : "",
+    };
   };
 
   // 确认回调
   const handleConfirm = () => {
+    // 确认回调
+    onConfirm(outputValueFormat(tempPickedDate));
+    // 关闭抽屉
+    setIsDrawerShow(false);
     // 当设置有 tmValue 值时，视作完全控制，用户行为不会触发更新操作
     if ("tmValue" in props) return;
-
-    // setTriggerText(tempValue.current);
-    // onConfirm(tempValue.current);
-    closeDrawer();
+    // 更新当前被选中的值
+    setPickedDate(tempPickedDate);
+    // 更新触发器文字
+    updateTriggerText(tempPickedDate);
   };
 
-  // 处理日历输入变更
-  const handleCalendarChange = (e) => {
-    // tempValue.current = e;
-    onChange(e);
+  // 更新触发器文字
+  const updateTriggerText = (date) => {
+    setTriggerText(outputValueFormat(date).dateString);
   };
 
   // 创造指定长度的数组
   const createArray = (sum) => Array.from(Array(sum).keys());
 
   // 计算日历展示信息
-  const calcDisplayData = (time) => {
-    // 当前日期信息
-    const currentYear = getYear(time);
-    const currentMonth = getMonth(time);
-    const currentMonthFirstDayDate = startOfMonth(time).getDay();
-    const currentMonthDaySum = getDaysInMonth(time);
+  const calcDisplayData = (date) => {
+    // 当月日期信息
+    const monthFirstDay = date.startOf("month").day();
+    const monthDaySum = date.daysInMonth();
     // 前一月份日期信息
-    let prevMonthCount = 0;
-    // 涉及1月时的年份切换
-    if (currentMonth === 0) {
-      prevMonthCount = getDaysInMonth(new Date(`${currentYear - 1}/12/1`));
-    } else {
-      prevMonthCount = getDaysInMonth(
-        new Date(`${currentYear}/${currentMonth}/1`)
-      );
-    }
+    let prevMonthDaySum = date.subtract(1, "year").daysInMonth();
+    // 用于循环上月部分的数组
     let prevMonthDays = [] as number[];
-    if (currentMonthFirstDayDate === 0) {
-      prevMonthDays = createArray(prevMonthCount).slice(-6);
-    } else if (currentMonthFirstDayDate > 1) {
-      prevMonthDays = createArray(prevMonthCount).slice(
-        (currentMonthFirstDayDate - 1) * -1
+    if (monthFirstDay === 0) {
+      // 若当月的第一天为周日
+      prevMonthDays = createArray(prevMonthDaySum).slice(-6);
+    } else if (monthFirstDay > 1) {
+      // 若当月的第一天大于周一
+      prevMonthDays = createArray(prevMonthDaySum).slice(
+        (monthFirstDay - 1) * -1
       );
     }
-    // 当前月份的日期信息
-    const currentMonthDays = createArray(currentMonthDaySum);
-    // 下一个月的日期信息
+    // 用于循环当月部分的数组
+    const currentMonthDays = createArray(monthDaySum);
     const nextMonthSum =
-      42 -
-      currentMonthDaySum -
-      (currentMonthFirstDayDate < 1 ? 6 : currentMonthFirstDayDate - 1);
+      42 - monthDaySum - (monthFirstDay < 1 ? 6 : monthFirstDay - 1);
+    // 用于循环下月部分的数组
     const nextMonthDays = nextMonthSum > 0 ? createArray(nextMonthSum) : [];
     // 修改显示数据
     setCalenderConfig({
-      ...calenderDisplayData,
       prevMonthDays,
       currentMonthDays,
       nextMonthDays,
     });
   };
 
-  // 修改年份
-  const handleYearChange = throttle(
-    (event) => {
-      panelDate.current.year -= event === "decrease" ? 1 : -1;
-      calcDisplayData(
-        new Date(`${panelDate.current.year}/${panelDate.current.month}/1`)
-      );
-    },
-    500,
-    { trailing: false }
-  );
-
-  // 修改月份
-  const handleMonthChange = throttle(
-    (event) => {
-      // 涉及1月和12月时的年份切换
+  // 修改年份或月份
+  const handlePanelChange = throttle(
+    ({ event, type = "month" }) => {
+      let newDate;
       if (event === "decrease") {
-        if (panelDate.current.month === 1) {
-          panelDate.current.month = 12;
-          panelDate.current.year -= 1;
-        } else {
-          panelDate.current.month -= 1;
-        }
-      } else if (event === "increase") {
-        if (panelDate.current.month === 12) {
-          panelDate.current.month = 1;
-          panelDate.current.year += 1;
-        } else {
-          panelDate.current.month += 1;
-        }
+        newDate = panelDate.current.subtract(1, type);
+      } else {
+        newDate = panelDate.current.add(1, type);
       }
-      calcDisplayData(
-        new Date(`${panelDate.current.year}/${panelDate.current.month}/1`)
-      );
+      panelDate.current = newDate;
+      calcDisplayData(newDate);
     },
     500,
     { trailing: false }
   );
 
-  // 非当前月份日期点击
-  const handleOtherMonthDayClick = ({ currentDay, isPrev = true }) => {
-    const { year, month } = panelDate.current;
-    const newDate = { year, month: month + (isPrev ? -1 : 1), day: currentDay };
-    setPickedDate(newDate);
-    handleMonthChange(isPrev ? "decrease" : "increase");
-    if (JSON.stringify(pickedDate) !== JSON.stringify(newDate)) {
-      handleCalendarChange(`${year}/${month}/${currentDay}`);
-    }
-  };
-
-  // 当前月份日期点击
-  const handleCurrentMonthDayClick = (currentDay) => {
-    const { year, month } = panelDate.current;
-    if (currentDay === pickedDate.day && tmAllowClear) {
-      pickedDateReset();
-      handleCalendarChange("");
+  // 处理日期点击
+  const handleDayClick = ({ currentDay, type = "current" }) => {
+    let newDate = panelDate.current;
+    // 判断是当月、上月还是下月
+    if (type === "current") {
+      newDate = newDate.date(currentDay);
     } else {
-      setPickedDate({
-        year,
-        month,
-        day: currentDay,
-      });
-      const newDate = { year, month, day: currentDay };
-      if (JSON.stringify(pickedDate) !== JSON.stringify(newDate)) {
-        handleCalendarChange(`${year}/${month}/${currentDay}`);
+      if (type === "prev") {
+        newDate = newDate.subtract(1, "month").date(currentDay);
+        // 切换月份
+        handlePanelChange({ event: "decrease" });
+      } else {
+        newDate = newDate.add(1, "month").date(currentDay);
+        handlePanelChange({ event: "increase" });
       }
     }
+    // 如果点击同一日期，且允许清空
+    if (newDate.isSame(tempPickedDate, "day") && tmAllowClear) newDate = null;
+    // 通知回调
+    if (newDate) {
+      onChange(outputValueFormat(newDate));
+    }
+    if ("tmValue" in props) return;
+    setTempPickedDate(newDate);
   };
 
   // 计算是否被选中
-  const isPicked = (currentDay) => {
-    return (
-      pickedDate.year === panelDate.current.year &&
-      pickedDate.month === panelDate.current.month &&
-      pickedDate.day === currentDay + 1
-    );
+  const isPicked = useCallback(
+    (currentDay) => {
+      const currentDate = panelDate.current.date(currentDay);
+      return currentDate.isSame(tempPickedDate, "day");
+    },
+    [tempPickedDate, panelDate]
+  );
+
+  const valueFormat = (dateValue) => {
+    // 对输入的值进行格式的检查
+    const date = dayjs(dateValue);
+    if (!date.isValid())
+      return console.warn(
+        "DatePicker, the value of tmValue should be a date or date string"
+      );
+    // 设定被选中的值
+    setPickedDate(date);
+    // 设定临时被选中的值
+    setTempPickedDate(date);
+    // 设定当前年月
+    panelDate.current = date;
+    calcDisplayData(date);
+    updateTriggerText(date);
   };
 
-  // 初次渲染时判断是否存在默认值
+  // 监听 tmValue 的改变
   useLayoutEffect(() => {
-    if (tmDefaultValue && isDate(tmDefaultValue)) {
-      const _dateValue = {
-        year: getYear(tmDefaultValue),
-        month: getMonth(tmDefaultValue) + 1,
-      };
-      // 设定被选中的值
-      setPickedDate({
-        ..._dateValue,
-        day: getDate(tmDefaultValue),
-      });
-      // 设定当前年月
-      panelDate.current = {
-        ..._dateValue,
-      };
-      calcDisplayData(tmDefaultValue);
+    valueFormat(tmValue);
+  }, [tmValue]);
+
+  // 初次渲染时设置 tmDefaultValue
+  useLayoutEffect(() => {
+    // 在 tmValue 为空且 tmDefaultValue 不为空时，设置默认值
+    if ("tmValue" in props) return;
+    if (isEmpty(tmDefaultValue)) {
+      const date = dayjs();
+      panelDate.current = date;
+      calcDisplayData(date);
     } else {
-      const _date = new Date();
-      panelDate.current = {
-        year: getYear(_date),
-        month: getMonth(_date) + 1,
-      };
-      calcDisplayData(_date);
+      valueFormat(tmDefaultValue);
     }
   }, []);
 
@@ -305,6 +279,8 @@ function TmDatePicker(props: PropsInterface) {
         onMaskClick={handleCancel}
         onCancel={handleCancel}
         onConfirm={handleConfirm}
+        onShow={onShow}
+        onHide={onHide}
       >
         <View className="tm-calendar">
           {/* 头部 */}
@@ -316,7 +292,7 @@ function TmDatePicker(props: PropsInterface) {
                   <TmIcon
                     tmValue="double_arrow_left"
                     onClick={() => {
-                      handleYearChange("decrease");
+                      handlePanelChange({ event: "decrease", type: "year" });
                     }}
                   />
                 )}
@@ -325,13 +301,13 @@ function TmDatePicker(props: PropsInterface) {
                   <TmIcon
                     tmValue="arrow_left"
                     onClick={() => {
-                      handleMonthChange("decrease");
+                      handlePanelChange({ event: "decrease" });
                     }}
                   />
                 )}
               </View>
               <View className="tm-calendar__info">
-                {panelDate.current.year}年{panelDate.current.month}月
+                {panelDate.current.year()}年{panelDate.current.month() + 1}月
               </View>
               <View className="tm-calendar__next-btn">
                 {/* 月份增加按钮 */}
@@ -339,7 +315,7 @@ function TmDatePicker(props: PropsInterface) {
                   <TmIcon
                     tmValue="arrow_right"
                     onClick={() => {
-                      handleMonthChange("increase");
+                      handlePanelChange({ event: "increase" });
                     }}
                   />
                 )}
@@ -348,7 +324,7 @@ function TmDatePicker(props: PropsInterface) {
                   <TmIcon
                     tmValue="double_arrow_right"
                     onClick={() => {
-                      handleYearChange("increase");
+                      handlePanelChange({ event: "increase", type: "year" });
                     }}
                   />
                 )}
@@ -377,8 +353,9 @@ function TmDatePicker(props: PropsInterface) {
                       className="tm-calendar__day-item"
                       key={`prevMonthDat-${item}`}
                       onClick={() => {
-                        handleOtherMonthDayClick({
+                        handleDayClick({
                           currentDay: item + 1,
+                          type: "prev",
                         });
                       }}
                     >
@@ -399,15 +376,20 @@ function TmDatePicker(props: PropsInterface) {
                       className="tm-calendar__day-item tm-calendar__day-item-current-month"
                       key={`current-month-day-${item}`}
                       onClick={() => {
-                        handleCurrentMonthDayClick(item + 1);
+                        handleDayClick({
+                          currentDay: item + 1,
+                          type: "current",
+                        });
                       }}
                     >
                       <View className="tm-calendar__day-item-inner">
                         <View
                           className={classNames("tm-calendar__day-item-text", {
-                            "tm-calendar__day-item-text-picked": isPicked(item),
+                            "tm-calendar__day-item-text-picked": isPicked(
+                              item + 1
+                            ),
                           })}
-                          style={isPicked(item) ? tmPickedStyle : ""}
+                          style={isPicked(item + 1) ? tmPickedStyle : ""}
                         >
                           {item + 1}
                         </View>
@@ -424,9 +406,9 @@ function TmDatePicker(props: PropsInterface) {
                       className="tm-calendar__day-item"
                       key={`current-month-day-${item}`}
                       onClick={() => {
-                        handleOtherMonthDayClick({
+                        handleDayClick({
                           currentDay: item + 1,
-                          isPrev: false,
+                          type: "next",
                         });
                       }}
                     >

@@ -4,9 +4,9 @@
   display: flex;
 
   &__title {
+    color: $font-color-secondary;
     flex-shrink: 0;
     padding-right: $spacing-sm;
-    color: $font-color-secondary;
   }
 
   &__desc {

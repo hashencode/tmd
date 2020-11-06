@@ -3,7 +3,7 @@ import { View } from "@tarojs/components";
 import classNames from "classnames";
 import ListContext from "./_context";
 
-interface PropsInterface {
+export interface listProps {
   tmDisabled?: boolean; // 禁用
   tmRound?: boolean; // 圆角显示
   tmOuterBorder?: boolean; // 显示外边框
@@ -15,7 +15,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmList(props: PropsInterface) {
+function TmList(props: listProps) {
   const {
     tmDisabled = false,
     tmRound = false,

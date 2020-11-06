@@ -4,7 +4,7 @@ import { View } from "@tarojs/components";
 import classNames from "classnames";
 import { TmIcon, TmPopup } from "../../index";
 
-interface PropsInterface {
+export interface modalProps {
   tmCancelText?: string | ReactNode; // 取消按钮文字
   tmClosable?: boolean; // 显示关闭按钮
   tmConfirmText?: string | ReactNode; // 确认按钮文字
@@ -38,7 +38,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmModal(props: PropsInterface) {
+function TmModal(props: modalProps) {
   const {
     tmCancelText = "取消",
     tmClosable = false,

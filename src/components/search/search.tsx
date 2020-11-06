@@ -3,7 +3,7 @@ import { View } from "@tarojs/components";
 import classNames from "classnames";
 import { TmIcon } from "../../index";
 
-interface SearchProps {
+export interface searchProps {
   tmBorder?: boolean; // 显示边框
   tmRound?: boolean; // 圆角显示
   tmShadow?: boolean; // 显示阴影
@@ -12,7 +12,7 @@ interface SearchProps {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmSearch(props: SearchProps) {
+function TmSearch(props: searchProps) {
   const {
     tmBorder = false,
     tmRound = false,

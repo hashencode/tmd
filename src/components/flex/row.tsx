@@ -3,7 +3,7 @@ import { View } from "@tarojs/components";
 import classNames from "classnames";
 import { transformPx } from "../../functions";
 
-interface PropsInterface {
+export interface rowProps {
   tmAlign?: "flex-start" | "center" | "flex-end" | "baseline"; // 垂直对齐方式
   tmGutter?: number; // 栅格间隔
   tmJustify?:
@@ -17,7 +17,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmRow(props: PropsInterface) {
+function TmRow(props: rowProps) {
   const {
     tmAlign = "flex-start",
     tmGutter = 0,

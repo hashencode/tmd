@@ -4,7 +4,7 @@ import classNames from "classnames";
 import { TmImage } from "../../index";
 import { transformPx } from "../../functions";
 
-interface PropsInterface {
+export interface avatarProps {
   tmShape?: "circle" | "rect"; // 头像形状
   tmSize?: number | string; // 头像宽度
   tmSrc?: string; // 头像地址
@@ -13,7 +13,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmAvatar(props: PropsInterface) {
+function TmAvatar(props: avatarProps) {
   const {
     tmShape = "circle",
     tmSize = 100,

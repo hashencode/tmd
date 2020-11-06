@@ -5,7 +5,7 @@ import classNames from "classnames";
 import { TmTransition } from "../../index";
 import { backgroundMask } from "../../functions/theme";
 
-interface PropsInterface {
+export interface popupProps {
   tmAppear?: boolean; // 初次加载时执行动画
   tmDelay?: number; // 延迟显示时间（毫秒）
   tmDestroyAfterHide?: boolean; // 退出后清除dom
@@ -35,7 +35,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmPopup(props: PropsInterface) {
+function TmPopup(props: popupProps) {
   const {
     tmAppear = false,
     tmDelay = 0,

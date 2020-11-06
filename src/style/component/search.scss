@@ -2,30 +2,35 @@
 
 .tm-search {
   $self: &;
-  display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  overflow: hidden;
-  position: relative;
   background-color: $background-action;
   border-radius: $border-radius-sm;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
   padding: 0 $spacing-mid;
+  position: relative;
+  width: 100%;
+
   &-shadow {
     box-shadow: $shadow-bottom;
   }
+
   &-bordered {
     @include one-px-border("round", $border-radius-sm);
   }
+
   &-round {
     border-radius: 99999px;
+
     &#{$self}-bordered {
       @include one-px-border("round", 99999px);
     }
   }
+
   .tm-input {
-    width: 100%;
     padding-right: 0;
+    width: 100%;
   }
 
   &__icon {

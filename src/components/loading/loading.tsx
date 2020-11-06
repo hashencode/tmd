@@ -4,7 +4,7 @@ import { View } from "@tarojs/components";
 import classNames from "classnames";
 import { TmIcon, TmImage, TmPopup } from "../../index";
 
-interface PropsInterface {
+export interface loadingProps {
   tmDelay?: number; // 延迟显示时间
   tmIconStyle?: object; // 自定义图标样式
   tmShape?: "circle" | "quarter"; // 加载样式
@@ -16,7 +16,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmLoading(props: PropsInterface) {
+function TmLoading(props: loadingProps) {
   const {
     tmDelay = 0,
     tmIconStyle = {},

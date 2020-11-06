@@ -6,7 +6,7 @@ import { getEnv } from "@tarojs/taro";
 import { TmPopup, useStore } from "../../index";
 import { observer } from "mobx-react-lite";
 
-interface PropsInterface {
+export interface drawerProps {
   tmCancel?: string | ReactNode; // 取消按钮
   tmConfirm?: string | ReactNode; // 确认按钮
   tmBodyStyle?: object; // 自定义内容样式
@@ -29,7 +29,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-const TmDrawer = observer((props: PropsInterface) => {
+const TmDrawer = observer((props: drawerProps) => {
   const {
     tmBodyStyle = {},
     tmCancel = "取消",

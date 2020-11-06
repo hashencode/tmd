@@ -4,7 +4,7 @@ import { View } from "@tarojs/components";
 import classNames from "classnames";
 import CollapseContext from "./_context";
 
-interface PropsInterface {
+export interface collapseProps {
   tmInnerBorder?: boolean; // 显示内边框
   tmOuterBorder?: boolean; // 显示外边框
   tmAccordion?: boolean; // 手风琴模式
@@ -17,7 +17,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmCollapse(props: PropsInterface) {
+function TmCollapse(props: collapseProps) {
   const {
     tmInnerBorder = false,
     tmOuterBorder = false,

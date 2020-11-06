@@ -1,6 +1,6 @@
 import "../demoStyle.scss";
 
-import { TmCard, TmImage, TmNavBar, TmNavGrid,TmNavGridItem } from "tmdesign";
+import { TmCard, TmImage, TmNavBar, TmNavGrid, TmNavGridItem } from "tmdesign";
 
 import React from "react";
 import { View } from "@tarojs/components";

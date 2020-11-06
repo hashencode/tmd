@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 import { View } from "@tarojs/components";
 import classNames from "classnames";
 
-interface PropsInterface {
+export interface cardProps {
   tmAction?: string | ReactNode; // 右侧操作区域
   tmBorder?: boolean; // 显示边框
   tmBodyStyle?: object; // 自定义内容样式
@@ -19,7 +19,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmCard(props: PropsInterface) {
+function TmCard(props: cardProps) {
   const {
     tmAction = null,
     tmBorder = true,

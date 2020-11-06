@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 import { View } from "@tarojs/components";
 import classNames from "classnames";
 
-interface PropsInterface {
+export interface tagProps {
   tmBorder?: boolean; // 是否现实边框
   tmGhost?: boolean; // 幽灵标签
   tmIcon?: ReactNode; // 自定义图标
@@ -14,7 +14,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmTag(props: PropsInterface) {
+function TmTag(props: tagProps) {
   const {
     tmBorder = false,
     tmGhost = false,

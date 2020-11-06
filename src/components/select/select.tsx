@@ -7,7 +7,7 @@ import { TmDrawer, TmList } from "../../index";
 
 import { isEmpty, typeCheck } from "../../functions";
 
-export interface TmSelectProps {
+export interface selectProps {
   tmAllowClear?: boolean; // 单选模式下是否允许双击取消
   tmDefaultValue?: number | string | (number | string)[]; // 默认值
   tmDisabled?: boolean; // 禁用
@@ -33,13 +33,14 @@ export interface TmSelectProps {
       | { text: string; value: number | string }[]
       | { text: string; value: number | string }
   ) => void; // 确认回调
+  onHide?: () => void; // 抽屉隐藏回调
   onShow?: () => void; // 抽屉显示回调
   children?: any; // 子组件内容
   className?: string; // 自定义类名
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmSelect(props: TmSelectProps) {
+function TmSelect(props: selectProps) {
   const {
     tmAllowClear = false,
     tmDefaultValue = "",
@@ -54,6 +55,7 @@ function TmSelect(props: TmSelectProps) {
     onCancel = () => {},
     onChange = () => {},
     onConfirm = () => {},
+    onHide = () => {},
     onShow = () => {},
     className = "",
     style = {},
@@ -61,18 +63,24 @@ function TmSelect(props: TmSelectProps) {
 
   // 已确定激活的选项
   const [selectedValues, setSelectedValues] = useState<(number | string)[]>([]);
+
   // 当前操作的未确定的激活选项
   const [tempSelectedValues, setTempSelectedValues] = useState<
     (number | string)[]
   >([]);
+
   // 是否达到可选择的最大数量
   const [isReachMax, setIsReachMax] = useState<boolean>(false);
+
   // 抽屉的开合
   const [isDrawerShow, setIsDrawerShow] = useState(false);
+
   // 用于存储当前操作产生的临时值
   const realTimeValue = useRef<any>("");
+
   // 触发器显示文字
   const [triggerText, setTriggerText] = useState("");
+
   // 用于存储选项信息的哈希表
   const hashMap = useRef(new Map());
 
@@ -154,7 +162,6 @@ function TmSelect(props: TmSelectProps) {
   const openDrawer = () => {
     if (tmDisabled) return;
     setIsDrawerShow(true);
-    onShow();
   };
 
   // 关闭抽屉
@@ -264,6 +271,8 @@ function TmSelect(props: TmSelectProps) {
         onMaskClick={handleCancel}
         onCancel={handleCancel}
         onConfirm={handleConfirm}
+        onShow={onShow}
+        onHide={onHide}
       >
         <ScrollView className={"tm-select__scroll-view"} scrollY>
           <TmList

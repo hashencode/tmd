@@ -6,7 +6,7 @@ import { CommonEventFunction } from "@tarojs/components/types/common";
 import { TmIcon } from "../../index";
 import { createUniqueId } from "../../functions";
 
-interface PropsInterface {
+export interface inputNumberProps {
   tmBorder?: boolean; // 显示边框
   tmDigit?: boolean; // 带小数
   tmDisabled?: boolean; // 禁用
@@ -31,7 +31,7 @@ interface PropsInterface {
   onWxKeyboardHeightChange?: (event?: any) => void; // 键盘高度发生变化回调
 }
 
-function TmInputNumber(props: PropsInterface) {
+function TmInputNumber(props: inputNumberProps) {
   const {
     tmBorder = false,
     tmDigit = false,

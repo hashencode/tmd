@@ -4,7 +4,7 @@ import { View } from "@tarojs/components";
 import classNames from "classnames";
 import { transformPx } from "../../functions";
 
-interface PropsInterface {
+export interface iconProps {
   tmColor?: string; // 图标颜色
   tmPrefix?: string; // 自定义前缀
   tmRotate?: number; // 旋转角度
@@ -16,7 +16,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmIcon(props: PropsInterface) {
+function TmIcon(props: iconProps) {
   const {
     tmColor = "",
     tmPrefix = "tmIcon",

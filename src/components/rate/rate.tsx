@@ -4,7 +4,7 @@ import classNames from "classnames";
 import { TmIcon, TmImage } from "../../index";
 import { colorWarning } from "../../functions/theme";
 
-interface PropsInterface {
+export interface rateProps {
   tmShape?: "star" | "face"; // 外形
   tmIcon?: string; // 未激活图标
   tmActiveIcon?: string; // 激活状态图标
@@ -16,7 +16,7 @@ interface PropsInterface {
   style?: React.CSSProperties; // 自定义行内样式
 }
 
-function TmRate(props: PropsInterface) {
+function TmRate(props: rateProps) {
   const {
     tmShape = "star",
     tmIcon = "collect",
